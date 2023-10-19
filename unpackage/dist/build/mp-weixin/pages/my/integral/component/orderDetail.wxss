@@ -1,0 +1,1 @@
+.card{margin:24rpx;background-color:#fff;border-radius:10px;padding:35rpx 25rpx 43rpx 28rpx}.search-btn{margin-left:36rpx;text-align:center}.search-btn text{width:117rpx;height:60rpx;background-color:#d91b1b;border-radius:14rpx;text-align:center;display:inline-block;font-size:28rpx;color:#fff;line-height:60rpx}

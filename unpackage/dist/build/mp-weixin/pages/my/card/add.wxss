@@ -1,0 +1,1 @@
+.card{background:#fff;border-radius:10rpx;margin:25rpx;padding:25rpx}.btn-bottom{position:fixed;bottom:50rpx;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background-color:#d91b1b;font-size:34rpx;color:#fff;border-radius:40rpx;padding:24rpx 0rpx;width:600rpx;text-align:center}

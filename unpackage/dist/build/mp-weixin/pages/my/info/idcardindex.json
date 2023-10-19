@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "实名认证",
+  "usingComponents": {
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "51救援",
+  "navigationBarBackgroundColor": "#ffffff",
+  "usingComponents": {
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "poster": "/components/zhangyuhao-poster/Poster",
+    "cardauthentication": "/components/cardauthentication",
+    "tabbar": "/components/tabbar/index"
+  }
+}

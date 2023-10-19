@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "工行新客优惠",
+  "usingComponents": {
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
+  }
+}

@@ -1,0 +1,1 @@
+.nowBtn{width:650rpx;height:88rpx;line-height:88rpx;background:#d91b1b;border-radius:50rpx;text-align:center;color:#fff;font-size:32rpx;margin:85rpx auto;margin-bottom:0rpx;background:#d91b1b;color:#fff}.footer{margin-top:40rpx}.footer .checkbox{display:flex;justify-content:center;align-items:center;position:relative}.footer .checkbox .xieyi{font-size:24rpx;color:#666}

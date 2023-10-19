@@ -1,0 +1,1 @@
+image{display:block}.botton-none{background:none;border:none;margin:0;padding:0;outline:none;margin:20rpx auto;width:200rpx}.botton-none::after{border:none}.agree_btn{background-color:#d91b1b;height:60rpx;line-height:60rpx;border-radius:144rpx;font-size:28rpx;font-weight:700;color:#fff}

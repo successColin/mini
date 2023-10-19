@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "51车生活俱乐部",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-line-progress": "/uni_modules/uview-ui/components/u-line-progress/u-line-progress",
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "carousel": "/components/carousel/index",
+    "pushclosedactivity": "/pages/activity/components/pushclosedactivity"
+  }
+}

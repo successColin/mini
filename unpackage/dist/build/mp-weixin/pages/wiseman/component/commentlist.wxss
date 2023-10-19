@@ -1,0 +1,1 @@
+.page{margin:25rpx}.comment{display:flex;justify-content:space-between}.return-btn{margin-top:50rpx;width:160rpx;height:60rpx;line-height:60rpx;font-size:28rpx;color:#fff;border-radius:15rpx;background-color:#d91b1b}

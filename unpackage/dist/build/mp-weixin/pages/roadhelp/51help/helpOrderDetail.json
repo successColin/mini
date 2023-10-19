@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "道路救援订单详情",
+  "usingComponents": {
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

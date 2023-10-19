@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "户外畅游",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-rate": "/uni_modules/uview-ui/components/u-rate/u-rate",
+    "custom-waterfalls-flow": "/uni_modules/custom-waterfalls-flow/components/custom-waterfalls-flow/custom-waterfalls-flow",
+    "pushclosedactivity": "/pages/activity/components/pushclosedactivity"
+  }
+}

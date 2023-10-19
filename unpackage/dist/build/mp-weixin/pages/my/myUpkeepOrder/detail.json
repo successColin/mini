@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "订单详情",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundColor": "#F8F8F8",
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "recommend": "/pages/my/myorder/components/recommend"
+  }
+}

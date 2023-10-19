@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "故障咨询",
+  "usingComponents": {
+    "carousel": "/components/carousel/index"
+  }
+}

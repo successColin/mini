@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "sorts": "/pages/wiseman/darenxiaodian/components/sorts",
+    "tabs": "/pages/wiseman/darenxiaodian/components/tabs"
+  }
+}

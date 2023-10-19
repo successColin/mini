@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "保养套餐详情",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "carousel": "/components/carousel/index",
+    "poster": "/components/zhangyuhao-poster/Poster",
+    "commission": "/components/commission/index",
+    "joinshopbtn": "/components/joinshopbtn/index"
+  }
+}

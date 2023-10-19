@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "4S店逛逛",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "carousel": "/components/carousel/index",
+    "pushclosedactivity": "/pages/activity/components/pushclosedactivity"
+  }
+}

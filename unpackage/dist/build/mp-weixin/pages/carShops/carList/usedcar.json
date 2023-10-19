@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "floorprice": "/pages/carShops/4Sdetail/components/floorprice"
+  }
+}

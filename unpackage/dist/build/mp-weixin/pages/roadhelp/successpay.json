@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "订单状态",
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon"
+  }
+}

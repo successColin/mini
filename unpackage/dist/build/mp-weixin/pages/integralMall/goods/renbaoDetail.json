@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "carousel": "/components/carousel/index"
+  }
+}

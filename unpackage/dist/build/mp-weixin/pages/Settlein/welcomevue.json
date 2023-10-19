@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "入驻51车俱乐部",
+  "navigationBarBackgroundColor": "#f1e9e9",
+  "usingComponents": {
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-count-down": "/uni_modules/uview-ui/components/u-count-down/u-count-down",
+    "u-picker": "/uni_modules/uview-ui/components/u-picker/u-picker"
+  }
+}

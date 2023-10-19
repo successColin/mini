@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "道路救援",
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "u-code": "/uni_modules/uview-ui/components/u-code/u-code",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
+    "u-radio-group": "/uni_modules/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/uni_modules/uview-ui/components/u-radio/u-radio",
+    "u-keyboard": "/uni_modules/uview-ui/components/u-keyboard/u-keyboard",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
+  }
+}

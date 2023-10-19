@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "51车俱乐部资质",
+  "usingComponents": {
+    "u--image": "/uni_modules/uview-ui/components/u--image/u--image"
+  }
+}

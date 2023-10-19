@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "学员评价",
+  "navigationBarBackgroundColor": "#ffffff",
+  "usingComponents": {
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-rate": "/uni_modules/uview-ui/components/u-rate/u-rate",
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider"
+  }
+}

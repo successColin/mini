@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "海量游乐",
+  "usingComponents": {
+    "activity-mall": "/pages/home/activityMall/components/home"
+  }
+}

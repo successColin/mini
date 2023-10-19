@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "详情",
+  "usingComponents": {
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "mote-lines-divide": "/components/mote-lines-divide/mote-lines-divide"
+  }
+}

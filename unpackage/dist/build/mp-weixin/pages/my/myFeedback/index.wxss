@@ -1,0 +1,1 @@
+.page{margin:40rpx}.card{background-color:#fff;border-radius:14px;padding:20rpx}.card .title{font-size:28rpx;font-weight:700}.Submit{margin-top:100rpx;text-align:center}.Submit text{background-color:#d91b1b;border-radius:40rpx;font-size:32rpx;color:#fff;font-weight:700;width:599rpx;height:81rpx;display:inline-block;line-height:81rpx}

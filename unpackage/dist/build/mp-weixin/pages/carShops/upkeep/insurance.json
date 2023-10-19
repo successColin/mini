@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "车险活动",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundColor": "#FF4F2B",
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-form": "/uni_modules/uview-ui/components/u-form/u-form",
+    "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-input": "/uni_modules/uview-ui/components/u-input/u-input",
+    "u-keyboard": "/uni_modules/uview-ui/components/u-keyboard/u-keyboard",
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button"
+  }
+}

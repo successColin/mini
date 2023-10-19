@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "道路救援",
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-switch": "/uni_modules/uview-ui/components/u-switch/u-switch",
+    "u-number-box": "/uni_modules/uview-ui/components/u-number-box/u-number-box",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-badge": "/uni_modules/uview-ui/components/u-badge/u-badge",
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
+  }
+}

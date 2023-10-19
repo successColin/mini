@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "发布新帖",
+  "usingComponents": {
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u--textarea": "/uni_modules/uview-ui/components/u--textarea/u--textarea",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-tag": "/uni_modules/uview-ui/components/u-tag/u-tag",
+    "u-radio-group": "/uni_modules/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/uni_modules/uview-ui/components/u-radio/u-radio",
+    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

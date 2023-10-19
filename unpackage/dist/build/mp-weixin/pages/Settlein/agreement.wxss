@@ -1,0 +1,1 @@
+.card-item{background-color:#fff;border-radius:10rpx;margin:25rpx;display:flex;justify-content:space-between;padding:26rpx;font-size:24rpx}.pop-agreement{width:650rpx;margin:40rpx 28rpx 40rpx 28rpx}.pop-agreement .pop-title{text-align:center;font-size:28rpx;font-weight:700}

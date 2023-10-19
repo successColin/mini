@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "企业入驻材料上传",
+  "usingComponents": {
+    "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon"
+  }
+}

@@ -1,0 +1,1 @@
+.page{position:relative}.actrice{margin:23rpx}.introduce{padding:0 20rpx;position:absolute;bottom:50rpx;left:0}.introduce_title{font-size:32rpx;font-weight:700;color:#fff;margin-bottom:20rpx}.introduce_content{font-size:24rpx;color:#fff}.introduce_time{font-size:24rpx;color:#999;margin-top:20rpx}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "故障咨询",
+  "usingComponents": {
+    "u--textarea": "/uni_modules/uview-ui/components/u--textarea/u--textarea",
+    "u-upload": "/uni_modules/uview-ui/components/u-upload/u-upload",
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的团队",
+  "usingComponents": {
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar"
+  }
+}

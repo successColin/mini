@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "道路救援订单取消",
+  "usingComponents": {
+    "u-radio-group": "/uni_modules/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/uni_modules/uview-ui/components/u-radio/u-radio",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

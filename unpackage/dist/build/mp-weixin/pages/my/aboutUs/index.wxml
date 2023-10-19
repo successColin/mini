@@ -1,0 +1,1 @@
+<view class="page"><view data-event-opts="{{[['tap',[['OnPush',['$event']]]]]}}" class="card" bindtap="__e"><view>51车俱乐部资质</view><view><u-icon vue-id="58f30e3c-1" size="12" name="arrow-right" bold="{{true}}" color="#222222" bind:__l="__l"></u-icon></view></view><view class="card"><view>版本号</view><view style="color:#666666;">V1.1.0</view></view></view>

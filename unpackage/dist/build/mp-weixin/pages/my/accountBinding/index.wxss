@@ -1,0 +1,1 @@
+.card{background-color:#fff;padding:20rpx;margin-top:20rpx}.card .row{display:flex;justify-content:space-between}.card .row .row-left{display:flex}.card .row .row-right{line-height:64rpx;font-size:28rpx;color:#666;display:flex}.card .row .row-right .u-icon{margin-left:10rpx}

@@ -1,0 +1,1 @@
+.card{margin:25rpx;background-color:#fff;padding:30rpx 28rpx;display:flex;justify-content:space-between;position:relative}.watchimg{position:absolute;bottom:30rpx;right:28rpx;width:116rpx;height:47rpx;line-height:47rpx;background-color:#d91b1b;border-radius:24rpx;text-align:center;color:#fff;font-size:24rpx}

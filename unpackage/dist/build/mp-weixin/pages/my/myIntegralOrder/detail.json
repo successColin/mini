@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "u-steps": "/uni_modules/uview-ui/components/u-steps/u-steps",
+    "u-steps-item": "/uni_modules/uview-ui/components/u-steps-item/u-steps-item",
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse"
+  }
+}

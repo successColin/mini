@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "consultation": "/pages/home/51carOther/components/consultation"
+  }
+}

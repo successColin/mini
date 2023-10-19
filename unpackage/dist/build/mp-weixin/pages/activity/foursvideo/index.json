@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "救援故事",
+  "usingComponents": {
+    "videolist": "/pages/activity/foursvideo/videolist"
+  }
+}

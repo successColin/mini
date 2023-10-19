@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "carousel": "/components/carousel/index",
+    "imgcomponent": "/pages/activity/waterfull/components/imgcomponent"
+  }
+}

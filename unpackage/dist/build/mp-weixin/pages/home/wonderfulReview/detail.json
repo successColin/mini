@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "精彩回放",
+  "usingComponents": {
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "u-rate": "/uni_modules/uview-ui/components/u-rate/u-rate",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-upload": "/uni_modules/uview-ui/components/u-upload/u-upload",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "carousel": "/components/carousel/index",
+    "cardauthentication": "/components/cardauthentication"
+  }
+}

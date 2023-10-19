@@ -1,0 +1,1 @@
+.card{background:#fff;border-radius:10rpx;margin:25rpx;padding:25rpx}.billing{width:140rpx;height:48rpx;background:#d91b1b;border-radius:10rpx;line-height:48rpx;text-align:center;color:#fff}.refund{width:140rpx;height:48rpx;background:#999;border-radius:10rpx;line-height:48rpx;text-align:center;color:#fff}

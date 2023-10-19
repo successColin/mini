@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "我的券包",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundColor": "#F8F8F8",
+  "usingComponents": {
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider"
+  }
+}

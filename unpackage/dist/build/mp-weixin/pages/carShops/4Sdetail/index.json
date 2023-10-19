@@ -1,0 +1,20 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundColor": "#F8F8F8",
+  "usingComponents": {
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "u--form": "/uni_modules/uview-ui/components/u--form/u--form",
+    "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-radio-group": "/uni_modules/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/uni_modules/uview-ui/components/u-radio/u-radio",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "custom-waterfalls-flow": "/uni_modules/custom-waterfalls-flow/components/custom-waterfalls-flow/custom-waterfalls-flow",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "carousel": "/components/carousel/index"
+  }
+}

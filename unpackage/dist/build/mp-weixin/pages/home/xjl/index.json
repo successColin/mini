@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "51学驾",
+  "onReachBottonDistance": 50,
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "carousel": "/components/carousel/index",
+    "tabbar": "/components/tabbar/index"
+  }
+}

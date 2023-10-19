@@ -1,0 +1,1 @@
+.search-top{width:400rpx;margin-left:-160rpx;display:flex}.list-cell{display:flex;margin-top:20rpx;padding:20rpx;margin-bottom:20rpx}.pop{width:500rpx}.pop .choosevehicle{margin-bottom:20rpx;padding:20rpx;background-color:#f8f8f8;color:#a4a4a5;font-weight:700;font-size:28rpx}

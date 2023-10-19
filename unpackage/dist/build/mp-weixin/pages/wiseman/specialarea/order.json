@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "收益订单",
+  "usingComponents": {
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar"
+  }
+}

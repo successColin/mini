@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-notice-bar": "/uni_modules/uview-ui/components/u-notice-bar/u-notice-bar",
+    "square": "/pages/wiseman/darenxiaodian/components/square",
+    "carousel": "/components/carousel/index"
+  }
+}

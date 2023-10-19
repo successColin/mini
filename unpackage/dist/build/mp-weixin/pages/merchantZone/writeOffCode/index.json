@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "券码核销",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

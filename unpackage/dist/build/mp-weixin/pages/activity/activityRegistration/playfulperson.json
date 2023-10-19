@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "达人推荐",
+  "usingComponents": {
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "custom-waterfalls-flow": "/uni_modules/custom-waterfalls-flow/components/custom-waterfalls-flow/custom-waterfalls-flow",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "carousel": "/components/carousel/index",
+    "videolist": "/pages/activity/activityRegistration/components/videolist",
+    "imgcomponent": "/pages/activity/components/imgcomponent"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="page"><view><image style="width:100%;height:2010rpx;" src="https://oss.dcqcjlb.com/51che_java_dev/20230419/file_1681904146544.jpg"></image></view><view data-event-opts="{{[['tap',[['Onpushloadhelp',['$event']]]]]}}" class="btn" bindtap="__e">道路救援</view></view>

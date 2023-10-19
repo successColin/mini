@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "套餐详情",
+  "usingComponents": {
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "carousel": "/components/carousel/index",
+    "poster": "/components/zhangyuhao-poster/Poster",
+    "commission": "/components/commission/index",
+    "joinshopbtn": "/components/joinshopbtn/index"
+  }
+}

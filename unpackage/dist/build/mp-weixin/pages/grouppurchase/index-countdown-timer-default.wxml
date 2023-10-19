@@ -1,0 +1,1 @@
+<view class="size24 mainRed fwb"><view><text style="margin-right:9rpx;"><text class="timetext ">{{day}}</text>天</text><text><text class="timetext">{{hour}}</text>:</text><text style="margin-left:6rpx;"><text class="timetext">{{minute}}</text></text></view></view>

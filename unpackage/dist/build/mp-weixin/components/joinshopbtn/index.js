@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/joinshopbtn/index"],{"266b":function(t,e,n){},"28c1":function(t,e,n){"use strict";n.r(e);var o=n("98a4"),i=n("6f97");for(var s in i)["default"].indexOf(s)<0&&function(t){n.d(e,t,(function(){return i[t]}))}(s);n("7061");var a=n("f0c5"),u=Object(a["a"])(i["default"],o["b"],o["c"],!1,null,null,null,!1,o["a"],void 0);e["default"]=u.exports},"6f97":function(t,e,n){"use strict";n.r(e);var o=n("c283"),i=n.n(o);for(var s in o)["default"].indexOf(s)<0&&function(t){n.d(e,t,(function(){return o[t]}))}(s);e["default"]=i.a},7061:function(t,e,n){"use strict";var o=n("266b"),i=n.n(o);i.a},"98a4":function(t,e,n){"use strict";n.d(e,"b",(function(){return o})),n.d(e,"c",(function(){return i})),n.d(e,"a",(function(){}));var o=function(){var t=this.$createElement;this._self._c},i=[]},c283:function(t,e,n){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var n={components:{},props:{ids:{type:String,default:""},type:{type:String,default:""},isSelection:{type:String,default:""}},data:function(){return{}},onLoad:function(){},onShow:function(){},methods:{OnAddshop:function(){0==this.isSelection?this.$request.post("/coc-active/api/v1/expert/shop/selection/add",{type:this.type,relatedId:this.ids}).then((function(e){200==e.code?(t.$emit("saveaddshop",{msg:"页面更新"}),t.$u.toast("加入小店成功")):t.$u.toast(e.message)})):this.$request.post("/coc-active/api/v1/expert/shop/selection/remove",{type:this.type,relatedId:this.ids}).then((function(e){200==e.code?(t.$emit("saveaddshop",{msg:"页面更新"}),t.$u.toast("移出小店成功")):t.$u.toast(e.message)}))}}};e.default=n}).call(this,n("543d")["default"])}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/joinshopbtn/index-create-component',
+    {
+        'components/joinshopbtn/index-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("28c1"))
+        })
+    },
+    [['components/joinshopbtn/index-create-component']]
+]);

@@ -1,0 +1,1 @@
+.province.data-v-1fc6f5c4{display:inline-block;width:160rpx;line-height:60rpx;text-align:center;margin:20rpx calc((100% - 640rpx) / 8);background-color:#f8f8f8;border-radius:12rpx}.city.data-v-1fc6f5c4:not(:last-of-type){border-bottom:1px solid #eee}.custom-section-p.data-v-1fc6f5c4{padding:20rpx 25rpx}

@@ -1,0 +1,1 @@
+.card{margin:24rpx;background:#fff;border-radius:10rpx;padding:25rpx;display:flex;justify-content:space-between;align-items:center}

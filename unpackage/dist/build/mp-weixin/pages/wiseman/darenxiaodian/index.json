@@ -1,0 +1,11 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "square": "/pages/wiseman/darenxiaodian/components/square",
+    "goods": "/pages/wiseman/darenxiaodian/components/goods",
+    "share": "/pages/wiseman/darenxiaodian/components/share",
+    "lookgoods": "/pages/wiseman/darenxiaodian/components/lookgoods",
+    "overlayloadingicon": "/pages/wiseman/darenxiaodian/components/overlayloadingicon"
+  }
+}

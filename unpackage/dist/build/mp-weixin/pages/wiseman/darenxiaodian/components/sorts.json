@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tabs": "/pages/wiseman/darenxiaodian/components/tabs"
+  }
+}

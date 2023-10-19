@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "车型列表",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundColor": "#F8F8F8",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "carousel": "/components/carousel/index"
+  }
+}

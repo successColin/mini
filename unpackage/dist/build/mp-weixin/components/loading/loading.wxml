@@ -1,0 +1,1 @@
+<view class="{{['request-loading-view','data-v-17d7f32f',(loadingShow)?'open':'']}}"><view class="loading-view data-v-17d7f32f"><image class="loginImg data-v-17d7f32f" src="https://oss.dcqcjlb.com/51che_java_dev/20230821/file_1692580138131.gif"></image></view></view>

@@ -1,0 +1,1 @@
+<view class="data-v-c928cdae"><u-overlay vue-id="c8ac2cec-1" show="{{show}}" class="data-v-c928cdae" bind:__l="__l" vue-slots="{{['default']}}"><view class="overlay data-v-c928cdae"><u-loading-icon vue-id="{{('c8ac2cec-2')+','+('c8ac2cec-1')}}" show="{{show}}" color="#5ac725" class="data-v-c928cdae" bind:__l="__l"></u-loading-icon></view></u-overlay></view>

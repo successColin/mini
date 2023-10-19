@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "选品广场",
+  "usingComponents": {
+    "u-notice-bar": "/uni_modules/uview-ui/components/u-notice-bar/u-notice-bar",
+    "carousel": "/components/carousel/index",
+    "tabs": "/pages/wiseman/darenxiaodian/components/tabs",
+    "square": "/pages/wiseman/darenxiaodian/components/square"
+  }
+}

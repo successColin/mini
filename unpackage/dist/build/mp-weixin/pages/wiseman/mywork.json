@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的作品",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "custom-waterfalls-flow": "/uni_modules/custom-waterfalls-flow/components/custom-waterfalls-flow/custom-waterfalls-flow",
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
+  }
+}

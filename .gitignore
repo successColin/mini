@@ -1,0 +1,5 @@
+# build存到git里,dev不管
+unpackage/dist/dev
+unpackage/debug
+unpackage/resources
+node_modules

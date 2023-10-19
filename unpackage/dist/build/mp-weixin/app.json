@@ -1,0 +1,398 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/home/search",
+    "pages/home/51carOther/index",
+    "pages/home/carhelp",
+    "pages/roadrescue/index",
+    "pages/home/activityDetail/index",
+    "pages/home/wonderfulReview/index",
+    "pages/home/wonderfulReview/detail",
+    "pages/home/my",
+    "pages/home/4sShop",
+    "pages/home/integral",
+    "pages/home/xjl/index",
+    "pages/home/activityMall/index",
+    "pages/home/webview"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/my",
+      "pages": [
+        "info/index",
+        "info/idcardindex",
+        "card/index",
+        "card/add",
+        "integral/exchange",
+        "integral/invitation",
+        "creditCard/index",
+        "creditCard/detail",
+        "address/index",
+        "address/addAddress",
+        "accountBinding/index",
+        "contacts/index",
+        "contacts/detail",
+        "userinfo/index",
+        "aboutUs/index",
+        "collection/index",
+        "myfans/index",
+        "mycarorder/index",
+        "mycarorder/detail",
+        "mycar/index",
+        "mycar/authentication",
+        "mycar/chexing",
+        "mycar/successadd",
+        "myorder/index",
+        "myorder/refund",
+        "myorder/couponcode",
+        "myorder/orderList",
+        "myorder/expirecode",
+        "myorder/couponpackage",
+        "mycar/addcar",
+        "fourS/addcar",
+        "myFeedback/index",
+        "integral/index",
+        "integral/component/index",
+        "integral/component/orderDetail",
+        "integral/detail",
+        "myManager/index",
+        "customer/index",
+        "customer/binding",
+        "customer/addcar",
+        "customer/chexing",
+        "fourS/chexing",
+        "couponCenter/index",
+        "couponCenter/h5quan",
+        "myIntegralOrder/index",
+        "myIntegralOrder/detail",
+        "myUpkeepOrder/index",
+        "myUpkeepOrder/detail"
+      ]
+    },
+    {
+      "root": "pages/socialContact",
+      "pages": [
+        "myPosts/shoplist",
+        "myPosts/addpost",
+        "myPosts/addimgpost",
+        "myPosts/addVideopost",
+        "myPosts/groupList",
+        "myPosts/activityList"
+      ]
+    },
+    {
+      "root": "pages/agreement",
+      "pages": [
+        "huangH5/index",
+        "webview",
+        "qualifications/index"
+      ]
+    },
+    {
+      "root": "pages/service",
+      "pages": [
+        "serviceman/index",
+        "message/index",
+        "message/detail",
+        "payMent/index",
+        "payMent/detail",
+        "couponList/index"
+      ]
+    },
+    {
+      "root": "pages/Settlein",
+      "pages": [
+        "welcomevue",
+        "Processdescription",
+        "dataDisplay",
+        "uploadEnterprise",
+        "uploadIndividual",
+        "enterpriseInfo",
+        "uploadindividualOpening",
+        "individualInfo",
+        "enterpriseProgress",
+        "individualProgress",
+        "uploadAccountOpening",
+        "agreement"
+      ]
+    },
+    {
+      "root": "pages/merchantZone",
+      "pages": [
+        "writeOffCode/index",
+        "writeOffCode/detail"
+      ]
+    },
+    {
+      "root": "pages/activity",
+      "pages": [
+        "grouppuchaselist",
+        "ghpreferential/index",
+        "homezone/index",
+        "activityRegistration/index",
+        "activityRegistration/indooractivity",
+        "activityRegistration/outdoorsactivity",
+        "activityRegistration/newdetail",
+        "activityRegistration/bankactivity",
+        "activityRegistration/playfulperson",
+        "activityRegistration/foursactivity",
+        "activityRegistration/packagedetail",
+        "foursvideo/index",
+        "chooseCity/chooseCity",
+        "GoPdf/webview",
+        "login2/login2",
+        "share/index",
+        "paymentpreference/index",
+        "search/index",
+        "waterfull/videolist",
+        "waterfull/imglist"
+      ]
+    },
+    {
+      "root": "pages/activityMall",
+      "pages": [
+        "business/index",
+        "list"
+      ]
+    },
+    {
+      "root": "pages/integralMall",
+      "pages": [
+        "selectPage",
+        "noticeDetail",
+        "order/submit",
+        "goods/detail",
+        "inviteFriends/inviteFriends",
+        "down/index",
+        "goods/renbaoDetail",
+        "order/renbaoDetail"
+      ]
+    },
+    {
+      "root": "pages/wiseman",
+      "pages": [
+        "specialarea/index",
+        "invitein",
+        "refuse",
+        "specialarea/myteam",
+        "specialarea/order",
+        "welcome",
+        "applying",
+        "specialarea/home",
+        "specialarea/myfriends",
+        "specialarea/message",
+        "specialarea/message_system",
+        "specialarea/message_comment",
+        "specialarea/message_like",
+        "recommended_merchants",
+        "recommended_merchants_detail",
+        "specialarea/creative_center",
+        "specialarea/creative_center_list",
+        "specialarea/creative_center_detail",
+        "inviteinbusiness",
+        "darenxiaodian/index",
+        "flowplan/index",
+        "flowplan/detail",
+        "darenxiaodian/my",
+        "darenxiaodian/renovation",
+        "darenxiaodian/search",
+        "xuanpinguangchang/index",
+        "xuanpinguangchang/brand4sstore",
+        "xuanpinguangchang/selectedpackage",
+        "xuanpinguangchang/discountgrouppurchase",
+        "xuanpinguangchang/indooractivities",
+        "xuanpinguangchang/outdooractivities",
+        "mywork",
+        "component/addimgarticle",
+        "component/videoarticle",
+        "component/shopinfo",
+        "component/imgarticle",
+        "component/sharegoods",
+        "component/commentlist"
+      ]
+    },
+    {
+      "root": "pages/grouppurchase",
+      "pages": [
+        "index",
+        "detail",
+        "payindex",
+        "order/detail",
+        "newpeople/detail",
+        "newpeople/index",
+        "newpeople/assistance",
+        "newpeople/helpindex",
+        "order/list",
+        "order/drawbackindex",
+        "packagedetail",
+        "packagepayindex",
+        "packageorder/detail",
+        "packageorder/drawbackindex"
+      ]
+    },
+    {
+      "root": "pages/xjl",
+      "pages": [
+        "school/index",
+        "school/detail",
+        "teacher/alllist",
+        "teacher/detail",
+        "teacher/classdetail",
+        "school/teacherlist",
+        "school/evaluate",
+        "school/evaluatedetail",
+        "school/singup",
+        "school/coachlist",
+        "teacher/evaluate",
+        "teacher/evaluatedetail",
+        "teacher/singup",
+        "article/index",
+        "article/detail",
+        "article/comment"
+      ]
+    },
+    {
+      "root": "pages/roadhelp",
+      "pages": [
+        "equity",
+        "index/successpay",
+        "51help/helpOrder",
+        "51help/helpOrderCancel",
+        "51help/helpCancelState",
+        "51help/helpOrderDetail",
+        "orderlist",
+        "billdetail",
+        "applyinvoicing",
+        "orderdetail",
+        "payindex",
+        "successpay",
+        "refundindex",
+        "index/index",
+        "index/payindex",
+        "index",
+        "faultAbout/faultSearch",
+        "faultAbout/faultForm",
+        "faultAbout/faultDetail",
+        "faultAbout/faultMy",
+        "faultAbout/faultCheckShop",
+        "faultAbout/faultClassify"
+      ]
+    },
+    {
+      "root": "pages/carShops",
+      "pages": [
+        "upkeep/detail",
+        "upkeep/submmitOrder",
+        "upkeep/orderStatus",
+        "upkeep/checkSales",
+        "upkeep/couponDes",
+        "upkeep/brandInfo",
+        "upkeep/insurance",
+        "motorcycletype/index",
+        "shop/index",
+        "upkeep/index",
+        "4Sdetail/index",
+        "carList/index",
+        "carList/sameused",
+        "carList/samenew",
+        "upkeep/checkCouponlist",
+        "51carOther/carDetail",
+        "51carOther/selectCity",
+        "51carOther/selectCar",
+        "51carOther/moreCont",
+        "51carOther/buyScheme",
+        "51carOther/showPage",
+        "4sShop/index"
+      ]
+    },
+    {
+      "root": "pages/upkeep",
+      "pages": [
+        "bookingForm",
+        "consult"
+      ]
+    },
+    {
+      "root": "pages/myEarnings",
+      "pages": [
+        "mainPage",
+        "withdrawlist",
+        "InitiatePayout",
+        "bankList",
+        "addBankCard",
+        "searchBank",
+        "requestInvoicing",
+        "invoicingRecords",
+        "invoicing"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#d91b1b",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "static/image/homeweixuanzhong.png",
+        "selectedIconPath": "static/image/hongmexuanzhong.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/home/xjl/index",
+        "iconPath": "static/image/xuejia.png",
+        "selectedIconPath": "static/image/activityxuejia.png",
+        "text": "51学驾"
+      },
+      {
+        "pagePath": "pages/home/carhelp",
+        "iconPath": "static/image/help.png",
+        "selectedIconPath": "static/image/helpChecked.png",
+        "text": "道路救援"
+      },
+      {
+        "pagePath": "pages/home/51carOther/index",
+        "iconPath": "static/image/shopCheck.png",
+        "selectedIconPath": "static/image/shopChecked.png",
+        "text": "51购车"
+      },
+      {
+        "pagePath": "pages/home/my",
+        "iconPath": "static/image/wodeweixuanzhong.png",
+        "selectedIconPath": "static/image/wodexuanzhong.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "plugins": {
+    "ocr-plugin": {
+      "version": "3.1.3",
+      "provider": "wx4418e3e031e551be"
+    },
+    "t-video": {
+      "version": "1.0.8",
+      "provider": "wx5474241b2a65b906"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "usingComponents": {
+    "ocr-navigator": "plugin://ocr-plugin/ocr-navigator",
+    "t-video": "plugin://t-video/t-video",
+    "request-loading": "/components/loading/loading"
+  }
+}

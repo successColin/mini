@@ -1,0 +1,1 @@
+.top{margin:40rpx;display:flex}.choosecartype{background-color:#efefef;color:#3c3c3c;padding:10rpx 20rpx;font-size:28rpx;font-weight:700}.typelist{margin:40rpx 20rpx;font-size:32rpx}.typelist .hr{height:1rpx;background-color:#e3e3e3;margin-top:40rpx}

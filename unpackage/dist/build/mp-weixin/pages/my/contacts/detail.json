@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "新建联系地址",
+  "usingComponents": {
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

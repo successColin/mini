@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "添加成功",
+  "usingComponents": {
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

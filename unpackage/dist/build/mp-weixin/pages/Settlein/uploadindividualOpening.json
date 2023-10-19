@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "上传经营者银行卡及手持身份证自拍照",
+  "usingComponents": {
+    "u-checkbox-group": "/uni_modules/uview-ui/components/u-checkbox-group/u-checkbox-group",
+    "u-checkbox": "/uni_modules/uview-ui/components/u-checkbox/u-checkbox",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-count-down": "/uni_modules/uview-ui/components/u-count-down/u-count-down",
+    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

@@ -1,0 +1,1 @@
+.topimg{margin-top:104rpx}.bottom-next{text-align:center;position:fixed;bottom:115rpx;left:50%;-webkit-transform:translate(-50%);transform:translate(-50%)}.bottom-next text{display:inline-block;border-radius:40rpx;width:600rpx;height:80rpx;background-color:#d91b1b;text-align:center;line-height:80rpx;color:#fff;font-size:34rpx;font-weight:400}

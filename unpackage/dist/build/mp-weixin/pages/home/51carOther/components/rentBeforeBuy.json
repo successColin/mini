@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "carousel": "/components/carousel/index",
+    "callist": "/pages/home/51carOther/components/carList",
+    "consultation": "/pages/home/51carOther/components/consultation"
+  }
+}

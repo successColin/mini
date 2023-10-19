@@ -1,0 +1,1 @@
+<view><block wx:if="{{type==3}}"><video style="width:100%;" src="{{videoUrl}}" autoplay="{{true}}"></video></block><image style="width:100%;" mode="widthFix" src="{{imgUrl}}"></image></view>

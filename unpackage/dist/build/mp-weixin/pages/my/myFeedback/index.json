@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "意见反馈",
+  "usingComponents": {
+    "u--textarea": "/uni_modules/uview-ui/components/u--textarea/u--textarea",
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

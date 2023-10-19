@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的小店",
+  "usingComponents": {
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "goods": "/pages/wiseman/darenxiaodian/components/goods",
+    "overlayloadingicon": "/pages/wiseman/darenxiaodian/components/overlayloadingicon"
+  }
+}

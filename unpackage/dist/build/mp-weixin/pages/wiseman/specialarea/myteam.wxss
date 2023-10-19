@@ -1,0 +1,1 @@
+.card{background-color:#fff;padding:20rpx 45rpx}.hr{width:100%;height:1rpx;margin:18rpx 0;background:#f8f8f8}.jiesuo{position:absolute;bottom:0rpx;right:0rpx;width:88rpx;height:44rpx;background:#d91b1b;border-radius:10rpx;text-align:center;line-height:44rpx;font-size:24rpx;color:#fff}

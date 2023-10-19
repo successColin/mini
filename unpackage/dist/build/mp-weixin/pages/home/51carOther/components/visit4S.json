@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "carousel": "/components/carousel/index"
+  }
+}

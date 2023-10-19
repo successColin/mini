@@ -1,0 +1,13 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index-countdown-timer-default": "/pages/grouppurchase/index-countdown-timer-default",
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-rate": "/uni_modules/uview-ui/components/u-rate/u-rate",
+    "countdown-timer": "/components/countdown-timer/countdown-timer",
+    "custom-waterfalls-flow": "/uni_modules/custom-waterfalls-flow/components/custom-waterfalls-flow/custom-waterfalls-flow",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "carousel": "/components/carousel/index"
+  }
+}

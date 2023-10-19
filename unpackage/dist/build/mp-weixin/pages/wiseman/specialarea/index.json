@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "达人特区",
+  "usingComponents": {
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider"
+  }
+}

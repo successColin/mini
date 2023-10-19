@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "申请退款",
+  "usingComponents": {
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
+    "u-radio-group": "/uni_modules/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/uni_modules/uview-ui/components/u-radio/u-radio",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

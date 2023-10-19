@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "51车生活俱乐部",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "carousel": "/components/carousel/index",
+    "pushclosedactivity": "/pages/activity/components/pushclosedactivity"
+  }
+}

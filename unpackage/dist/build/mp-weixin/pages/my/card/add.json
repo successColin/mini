@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "新增信用卡",
+  "usingComponents": {
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-picker": "/uni_modules/uview-ui/components/u-picker/u-picker"
+  }
+}

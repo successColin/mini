@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "51购车",
+  "usingComponents": {
+    "bank": "/pages/home/51carOther/components/bank",
+    "rent-before-buy": "/pages/home/51carOther/components/rentBeforeBuy",
+    "visit4-s": "/pages/home/51carOther/components/visit4S",
+    "tabbar": "/components/tabbar/index"
+  }
+}

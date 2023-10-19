@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "找教练",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs"
+  }
+}

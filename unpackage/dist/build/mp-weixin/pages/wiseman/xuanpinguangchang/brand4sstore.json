@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "品牌4S店",
+  "usingComponents": {
+    "carousel": "/components/carousel/index",
+    "tabs": "/pages/wiseman/darenxiaodian/components/tabs",
+    "square": "/pages/wiseman/darenxiaodian/components/square"
+  }
+}

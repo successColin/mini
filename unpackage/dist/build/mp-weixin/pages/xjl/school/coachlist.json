@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "选择教练",
+  "usingComponents": {
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider"
+  }
+}
