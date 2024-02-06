@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "保养预约",
   "navigationBarBackgroundColor": "#FFFFFF",
-  "usingComponents": {}
+  "usingComponents": {
+    "shop-list": "/components/shopList/index",
+    "search": "/components/search/index"
+  }
 }

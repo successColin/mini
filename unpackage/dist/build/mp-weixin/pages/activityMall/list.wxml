@@ -1,1 +1,1 @@
-<view class="data-v-67890748"><activity-mall vue-id="89571836-1" shopCategoryId="{{shopCategoryId}}" data-ref="mall" class="data-v-67890748 vue-ref" bind:__l="__l"></activity-mall></view>
+<view class="data-v-dcc097ce"><activity-mall vue-id="89571836-1" data-ref="mall" class="data-v-dcc097ce vue-ref" bind:__l="__l"></activity-mall></view>

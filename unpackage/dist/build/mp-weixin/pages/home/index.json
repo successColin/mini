@@ -1,22 +1,12 @@
 {
   "navigationBarTitleText": "",
   "navigationStyle": "custom",
-  "enablePullDownRefresh": true,
   "usingComponents": {
     "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
-    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page",
     "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "first-screen": "/pages/home/firstScreen/index",
+    "car-service": "/pages/home/home/carService",
     "tabbar": "/components/tabbar/index",
-    "uselist": "/pages/home/components/uselist",
-    "groupbuy": "/pages/home/components/groupbuy",
-    "play": "/pages/home/components/play",
-    "strolling": "/pages/home/components/strolling",
-    "recommend": "/pages/home/components/recommend",
-    "navigation": "/pages/home/components/navigation",
-    "articlelist": "/pages/home/components/articlelist",
-    "rescuestory": "/pages/home/components/rescuestory",
-    "faultconsultation": "/pages/home/components/faultconsultation",
-    "maintenanceappointment": "/pages/home/components/maintenanceappointment",
-    "newcarappreciation": "/pages/home/components/newcarappreciation"
+    "privacy-agreement": "/pages/home/components/privacyAgreement"
   }
 }

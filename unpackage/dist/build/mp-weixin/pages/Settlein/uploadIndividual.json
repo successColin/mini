@@ -1,11 +1,15 @@
 {
   "navigationBarTitleText": "个体工商户入驻资料上传",
   "usingComponents": {
+    "u-form": "/uni_modules/uview-ui/components/u-form/u-form",
     "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",
     "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-radio-group": "/uni_modules/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/uni_modules/uview-ui/components/u-radio/u-radio",
     "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
     "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page",
     "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
-    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon"
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "a-compress": "/pages/Settlein/components/ACompress"
   }
 }

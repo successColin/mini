@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "noticebar": "/pages/home/components/noticeBar/index"
-  }
-}

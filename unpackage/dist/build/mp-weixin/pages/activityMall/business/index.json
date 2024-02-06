@@ -5,6 +5,7 @@
     "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
     "u-rate": "/uni_modules/uview-ui/components/u-rate/u-rate",
     "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
-    "carousel": "/components/carousel/index"
+    "carousel": "/components/carousel/index",
+    "recommend-x": "/components/darenRecommend/recommendX"
   }
 }

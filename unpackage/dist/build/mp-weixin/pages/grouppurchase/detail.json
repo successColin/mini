@@ -13,6 +13,9 @@
     "carousel": "/components/carousel/index",
     "poster": "/components/zhangyuhao-poster/Poster",
     "commission": "/components/commission/index",
-    "joinshopbtn": "/components/joinshopbtn/index"
+    "joinshopbtn": "/components/joinshopbtn/index",
+    "recommend-x": "/components/darenRecommend/recommendX",
+    "float-video": "/components/floatVideo/index",
+    "detail-evaluate": "/components/evaluate/detailEvaluate"
   }
 }

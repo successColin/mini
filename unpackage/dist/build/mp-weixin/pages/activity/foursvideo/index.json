@@ -1,6 +1,11 @@
 {
-  "navigationBarTitleText": "救援故事",
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#000000",
   "usingComponents": {
-    "videolist": "/pages/activity/foursvideo/videolist"
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "videos": "/components/videos/index",
+    "float": "/components/float/index"
   }
 }

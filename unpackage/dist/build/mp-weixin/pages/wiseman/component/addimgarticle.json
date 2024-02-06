@@ -6,9 +6,11 @@
     "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
     "u--textarea": "/uni_modules/uview-ui/components/u--textarea/u--textarea",
     "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-switch": "/uni_modules/uview-ui/components/u-switch/u-switch",
     "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
-    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
     "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
     "cardauthentication": "/components/cardauthentication"
   }
 }

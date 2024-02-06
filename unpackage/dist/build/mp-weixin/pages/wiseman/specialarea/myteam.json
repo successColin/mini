@@ -1,6 +1,10 @@
 {
   "navigationBarTitleText": "我的团队",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "custom",
   "usingComponents": {
-    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar"
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u--image": "/uni_modules/uview-ui/components/u--image/u--image"
   }
 }

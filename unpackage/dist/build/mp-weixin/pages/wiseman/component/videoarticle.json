@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "我的笔记",
+  "navigationBarTitleText": "我的作品",
   "usingComponents": {
     "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
     "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",

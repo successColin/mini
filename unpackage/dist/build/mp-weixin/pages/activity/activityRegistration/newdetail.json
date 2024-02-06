@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "银保优惠资讯",
+  "navigationBarTitleText": "资讯中心",
   "usingComponents": {
     "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
     "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",

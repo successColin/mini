@@ -1,6 +1,12 @@
 {
   "navigationBarTitleText": "故障咨询",
   "usingComponents": {
-    "carousel": "/components/carousel/index"
+    "u-sticky": "/uni_modules/uview-ui/components/u-sticky/u-sticky",
+    "u-scroll-list": "/uni_modules/uview-ui/components/u-scroll-list/u-scroll-list",
+    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page",
+    "carousel": "/components/carousel/index",
+    "fixed-input": "/components/search/fixedInput",
+    "consult-people": "/components/ConsultPeople/index",
+    "province-area": "/components/ProvinceArea/index"
   }
 }

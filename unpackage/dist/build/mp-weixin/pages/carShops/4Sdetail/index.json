@@ -15,6 +15,8 @@
     "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
     "custom-waterfalls-flow": "/uni_modules/custom-waterfalls-flow/components/custom-waterfalls-flow/custom-waterfalls-flow",
     "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
-    "carousel": "/components/carousel/index"
+    "carousel": "/components/carousel/index",
+    "waterfall-flow-list": "/components/darenRecommend/WaterfallFlowList",
+    "consult-people": "/components/ConsultPeople/index"
   }
 }

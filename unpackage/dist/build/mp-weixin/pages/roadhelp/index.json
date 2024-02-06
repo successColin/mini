@@ -1,10 +1,11 @@
 {
-  "navigationBarTitleText": "道路救援",
+  "navigationBarTitleText": "救援故事",
   "usingComponents": {
-    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
     "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
     "u-picker": "/uni_modules/uview-ui/components/u-picker/u-picker",
     "poster": "/components/zhangyuhao-poster/Poster",
-    "cardauthentication": "/components/cardauthentication"
+    "cardauthentication": "/components/cardauthentication",
+    "waterfall-flow": "/components/waterfallFlow/index",
+    "float-video": "/components/floatVideo/index"
   }
 }

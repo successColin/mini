@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/home/indexnew",
+    "pages/home/faultConsultation/index",
+    "pages/home/safetyEducation/index",
     "pages/home/search",
+    "pages/liveBroadcast/index",
     "pages/home/51carOther/index",
     "pages/home/carhelp",
     "pages/roadrescue/index",
@@ -19,9 +23,11 @@
     {
       "root": "pages/my",
       "pages": [
+        "growthCenter/index",
         "info/index",
         "info/idcardindex",
         "card/index",
+        "card/record",
         "card/add",
         "integral/exchange",
         "integral/invitation",
@@ -43,6 +49,7 @@
         "mycar/chexing",
         "mycar/successadd",
         "myorder/index",
+        "OrderGoods/index",
         "myorder/refund",
         "myorder/couponcode",
         "myorder/orderList",
@@ -81,6 +88,16 @@
       ]
     },
     {
+      "root": "pages/groupBooking",
+      "pages": [
+        "groupRefund",
+        "orderDetails",
+        "groupList",
+        "detail",
+        "detailPay"
+      ]
+    },
+    {
       "root": "pages/agreement",
       "pages": [
         "huangH5/index",
@@ -91,13 +108,22 @@
     {
       "root": "pages/service",
       "pages": [
+        "customerService/index",
         "serviceman/index",
         "message/index",
         "message/detail",
         "payMent/index",
         "payMent/detail",
-        "couponList/index"
-      ]
+        "couponList/index",
+        "evaluate/allEvaluate",
+        "evaluate/writeEvaluate"
+      ],
+      "plugins": {
+        "qi-yu": {
+          "version": "1.10.8",
+          "provider": "wxae5e29812005203f"
+        }
+      }
     },
     {
       "root": "pages/Settlein",
@@ -112,6 +138,7 @@
         "individualInfo",
         "enterpriseProgress",
         "individualProgress",
+        "skipSignature",
         "uploadAccountOpening",
         "agreement"
       ]
@@ -126,18 +153,26 @@
     {
       "root": "pages/activity",
       "pages": [
+        "manage/index",
         "grouppuchaselist",
         "ghpreferential/index",
         "homezone/index",
         "activityRegistration/index",
         "activityRegistration/indooractivity",
         "activityRegistration/outdoorsactivity",
+        "activityRegistration/changyouHiLe",
+        "activityRegistration/localCharm",
+        "activityRegistration/localCharmMap",
+        "activityRegistration/localCharmDetails",
         "activityRegistration/newdetail",
         "activityRegistration/bankactivity",
         "activityRegistration/playfulperson",
+        "activityRegistration/campusCulture",
         "activityRegistration/foursactivity",
         "activityRegistration/packagedetail",
         "foursvideo/index",
+        "articlevideo/index",
+        "allVideo/index",
         "chooseCity/chooseCity",
         "GoPdf/webview",
         "login2/login2",
@@ -145,7 +180,8 @@
         "paymentpreference/index",
         "search/index",
         "waterfull/videolist",
-        "waterfull/imglist"
+        "waterfull/imglist",
+        "waterfull/allRecommend"
       ]
     },
     {
@@ -197,6 +233,7 @@
         "darenxiaodian/renovation",
         "darenxiaodian/search",
         "xuanpinguangchang/index",
+        "xuanpinguangchang/merchantPunch",
         "xuanpinguangchang/brand4sstore",
         "xuanpinguangchang/selectedpackage",
         "xuanpinguangchang/discountgrouppurchase",
@@ -204,6 +241,7 @@
         "xuanpinguangchang/outdooractivities",
         "mywork",
         "component/addimgarticle",
+        "component/coverImg",
         "component/videoarticle",
         "component/shopinfo",
         "component/imgarticle",
@@ -275,7 +313,12 @@
         "faultAbout/faultDetail",
         "faultAbout/faultMy",
         "faultAbout/faultCheckShop",
-        "faultAbout/faultClassify"
+        "faultAbout/faultClassify",
+        "faultAbout/selectCar",
+        "faultAbout/selectShop",
+        "faultAbout/technicianDetails",
+        "faultAbout/onlineConversation",
+        "faultAbout/consultationList"
       ]
     },
     {
@@ -302,14 +345,21 @@
         "51carOther/moreCont",
         "51carOther/buyScheme",
         "51carOther/showPage",
-        "4sShop/index"
+        "4sShop/index",
+        "4sShop/play",
+        "4Sdetail/shopActiveDetail"
       ]
     },
     {
       "root": "pages/upkeep",
       "pages": [
         "bookingForm",
-        "consult"
+        "reservationend",
+        "orderdetail",
+        "orderlist",
+        "consult",
+        "knowledge",
+        "meal"
       ]
     },
     {
@@ -324,6 +374,41 @@
         "requestInvoicing",
         "invoicingRecords",
         "invoicing"
+      ]
+    },
+    {
+      "root": "pages/advertisement",
+      "pages": [
+        "groupbuy",
+        "play",
+        "choice"
+      ]
+    },
+    {
+      "root": "pages/gourmetGroggery",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/search",
+      "pages": [
+        "homeSecond/index"
+      ]
+    },
+    {
+      "root": "pages/app",
+      "pages": [
+        "payment"
+      ]
+    },
+    {
+      "root": "pages/talentShow",
+      "pages": [
+        "list",
+        "detail",
+        "cooperationIntention",
+        "selectPackage"
       ]
     }
   ],
@@ -341,33 +426,23 @@
     "list": [
       {
         "pagePath": "pages/home/index",
-        "iconPath": "static/image/homeweixuanzhong.png",
-        "selectedIconPath": "static/image/hongmexuanzhong.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/home/xjl/index",
-        "iconPath": "static/image/xuejia.png",
-        "selectedIconPath": "static/image/activityxuejia.png",
-        "text": "51学驾"
+        "pagePath": "pages/home/faultConsultation/index",
+        "text": "故障咨询"
       },
       {
-        "pagePath": "pages/home/carhelp",
-        "iconPath": "static/image/help.png",
-        "selectedIconPath": "static/image/helpChecked.png",
-        "text": "道路救援"
+        "pagePath": "pages/home/4sShop",
+        "text": "4S店逛逛"
       },
       {
-        "pagePath": "pages/home/51carOther/index",
-        "iconPath": "static/image/shopCheck.png",
-        "selectedIconPath": "static/image/shopChecked.png",
-        "text": "51购车"
+        "pagePath": "pages/home/safetyEducation/index",
+        "text": "安全教育"
       },
       {
         "pagePath": "pages/home/my",
-        "iconPath": "static/image/wodeweixuanzhong.png",
-        "selectedIconPath": "static/image/wodexuanzhong.png",
-        "text": "个人中心"
+        "text": "我的"
       }
     ]
   },
@@ -375,10 +450,6 @@
     "ocr-plugin": {
       "version": "3.1.3",
       "provider": "wx4418e3e031e551be"
-    },
-    "t-video": {
-      "version": "1.0.8",
-      "provider": "wx5474241b2a65b906"
     }
   },
   "requiredPrivateInfos": [
@@ -392,7 +463,6 @@
   },
   "usingComponents": {
     "ocr-navigator": "plugin://ocr-plugin/ocr-navigator",
-    "t-video": "plugin://t-video/t-video",
     "request-loading": "/components/loading/loading"
   }
 }

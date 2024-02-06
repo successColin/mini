@@ -2,6 +2,7 @@
   "navigationBarTitleText": "",
   "usingComponents": {
     "carousel": "/components/carousel/index",
-    "imgcomponent": "/pages/activity/waterfull/components/imgcomponent"
+    "imgcomponent": "/pages/activity/waterfull/components/imgcomponent",
+    "float": "/components/float/index"
   }
 }

@@ -1,7 +1,10 @@
 {
   "navigationBarTitleText": "",
+  "navigationStyle": "custom",
   "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
     "carousel": "/components/carousel/index",
-    "videolist": "/pages/activity/waterfull/components/videolist"
+    "back-botton": "/pages/activity/waterfull/components/backBotton",
+    "float": "/components/float/index"
   }
 }

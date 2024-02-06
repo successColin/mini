@@ -1,1 +1,0 @@
-<view style="{{'height:'+(navbarHeight+'px')+';'}}"><u-navbar vue-id="982fa97c-1" autoBack="{{true}}" title="{{title}}" bind:__l="__l"></u-navbar></view>
