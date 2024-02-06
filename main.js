@@ -1,6 +1,8 @@
 import App from './App'
 import uView from '@/uni_modules/uview-ui'
+// import NIMSDK from 'nim-web-sdk-ng/dist/NIM_MINIAPP_SDK';
 Vue.use(uView)
+// Vue.prototype.NIMSDK = NIMSDK;
     // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false

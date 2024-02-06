@@ -390,15 +390,18 @@
 		onLoad(option) {
 			let _this = this
 			uni.$on('refresh', res => {
+				_this.registrationList = [];
+				_this.chooseadult = 0;
+				_this.choosechildren = 0;
 
 				let pages = getCurrentPages();
 				let prevPage = {}
 				pages.filter(s => {
 					if (s.$page.fullPath == '/pages/home/activityDetail/index?id=' + _this.activityId) {
-						prevPage = s
+						prevPage = s;
+						prevPage.$vm.Onaginsingup()
 					}
 				})
-				prevPage.$vm.Onaginsingup()
 			})
 			if (getstorage(option.activityId)) {
 				this.appletsShareType = getstorage(option.activityId).split('_')[0]
@@ -924,7 +927,9 @@
 											this.day)
 									}
 								})
-								this.chooseadult--
+								if (this.chooseadult > 0) {
+									this.chooseadult--
+								}
 
 							}
 							if (res.type == 2) {
@@ -934,7 +939,9 @@
 											this.day)
 									}
 								})
-								this.choosechildren--
+								if (this.choosechildren > 0) {
+									this.choosechildren--
+								}
 							}
 							this.registrationList.splice(i, 1)
 							this.choosepeople = this.registrationList.length
@@ -946,7 +953,7 @@
 				uni.$u.sleep(30).then(() => {
 					if (ispush) {
 						if (item.type == 1) {
-							if (this.adultNum != this.chooseadult) {
+							if (this.adultNum > this.chooseadult) {
 								this.insuranceList.filter(res => {
 									if (res.istrue && res.isUndertaker == 2) {
 										this.totalprice = this.totalprice + res.insurancePrice * Number(
@@ -954,7 +961,7 @@
 									}
 								})
 
-								this.chooseadult++
+								this.chooseadult += 1;
 							} else {
 								this.$refs.uToast.show({
 									message: '最多选择' + this.adultNum + '个成人',
@@ -963,14 +970,14 @@
 							}
 						}
 						if (item.type == 2) {
-							if (this.childrenNum != this.choosechildren) {
+							if (this.childrenNum > this.choosechildren) {
 								this.insuranceList.filter(res => {
 									if (res.istrue && res.isUndertaker == 2) {
 										this.totalprice = this.totalprice + res.insurancePrice * Number(
 											this.day)
 									}
 								})
-								this.choosechildren++
+								this.choosechildren += 1;
 
 							} else {
 								this.$refs.uToast.show({

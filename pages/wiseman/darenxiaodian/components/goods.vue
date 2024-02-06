@@ -3,16 +3,14 @@
         <view class="h23" />
         <sorts :list="sortlist" :preview="preview" :edit="edit" @click="setSort" />
         <view class="h15" />
-        <tabs :list="tablist" @click="setTabList" />
+        <tabs :list="tablist" :scroll="true" @click="setTabList" />
         <scroll-view :class="release === '1' ? 'h70vh' : 'h73vh'" scroll-y="true" @scrolltolower="onScrollToLower">
             <view class="goods-shop">
                 <view v-for="(v, i) in list" :key="i" class="goods-shop-item" @click="setList(v)">
-                    <view v-if="edit&&release=='0'" @click.stop="setSelectList(v)">
-                        <image v-if="v.select"
-                            src="https://oss.dcqcjlb.com/51che_java_dev/20230817/file_1692255763089.png"
+                    <view v-if="edit && release == '0'" @click.stop="setSelectList(v)">
+                        <image v-if="v.select" src="https://oss.dcqcjlb.com/51che_java_dev/20230817/file_1692255763089.png"
                             class="goods-shop-item-selected" />
-                        <image v-else
-                            src="https://oss.dcqcjlb.com/51che_java_dev/20230817/file_1692255786059.png"
+                        <image v-else src="https://oss.dcqcjlb.com/51che_java_dev/20230817/file_1692255786059.png"
                             class="goods-shop-item-selected" />
                     </view>
                     <image :src="v.coverPicture" :class="['goods-shop-item-image', v.status === 2 ? 'is-expire' : '']" />
@@ -66,8 +64,7 @@
                     </view>
                 </view>
                 <view v-if="list.length === 0">
-                    <image
-                        src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692170147023.png"
+                    <image src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692170147023.png"
                         class="goods-shop-empty" />
                 </view>
             </view>
@@ -77,8 +74,8 @@
 </template>
 
 <script>
-import sorts from '@/pages/wiseman/darenxiaodian/components/sorts.vue'
-import tabs from '@/pages/wiseman/darenxiaodian/components/tabs.vue'
+import sorts from '@/pages/wiseman/darenxiaodian/components/sorts.vue';
+import tabs from '@/pages/wiseman/darenxiaodian/components/tabs.vue';
 export default {
     components: {
         sorts,
@@ -125,10 +122,14 @@ export default {
             ],
             sort: null,
             tablist: [
-                { id: 0, name: '全部', status: true },
-                { id: 1, name: '市场活动', status: false },
-                { id: 2, name: '保养特惠', status: false },
-                { id: 3, name: '救援年卡', status: false },
+                { id: '', name: '全部', status: true },
+                // { id: 1, name: '福利团购', status: false },
+                { id: 9, name: '福利拼团', status: false },
+                { id: 2, name: '户外畅游', status: false },
+                { id: 3, name: '户内嗨乐', status: false },
+                { id: 4, name: '寻味住店', status: false },
+                { id: 5, name: '4S店活动', status: false },
+                { id: 6, name: '保养套餐', status: false },
             ],
             tab: null,
             current: 0
@@ -137,7 +138,7 @@ export default {
     onLoad() { },
     onShow() { },
     created() {
-        this.getTabList()
+        // this.getTabList()
     },
     methods: {
         isPreview() {
@@ -175,20 +176,20 @@ export default {
             })
         },
         toCommerce(value) {
-			console.log(value)
+            console.log(value)
             this.isPreview()
-			let commissionPrice=''
-			if(value.commissionPrice>0){
-				commissionPrice=1
-			}else{
-				commissionPrice=0
-			}
+            let commissionPrice = ''
+            if (value.commissionPrice > 0) {
+                commissionPrice = 1
+            } else {
+                commissionPrice = 0
+            }
             if (this.release === '1') {
-                uni.$emit('drxdrelease', { citeId: value.id, citename: value.relatedName,commissionPrice:commissionPrice })
+                uni.$emit('drxdrelease', { citeId: value.id, citename: value.relatedName, commissionPrice: commissionPrice })
                 uni.navigateBack()
             } else {
                 uni.navigateTo({
-                    url: '/pages/wiseman/component/addimgarticle?citeId=' + value.id + '&citename=' + value.relatedName+"&commissionPrice="+commissionPrice
+                    url: '/pages/wiseman/component/addimgarticle?citeId=' + value.id + '&citename=' + value.relatedName + "&commissionPrice=" + commissionPrice + "&isShowUploadImg=false"
                 })
             }
         },

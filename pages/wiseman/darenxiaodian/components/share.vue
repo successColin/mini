@@ -54,7 +54,7 @@ export default {
         getShare() {
             this.$request.post("/coc-active/api/v1/invite/getMiniProgramQrCode", {
                 page: 'pages/wiseman/darenxiaodian/index',
-                scene: this.data.userId
+                scene: this.data.userId + '_enter=117',
             }).then(res => {
                 this.showshare = true
                 this.list = [

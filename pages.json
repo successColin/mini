@@ -1,16 +1,47 @@
 {
-    "pages": [{
+    "pages": [
+        {
             "path": "pages/home/index",
             "style": {
                 "navigationBarTitleText": "",
-                "navigationStyle": "custom",
-                "enablePullDownRefresh": true
+                "navigationStyle": "custom"
+                // "enablePullDownRefresh": true,
+                // "onReachBottomDistance": 200
             }
         },
+		{
+		    "path": "pages/home/indexnew",
+		    "style": {
+		        "navigationBarTitleText": "",
+				"navigationStyle": "custom"
+				// "enablePullDownRefresh": true
+		    }
+		},
+        {
+		    "path": "pages/home/faultConsultation/index",
+		    "style": {
+		        "navigationBarTitleText": "故障咨询"
+		    }
+		},
+        {
+		    "path": "pages/home/safetyEducation/index",
+		    "style": {
+		        "navigationStyle": "custom",
+                "navigationBarTitleText": "安全教育",
+                "navigationBarTextStyle": "white",
+                "navigationBarBackgroundColor": "#000000"
+		    }
+		},
         {
             "path": "pages/home/search",
             "style": {
-                "navigationBarTitleText": "搜索团购"
+                "navigationBarTitleText": "搜索活动/团购/商家"
+            }
+        },
+        {
+            "path": "pages/liveBroadcast/index",
+            "style": {
+                "navigationBarTitleText": "直播"
             }
         },
         {
@@ -40,7 +71,6 @@
             }
         },
         // #endif
-
         // #ifdef MP-WEIXIN
         {
             "path": "pages/home/activityDetail/index",
@@ -55,7 +85,7 @@
             "style": {
                 "navigationBarTitleText": "",
                 "navigationStyle": "custom"
-                    // 活动详情页面
+                // 活动详情页面
             }
         },
         // #endif
@@ -83,21 +113,28 @@
             }
         },
         // #endif
-
         {
             "path": "pages/home/my",
             "style": {
                 "navigationBarTitleText": "",
-                "navigationStyle": "custom"
+                "navigationStyle": "custom",
+                "enablePullDownRefresh": true
             }
         },
-
+        // {
+        //     "path": "pages/home/myTwo",
+        //     "style": {
+        //         "navigationBarTitleText": "",
+        //         "navigationStyle": "custom"
+        //     }
+        // },
         {
             "path": "pages/home/4sShop",
             "style": {
-                "navigationBarTitleText": "51购车",
-                "navigationBarBackgroundColor": "#ffffff",
-                "enablePullDownRefresh": true
+                // "navigationBarTitleText": "51购车",
+                // "navigationBarBackgroundColor": "#ffffff",
+                "enablePullDownRefresh": true,
+                "navigationStyle": "custom"
             }
         },
         // #ifdef MP-WEIXIN
@@ -132,8 +169,8 @@
             "path": "pages/home/activityMall/index",
             "style": {
                 "navigationBarTitleText": "商家活动"
-                    // "navigationBarBackgroundColor": "#D91B1B",
-                    // "navigationBarTextStyle": "#ffffff"
+                // "navigationBarBackgroundColor": "#D91B1B",
+                // "navigationBarTextStyle": "#ffffff"
             }
         },
         // #endif
@@ -149,14 +186,22 @@
         {
             "path": "pages/home/webview",
             "style": {
-                "navigationBarTitleText": "广告页"
+                "navigationBarTitleText": ""
             }
         }
-
     ],
-    "subPackages": [{
+    "subPackages": [
+        {
             "root": "pages/my",
-            "pages": [{
+            "pages": [
+                {
+                    "path": "growthCenter/index",
+                    "style": {
+                        "navigationBarTitleText": "成长中心",
+                        "navigationStyle": "custom"
+                    }
+                },
+                {
                     "path": "info/index",
                     "style": {
                         "navigationBarTitleText": "设置"
@@ -172,6 +217,12 @@
                     "path": "card/index",
                     "style": {
                         "navigationBarTitleText": "信用卡管理"
+                    }
+                },
+                {
+                    "path": "card/record",
+                    "style": {
+                        "navigationBarTitleText": "申卡记录"
                     }
                 },
                 {
@@ -209,44 +260,39 @@
                     "path": "address/index",
                     "style": {
                         "navigationBarTitleText": "我的联系地址"
-
                     }
                 },
                 {
                     "path": "address/addAddress",
                     "style": {
                         "navigationBarTitleText": "新增联系地址"
-
                     }
                 },
                 {
                     "path": "accountBinding/index",
                     "style": {
                         "navigationBarTitleText": "账号绑定"
-
                     }
                 },
                 {
                     "path": "contacts/index",
                     "style": {
                         "navigationBarTitleText": "人员信息"
-
                     }
                 },
                 {
                     "path": "contacts/detail",
                     "style": {
                         "navigationBarTitleText": "新建联系地址"
-
                     }
                 },
                 {
                     "path": "userinfo/index",
                     "style": {
                         "navigationBarTitleText": "个人信息"
-
                     }
-                }, {
+                },
+                {
                     "path": "aboutUs/index",
                     "style": {
                         "navigationBarTitleText": "关于我们"
@@ -307,12 +353,17 @@
                     }
                 },
                 {
+                    "path": "OrderGoods/index",
+                    "style": {
+                        "navigationBarTitleText": "我的订单"
+                    }
+                },
+                {
                     "path": "myorder/refund",
                     "style": {
                         "navigationBarTitleText": "申请退款"
                     }
                 },
-
                 {
                     "path": "myorder/couponcode",
                     "style": {
@@ -419,7 +470,6 @@
                 {
                     "path": "customer/chexing",
                     "style": {
-
                         "navigationBarTitleText": "添加车系"
                     }
                 },
@@ -444,7 +494,6 @@
                         "navigationBarTitleText": "领券中心"
                     }
                 },
-
                 // #ifdef MP-WEIXIN
                 {
                     "path": "myIntegralOrder/index",
@@ -501,7 +550,6 @@
         {
             "root": "pages/socialContact",
             "pages": [
-
                 {
                     "path": "myPosts/shoplist",
                     "style": {
@@ -538,19 +586,53 @@
                         "navigationBarTitleText": "添加活动"
                     }
                 }
-
+            ]
+        },
+        {
+            "root": "pages/groupBooking",
+            "pages": [
+                {
+                    "path": "groupRefund",
+                    "style": {
+                        "navigationBarTitleText": "申请退款"
+                    }
+                },
+                {
+                    "path": "orderDetails",
+                    "style": {
+                        "navigationBarTitleText": "订单详情"
+                    }
+                },
+                {
+                    "path": "groupList",
+                    "style": {
+                        "navigationBarTitleText": "福利拼团"
+                    }
+                },
+                {
+                    "path": "detail",
+                    "style": {
+                        "navigationBarTitleText": "商品详情"
+                    }
+                },
+                {
+                    "path": "detailPay",
+                    "style": {
+                        "navigationBarTitleText": "提交订单"
+                    }
+                }
             ]
         },
         {
             "root": "pages/agreement",
-            "pages": [{
+            "pages": [
+                {
                     "path": "huangH5/index",
                     "style": {
                         "navigationBarTitleText": "51踏春出游季",
                         "navigationStyle": "custom"
                     }
                 },
-
                 {
                     "path": "webview",
                     "style": {
@@ -563,12 +645,18 @@
                         "navigationBarTitleText": "51车俱乐部资质"
                     }
                 }
-
             ]
         },
         {
             "root": "pages/service",
-            "pages": [{
+            "pages": [
+                {
+		            "path": "customerService/index",
+		            "style": {
+		                "navigationBarTitleText": "在线客服"
+		            }
+		        },
+                {
                     "path": "serviceman/index",
                     "style": {
                         "navigationBarTitleText": "在线客服"
@@ -607,12 +695,35 @@
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "backgroundColor": "#F8F8F8"
                     }
+                },
+                {
+                    "path": "evaluate/allEvaluate",
+                    "style": {
+                        "navigationBarTitleText": "全部评价",
+                        "navigationBarBackgroundColor": "#FFFFFF",
+                        "backgroundColor": "#F8F8F8"
+                    }
+                },
+                {
+                    "path": "evaluate/writeEvaluate",
+                    "style": {
+                        "navigationBarTitleText": "写评价",
+                        "navigationBarBackgroundColor": "#FFFFFF",
+                        "backgroundColor": "#FFFFFF"
+                    }
                 }
-            ]
+            ],
+            "plugins": {
+                "qi-yu" : {
+                    "version" : "1.10.8",
+                    "provider" : "wxae5e29812005203f"
+                }
+            }
         },
         {
             "root": "pages/Settlein",
-            "pages": [{
+            "pages": [
+                {
                     "path": "welcomevue",
                     "style": {
                         "navigationBarTitleText": "入驻51车俱乐部",
@@ -668,7 +779,7 @@
                         // "navigationBarTitleText": "",
                         "enablePullDownRefresh": true,
                         "navigationStyle": "custom"
-                            //企业商家入驻进度
+                        //企业商家入驻进度
                     }
                 },
                 {
@@ -677,7 +788,13 @@
                         // "navigationBarTitleText": "",
                         "enablePullDownRefresh": true,
                         "navigationStyle": "custom"
-                            //个体工商户入驻进度
+                        //个体工商户入驻进度
+                    }
+                },
+                {
+                    "path": "skipSignature",
+                    "style": {
+                        "navigationBarTitleText": "认证"
                     }
                 },
                 {
@@ -696,7 +813,8 @@
         },
         {
             "root": "pages/merchantZone",
-            "pages": [{
+            "pages": [
+                {
                     "path": "writeOffCode/index",
                     "style": {
                         "navigationBarTitleText": "券码核销"
@@ -712,7 +830,14 @@
         },
         {
             "root": "pages/activity",
-            "pages": [{
+            "pages": [
+                {
+                    "path": "manage/index",
+                    "style": {
+                        "navigationBarTitleText": "活动管理"
+                    }
+                },
+                {
                     "path": "grouppuchaselist",
                     "style": {
                         "navigationBarTitleText": "活动商城"
@@ -749,9 +874,33 @@
                     }
                 },
                 {
+                    "path": "activityRegistration/changyouHiLe",
+                    "style": {
+                        "navigationBarTitleText": "畅游嗨乐"
+                    }
+                },
+                {
+                    "path": "activityRegistration/localCharm",
+                    "style": {
+                        "navigationStyle": "custom"
+                    }
+                },
+                {
+                    "path": "activityRegistration/localCharmMap",
+                    "style": {
+                        "navigationBarTitleText": "地方韵味"
+                    }
+                },
+                {
+                    "path": "activityRegistration/localCharmDetails",
+                    "style": {
+                        "navigationBarTitleText": "地方韵味"
+                    }
+                },
+                {
                     "path": "activityRegistration/newdetail",
                     "style": {
-                        "navigationBarTitleText": "银保优惠资讯"
+                        "navigationBarTitleText": "资讯中心"
                     }
                 },
                 {
@@ -763,8 +912,17 @@
                 {
                     "path": "activityRegistration/playfulperson",
                     "style": {
-                        "navigationBarTitleText": "达人推荐"
-
+                        "navigationBarTitleText": "达人推荐",
+                        "navigationStyle": "custom",
+                        "enablePullDownRefresh": true,
+                        "onReachBottomDistance": 200
+                    }
+                },
+                {
+                    "path": "activityRegistration/campusCulture",
+                    "style": {
+                        "navigationBarTitleText": "校园文化",
+                        "navigationStyle": "custom"
                     }
                 },
                 {
@@ -777,13 +935,34 @@
                     "path": "activityRegistration/packagedetail",
                     "style": {
                         "navigationStyle": "custom"
-                            // 套餐详情
+                        // 套餐详情
                     }
                 },
                 {
                     "path": "foursvideo/index",
                     "style": {
-                        "navigationBarTitleText": "救援故事"
+                        "navigationStyle": "custom",
+                        "navigationBarTitleText": "",
+                        "navigationBarTextStyle": "white",
+                        "navigationBarBackgroundColor": "#000000"
+                    }
+                },
+                {
+                    "path": "articlevideo/index",
+                    "style": {
+                        "navigationStyle": "custom",
+                        "navigationBarTitleText": "",
+                        "navigationBarTextStyle": "white",
+                        "navigationBarBackgroundColor": "#000000"
+                    }
+                },
+                {
+                    "path": "allVideo/index",
+                    "style": {
+                        "navigationStyle": "custom",
+                        "navigationBarTitleText": "",
+                        "navigationBarTextStyle": "white",
+                        "navigationBarBackgroundColor": "#000000"
                     }
                 },
                 {
@@ -802,14 +981,14 @@
                     "path": "login2/login2",
                     "style": {
                         "navigationBarTitleText": ""
-                            // 登录
+                        // 登录
                     }
                 },
                 {
                     "path": "share/index",
                     "style": {
                         "navigationBarTitleText": ""
-                            // 渠道分享登录
+                        // 渠道分享登录
                     }
                 },
                 {
@@ -817,7 +996,7 @@
                     "style": {
                         "navigationBarTitleText": "",
                         "navigationStyle": "custom"
-                            // 支付优惠活动页面
+                        // 支付优惠活动页面
                     }
                 },
                 {
@@ -830,13 +1009,21 @@
                 {
                     "path": "waterfull/videolist",
                     "style": {
-                        "navigationBarTitleText": ""
+                        "navigationBarTitleText": "",
+                        "navigationStyle": "custom"
                     }
                 },
                 {
                     "path": "waterfull/imglist",
                     "style": {
                         "navigationBarTitleText": ""
+                    }
+                },
+                {
+                    "path": "waterfull/allRecommend",
+                    "style": {
+                        "navigationBarTitleText": "达人推荐",
+                        "navigationBarBackgroundColor": "#FFFFFF"
                     }
                 }
             ]
@@ -922,12 +1109,14 @@
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "navigationStyle": "custom"
                     }
-                }, {
+                },
+                {
                     "path": "inviteFriends/inviteFriends",
                     "style": {
                         "navigationBarTitleText": "邀请好友"
                     }
-                }, {
+                },
+                {
                     "path": "down/index",
                     "style": {
                         "navigationBarTitleText": "51车俱乐部商家版App下载",
@@ -954,7 +1143,8 @@
         },
         {
             "root": "pages/wiseman",
-            "pages": [{
+            "pages": [
+                {
                     "path": "specialarea/index",
                     "style": {
                         "navigationBarTitleText": "达人特区"
@@ -975,7 +1165,9 @@
                 {
                     "path": "specialarea/myteam",
                     "style": {
-                        "navigationBarTitleText": "我的团队"
+                        "navigationBarTitleText": "我的团队",
+                        "navigationBarTextStyle": "black",
+                        "navigationStyle": "custom"
                     }
                 },
                 {
@@ -1074,18 +1266,18 @@
                         "navigationStyle": "custom"
                     }
                 },
-				{
-				    "path": "flowplan/index",
-				    "style": {
-				      "navigationBarTitleText": "流量扶持"
-				    }
-				},
-				{
-				    "path": "flowplan/detail",
-				    "style": {
-				      "navigationBarTitleText": "申请报名"
-				    }
-				},
+                {
+                    "path": "flowplan/index",
+                    "style": {
+                        "navigationBarTitleText": "流量扶持"
+                    }
+                },
+                {
+                    "path": "flowplan/detail",
+                    "style": {
+                        "navigationBarTitleText": "申请报名"
+                    }
+                },
                 {
                     "path": "darenxiaodian/my",
                     "style": {
@@ -1108,6 +1300,12 @@
                     "path": "xuanpinguangchang/index",
                     "style": {
                         "navigationBarTitleText": "选品广场"
+                    }
+                },
+                {
+                    "path": "xuanpinguangchang/merchantPunch",
+                    "style": {
+                        "navigationBarTitleText": "商家打卡"
                     }
                 },
                 {
@@ -1149,27 +1347,33 @@
                 {
                     "path": "component/addimgarticle",
                     "style": {
-                        "navigationBarTitleText": ""
+                        "navigationBarTitleText": "" // 发帖
                     }
                 },
-
+                {
+                    "path": "component/coverImg",
+                    "style": {
+                        "navigationStyle": "custom",
+                        "navigationBarTextStyle": "#ffffff"
+                    }
+                },
                 {
                     "path": "component/videoarticle",
                     "style": {
-                        "navigationBarTitleText": "我的笔记"
+                        "navigationBarTitleText": "我的作品"
                     }
                 },
                 {
                     "path": "component/shopinfo",
                     "style": {
                         "navigationStyle": "custom"
-                            // 转跳别人的作品页
+                        // 转跳别人的作品页
                     }
                 },
                 {
                     "path": "component/imgarticle",
                     "style": {
-                        "navigationBarTitleText": "我的笔记"
+                        "navigationBarTitleText": "我的作品"
                     }
                 },
                 {
@@ -1188,7 +1392,8 @@
         },
         {
             "root": "pages/grouppurchase",
-            "pages": [{
+            "pages": [
+                {
                     "path": "index",
                     "style": {
                         "navigationBarTitleText": "优惠团购"
@@ -1224,7 +1429,7 @@
                         "navigationBarTitleText": "新人专享",
                         "navigationBarBackgroundColor": "#fd6d46",
                         "navigationBarTextStyle": "#ffffff"
-                            // "navigationStyle": "custom"
+                        // "navigationStyle": "custom"
                     }
                 },
                 {
@@ -1279,7 +1484,8 @@
         },
         {
             "root": "pages/xjl",
-            "pages": [{
+            "pages": [
+                {
                     "path": "school/index",
                     "style": {
                         "navigationBarTitleText": "选驾校",
@@ -1382,37 +1588,44 @@
         },
         {
             "root": "pages/roadhelp",
-            "pages": [{
+            "pages": [
+                {
                     "path": "equity",
                     "style": {
                         "navigationBarTitleText": "我的权益"
                     }
-                }, {
+                },
+                {
                     "path": "index/successpay",
                     "style": {
                         "navigationBarTitleText": "道路救援"
                     }
-                }, {
+                },
+                {
                     "path": "51help/helpOrder",
                     "style": {
                         "navigationBarTitleText": "道路救援订单"
                     }
-                }, {
+                },
+                {
                     "path": "51help/helpOrderCancel",
                     "style": {
                         "navigationBarTitleText": "道路救援订单取消"
                     }
-                }, {
+                },
+                {
                     "path": "51help/helpCancelState",
                     "style": {
                         "navigationBarTitleText": "道路救援订单取消状态"
                     }
-                }, {
+                },
+                {
                     "path": "51help/helpOrderDetail",
                     "style": {
                         "navigationBarTitleText": "道路救援订单详情"
                     }
-                }, {
+                },
+                {
                     "path": "orderlist",
                     "style": {
                         "navigationBarTitleText": "订单记录"
@@ -1469,7 +1682,7 @@
                 {
                     "path": "index",
                     "style": {
-                        "navigationBarTitleText": "道路救援"
+                        "navigationBarTitleText": "救援故事"
                     }
                 },
                 {
@@ -1507,24 +1720,55 @@
                     "style": {
                         "navigationBarTitleText": "常见问题"
                     }
+                },
+                {
+                    "path": "faultAbout/selectCar",
+                    "style": {
+                        "navigationBarTitleText": "选择品牌"
+                    }
+                },
+                {
+                    "path": "faultAbout/selectShop",
+                    "style": {
+                        "navigationBarTitleText": "选择4S店"
+                    }
+                },
+                {
+                    "path": "faultAbout/technicianDetails",
+                    "style": {
+                        "navigationBarTitleText": "技师详情"
+                    }
+                },
+                {
+                    "path": "faultAbout/onlineConversation",
+                    "style": {
+                        "navigationBarTitleText": "在线对话"
+                    }
+                },
+                {
+                    "path": "faultAbout/consultationList",
+                    "style": {
+                        "navigationBarTitleText": "咨询列表"
+                    }
                 }
             ]
         },
         //	#ifdef MP-TOUTIAO||H5
         {
             "root": "pages/h5order",
-            "pages": [{
+            "pages": [
+                {
                     "path": "packagedetail",
                     "style": {
                         "navigationStyle": "custom"
-                            // 套餐详情
+                        // 套餐详情
                     }
                 },
                 {
                     "path": "packageindex",
                     "style": {
                         "navigationStyle": "custom"
-                            // 套餐详情没有明细
+                        // 套餐详情没有明细
                     }
                 },
                 {
@@ -1537,77 +1781,77 @@
                     "path": "groupdetail",
                     "style": {
                         "navigationStyle": "custom"
-                            // 团购详情
+                        // 团购详情
                     }
                 },
                 {
                     "path": "integraldetail",
                     "style": {
                         "navigationStyle": "custom"
-                            // 积分详情
+                        // 积分详情
                     }
                 },
                 {
                     "path": "activitydetail",
                     "style": {
                         "navigationStyle": "custom"
-                            // 活动详情
+                        // 活动详情
                     }
                 },
                 {
                     "path": "newactivitydetail",
                     "style": {
                         "navigationStyle": "custom"
-                            // 新活动详情
+                        // 新活动详情
                     }
                 },
                 {
                     "path": "cooperatedetail",
                     "style": {
                         "navigationStyle": "custom"
-                            // 合作活动详情
+                        // 合作活动详情
                     }
                 },
                 {
                     "path": "business",
                     "style": {
                         "navigationStyle": "custom"
-                            // 商家主页
+                        // 商家主页
                     }
                 },
                 {
                     "path": "fourindex",
                     "style": {
                         "navigationStyle": "custom"
-                            // 进4S店
+                        // 进4S店
                     }
                 },
                 {
                     "path": "businessschool",
                     "style": {
                         "navigationStyle": "custom"
-                            // 商学院
+                        // 商学院
                     }
                 },
                 {
                     "path": "articledetail",
                     "style": {
                         "navigationBarTitleText": "详情"
-                            // 文章详情
+                        // 文章详情
                     }
                 },
                 {
                     "path": "articlelist",
                     "style": {
                         "navigationBarTitleText": "文章列表"
-                            // 文章列表
+                        // 文章列表
                     }
                 },
                 {
                     "path": "starperson",
                     "style": {
                         "navigationBarTitleText": "明星达人"
-                            // 文章列表
+                        // 文章列表
                     }
                 }
             ]
@@ -1615,66 +1859,76 @@
         // #endif
         {
             "root": "pages/carShops",
-            "pages": [{
+            "pages": [
+                {
                     "path": "upkeep/detail",
                     "style": {
                         "navigationBarTitleText": "保养套餐详情",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "upkeep/submmitOrder",
                     "style": {
                         "navigationBarTitleText": "提交订单",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "upkeep/orderStatus",
                     "style": {
                         "navigationBarTitleText": "订单状态",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "upkeep/checkSales",
                     "style": {
                         "navigationBarTitleText": "选择客户经理",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "upkeep/couponDes",
                     "style": {
                         "navigationBarTitleText": "优惠券说明",
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "backgroundColor": "#F8F8F8"
                     }
-                }, {
+                },
+                {
                     "path": "upkeep/brandInfo",
                     "style": {
                         "navigationBarTitleText": "品牌资讯",
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "backgroundColor": "#F8F8F8"
                     }
-                }, {
+                },
+                {
                     "path": "upkeep/insurance",
                     "style": {
                         "navigationBarTitleText": "车险活动",
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "backgroundColor": "#FF4F2B"
                     }
-                }, {
+                },
+                {
                     "path": "motorcycletype/index",
                     "style": {
-                        "navigationBarTitleText": "车型列表",
+                        "navigationBarTitleText": "新车鉴赏",
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "backgroundColor": "#F8F8F8"
                     }
-                }, {
+                },
+                {
                     "path": "shop/index",
                     "style": {
                         "navigationBarTitleText": "",
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "backgroundColor": "#F8F8F8"
                     }
-                }, {
+                },
+                {
                     "path": "upkeep/index",
                     "style": {
                         "navigationBarTitleText": "保养套餐",
@@ -1682,7 +1936,7 @@
                         "backgroundColor": "#F8F8F8"
                     }
                 },
-
+                // #ifdef MP-WEIXIN
                 {
                     "path": "4Sdetail/index",
                     "style": {
@@ -1691,11 +1945,20 @@
                         "backgroundColor": "#F8F8F8"
                     }
                 },
+                // #endif
+                //	#ifdef H5
+                {
+                    "path": "4Sdetail/index",
+                    "style": {
+                        "navigationStyle": "custom"
+                    }
+                },
+                // #endif
                 {
                     "path": "carList/index",
                     "style": {
                         "navigationStyle": "custom"
-                            // 新车二手车详情
+                        // 新车二手车详情
                     }
                 },
                 {
@@ -1722,7 +1985,6 @@
                         "backgroundColor": "#F8F8F8"
                     }
                 },
-
                 {
                     "path": "51carOther/carDetail",
                     "style": {
@@ -1730,14 +1992,16 @@
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "backgroundColor": "#F8F8F8"
                     }
-                }, {
+                },
+                {
                     "path": "51carOther/selectCity",
                     "style": {
                         "navigationBarTitleText": "选择城市",
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "backgroundColor": "#F8F8F8"
                     }
-                }, {
+                },
+                {
                     "path": "51carOther/selectCar",
                     "style": {
                         "navigationBarTitleText": "选车",
@@ -1772,7 +2036,23 @@
                 {
                     "path": "4sShop/index",
                     "style": {
-                        "navigationBarTitleText": "4S店逛逛",
+                        "navigationBarTitleText": "51车·人车生活俱乐部",
+                        "navigationBarBackgroundColor": "#FFFFFF",
+                        "backgroundColor": "#F8F8F8"
+                    }
+                },
+                {
+                    "path": "4sShop/play",
+                    "style": {
+                        "navigationBarTitleText": "玩乐活动",
+                        "navigationBarBackgroundColor": "#FFFFFF",
+                        "backgroundColor": "#F8F8F8"
+                    }
+                },
+                {
+                    "path": "4Sdetail/shopActiveDetail",
+                    "style": {
+                        "navigationBarTitleText": "详情",
                         "navigationBarBackgroundColor": "#FFFFFF",
                         "backgroundColor": "#F8F8F8"
                     }
@@ -1781,10 +2061,32 @@
         },
         {
             "root": "pages/upkeep",
-            "pages": [{
+            "pages": [
+                {
                     "path": "bookingForm",
                     "style": {
                         "navigationBarTitleText": "预约保养",
+                        "navigationBarBackgroundColor": "#FFFFFF"
+                    }
+                },
+                {
+                    "path": "reservationend",
+                    "style": {
+                        "navigationBarTitleText": "预约状态",
+                        "navigationBarBackgroundColor": "#FFFFFF"
+                    }
+                },
+                {
+                    "path": "orderdetail",
+                    "style": {
+                        "navigationBarTitleText": "预约详情",
+                        "navigationBarBackgroundColor": "#FFFFFF"
+                    }
+                },
+                {
+                    "path": "orderlist",
+                    "style": {
+                        "navigationBarTitleText": "预约记录",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
                 },
@@ -1794,12 +2096,27 @@
                         "navigationBarTitleText": "保养预约",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
+                },
+                {
+                    "path": "knowledge",
+                    "style": {
+                        "navigationBarTitleText": "保养知识",
+                        "navigationBarBackgroundColor": "#FFFFFF"
+                    }
+                },
+                {
+                    "path": "meal",
+                    "style": {
+                        "navigationBarTitleText": "保养套餐",
+                        "navigationBarBackgroundColor": "#FFFFFF"
+                    }
                 }
             ]
         },
         {
             "root": "pages/myEarnings",
-            "pages": [{
+            "pages": [
+                {
                     "path": "mainPage",
                     "style": {
                         "navigationBarTitleText": "我的收益",
@@ -1812,43 +2129,50 @@
                         "navigationBarTitleText": "提现记录",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "InitiatePayout",
                     "style": {
                         "navigationBarTitleText": "发起提现",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "bankList",
                     "style": {
                         "navigationBarTitleText": "选择银行卡",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "addBankCard",
                     "style": {
                         "navigationBarTitleText": "绑定银行卡",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "searchBank",
                     "style": {
                         "navigationBarTitleText": "银行卡",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "requestInvoicing",
                     "style": {
                         "navigationBarTitleText": "申请开票",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "invoicingRecords",
                     "style": {
                         "navigationBarTitleText": "开票记录",
                         "navigationBarBackgroundColor": "#FFFFFF"
                     }
-                }, {
+                },
+                {
                     "path": "invoicing",
                     "style": {
                         "navigationBarTitleText": "查看发票",
@@ -1856,22 +2180,108 @@
                     }
                 }
             ]
-        }
+        },
+        {
+            "root": "pages/advertisement",
+            "pages": [
+                {
+                    "path": "groupbuy",
+                    "style": {
+                        "navigationBarTitleText": "",
+                        "navigationBarBackgroundColor": "#FFFFFF"
+                    }
+                },
+                {
+                    "path": "play",
+                    "style": {
+                        "navigationBarTitleText": "",
+                        "navigationBarBackgroundColor": "#FFFFFF"
+                    }
+                },
+                {
+                    "path": "choice",
+                    "style": {
+                        "navigationBarTitleText": "娱乐精选",
+                        "navigationStyle": "custom",
+                        "enablePullDownRefresh": true,
+                        "onReachBottomDistance": 200
+                    }
+                }
+            ]
+        },
+        {
+            "root": "pages/gourmetGroggery",
+            "pages": [
+                {
+                    "path": "index",
+                    "style": {
+                        "navigationBarTitleText": "寻味住店"
+                    }
+                }
+            ]
+        },
+		{
+		    "root": "pages/search",
+		    "pages": [
+		        {
+		            "path": "homeSecond/index",
+		            "style": {
+		                "navigationBarTitleText": "搜索"
+		            }
+		        }
+		    ]
+		},
+        {
+		    "root": "pages/app",
+		    "pages": [
+		        {
+		            "path": "payment",
+		            "style": {
+		                "navigationBarTitleText": ""
+		            }
+		        }
+		    ]
+		},
+        {
+		    "root": "pages/talentShow",
+		    "pages": [
+		        {
+		            "path": "list",
+		            "style": {
+		                "navigationBarTitleText": "跟着达人秀"
+		            }
+		        },
+                {
+		            "path": "detail",
+		            "style": {
+		                "navigationBarTitleText": "详情"
+		            }
+		        },
+                {
+		            "path": "cooperationIntention",
+		            "style": {
+		                "navigationBarTitleText": "合作意向"
+		            }
+		        },
+                {
+		            "path": "selectPackage",
+		            "style": {
+		                "navigationBarTitleText": "选择套餐"
+		            }
+		        }
+		    ]
+		}
     ],
-
     "globalStyle": {
         "navigationBarTextStyle": "black",
         "navigationBarTitleText": "uni-app",
         "navigationBarBackgroundColor": "#ffffff",
         "backgroundColor": "#F8F8F8",
-
         "usingComponents": {
             // #ifdef MP-WEIXIN
-            "ocr-navigator": "plugin://ocr-plugin/ocr-navigator",
-            "t-video": "plugin://t-video/t-video"
-                // #endif
+            "ocr-navigator": "plugin://ocr-plugin/ocr-navigator"
+            // #endif
         }
-
         // #ifdef APP-PLUS
         // "navigationStyle": "custom"
         // #endif
@@ -1881,35 +2291,26 @@
         "selectedColor": "#d91b1b",
         "borderStyle": "black",
         "backgroundColor": "#ffffff",
-        "list": [{
+        "list": [
+            {
                 "pagePath": "pages/home/index",
-                "iconPath": "static/image/homeweixuanzhong.png",
-                "selectedIconPath": "static/image/hongmexuanzhong.png",
                 "text": "首页"
             },
             {
-                "pagePath": "pages/home/xjl/index",
-                "iconPath": "static/image/xuejia.png",
-                "selectedIconPath": "static/image/activityxuejia.png",
-                "text": "51学驾"
+                "pagePath": "pages/home/faultConsultation/index",
+                "text": "故障咨询"
             },
             {
-                "pagePath": "pages/home/carhelp",
-                "iconPath": "static/image/help.png",
-                "selectedIconPath": "static/image/helpChecked.png",
-                "text": "道路救援"
+                "pagePath": "pages/home/4sShop",
+                "text": "4S店逛逛"
             },
             {
-                "pagePath": "pages/home/51carOther/index",
-                "iconPath": "static/image/shopCheck.png",
-                "selectedIconPath": "static/image/shopChecked.png",
-                "text": "51购车"
+                "pagePath": "pages/home/safetyEducation/index",
+                "text": "安全教育"
             },
             {
                 "pagePath": "pages/home/my",
-                "iconPath": "static/image/wodeweixuanzhong.png",
-                "selectedIconPath": "static/image/wodexuanzhong.png",
-                "text": "个人中心"
+                "text": "我的"
             }
         ]
     },

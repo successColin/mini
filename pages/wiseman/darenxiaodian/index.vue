@@ -3,8 +3,7 @@
         <image :src="info.backImage" class="bgc" />
         <view class="card">
             <view class="navigation" @click="toBack()">
-                <image src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692169759970.png"
-                    class="w96h96" />
+                <image src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692169759970.png" class="w96h96" />
             </view>
             <view class="df option">
                 <!-- <view v-if="type === 2" class="btn">
@@ -14,33 +13,23 @@
                     <view class="btn-title">私信</view>
                 </view> -->
                 <view v-if="type !== 2" class="btn" @click="toRenovation">
-                    <image
-                        src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692169989455.png"
-                        class="w36h36" />
+                    <image src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692169989455.png" class="w36h36" />
                     <view class="btn-title">去装修</view>
                 </view>
                 <view class="btn ml15" @click="toSearch">
-                    <image
-                        src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692170025878.png"
-                        class="w36h36" />
+                    <image src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692170025878.png" class="w36h36" />
                     <view class="btn-title">搜商品</view>
                 </view>
                 <view v-if="type === 2 && info.followType === 0" class="btn ml15 mr23 bgcD91B1B" @click="setAttention">
-                    <image
-                        src="https://oss.dcqcjlb.com/51che_java_dev/20230819/file_1692415861444.png"
-                        class="w36h36" />
+                    <image src="https://oss.dcqcjlb.com/51che_java_dev/20230819/file_1692415861444.png" class="w36h36" />
                     <view class="btn-title">关注</view>
                 </view>
                 <view v-else-if="type === 2 && info.followType === 1" class="btn ml15 mr23 bgcEFEFEF" @click="setAttention">
-                    <image
-                        src="https://oss.dcqcjlb.com/51che_java_dev/20230819/file_1692415889023.png"
-                        class="w36h36" />
+                    <image src="https://oss.dcqcjlb.com/51che_java_dev/20230819/file_1692415889023.png" class="w36h36" />
                     <view class="btn-title c999999">已关注</view>
                 </view>
                 <view v-else class="w85h85 ml15 mr23" @click="setShare">
-                    <image
-                        src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692170070546.png"
-                        class="w48h48" />
+                    <image src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692170070546.png" class="w48h48" />
                 </view>
             </view>
         </view>
@@ -61,8 +50,7 @@
         <view class="card3">
             <view class="line" />
         </view>
-        <image v-if="type === 0"
-            src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692170147023.png"
+        <image v-if="type === 0" src="https://oss.dcqcjlb.com/51che_java_dev/20230816/file_1692170147023.png"
             class="no-image" />
         <square v-if="type === 0" :list="squarerows.list" :preview="preview" @update="setObj" />
         <goods v-if="type === 1" :list="goodrows.list" :preview="preview" :userId="info.userId" @setsort="setSort"
@@ -78,11 +66,11 @@
 </template>
 
 <script>
-import square from '@/pages/wiseman/darenxiaodian/components/square.vue'
 import goods from '@/pages/wiseman/darenxiaodian/components/goods.vue'
-import share from '@/pages/wiseman/darenxiaodian/components/share.vue'
 import lookgoods from '@/pages/wiseman/darenxiaodian/components/lookgoods.vue'
 import overlayloadingicon from '@/pages/wiseman/darenxiaodian/components/overlayloadingicon.vue'
+import share from '@/pages/wiseman/darenxiaodian/components/share.vue'
+import square from '@/pages/wiseman/darenxiaodian/components/square.vue'
 export default {
     components: {
         square,
@@ -108,6 +96,7 @@ export default {
             },
             obj: {
                 relatedName: '',
+                lockTypeV3: '',
                 lockType: '',
                 sort: 1,
                 current: 1,
@@ -135,6 +124,14 @@ export default {
         }
     },
     onLoad(option) {
+        console.log("进来了===========》", JSON.stringify(option), option);
+        if (option.enter) {
+            uni.setStorageSync('enter', option.enter);
+        }
+        // 二维码分享特殊处理
+		if (option.scene && option.scene.indexOf('_enter=117')) {
+			uni.setStorageSync('enter', '117');
+		}
         this.preview = option.preview
         if (option.scene) {
             this.userId = option.scene
@@ -151,6 +148,7 @@ export default {
         uni.$on('drxdupdate', () => {
             this.obj = {
                 relatedName: '',
+                lockTypeV3: '',
                 lockType: '',
                 sort: 1,
                 current: 1,
@@ -236,7 +234,7 @@ export default {
             this.goodrows.list = list
             this.goodrows.total = data.total
             if (this.type !== 2) {
-                if (list.length === 0 && this.obj.lockType === '' && this.obj.relatedName === '') {
+                if (list.length === 0 && this.obj.lockTypeV3 === '' && this.obj.relatedName === '') {
                     this.type = 0
                     this.getSquareList()
                 } else {
@@ -245,7 +243,7 @@ export default {
             }
         },
         async getSquareList() {
-            const { data } = await this.$request.post('/coc-active/api/v1/expert/selection/library/list', { current: 1, size: 4 })
+            const { data } = await this.$request.post('/coc-active/api/v1/expert/selection/library/expert/list', { current: 1, size: 5, sort: 8 })
             const list = JSON.parse(JSON.stringify(this.squarerows.list))
             data.records.forEach((v) => {
                 v.type_txt = v.type === 1 ? '活' : v.type === 2 ? '保' : v.type === 3 ? '救' : v.type === 4 ? '团' : v.type === 5 ? '套' : ''
@@ -261,7 +259,8 @@ export default {
         setTab(id) {
             this.obj.relatedName = ''
             delete this.obj.shopCategoryId
-            this.setObj('lockType', id)
+            // this.setObj('lockType', id)
+            this.setObj('lockTypeV3', id)
         },
         setShopCategoryTab(id) {
             this.obj.relatedName = ''

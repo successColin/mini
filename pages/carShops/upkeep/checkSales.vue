@@ -85,7 +85,7 @@ export default {
 }
 
 .SaleList {
-    margin-bottom: 80rpx;
+    margin-bottom: 20rpx;
 
     .saleItem {
         margin-bottom: 30rpx;

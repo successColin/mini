@@ -1,13 +1,16 @@
 <template>
     <view class="page">
         <view class="rescuestory">
-            <image src="https://oss.dcqcjlb.com/51che_java_dev/20230918/file_1695016127128.png"
-                class="rescuestory-image" />
+            <image
+                src="https://oss.dcqcjlb.com/51che_java_dev/20230918/file_1695016127128.png"
+                class="rescuestory-image"
+            />
             <view>
                 <view class="rescuestory-top">
                     <image
                         src="https://oss.dcqcjlb.com/51che_java_dev/20230918/file_1695005018280.png"
-                        class="rescuestory-top-image" />
+                        class="rescuestory-top-image"
+                    />
                     <view class="rescuestory-top-title" @click="toClick">去咨询</view>
                 </view>
                 <scroll-view v-if="list && list.length > 0" class="rescuestory-list" scroll-x="true">
@@ -39,64 +42,67 @@
 export default {
     data() {
         return {
-            list: []
-        }
+            list: [],
+        };
     },
     created() {
-        this.getList()
+        this.getList();
     },
     methods: {
         Onpushdetail(v) {
             uni.navigateTo({
-                url: '/pages/activity/foursvideo/index?id=' + v.id + '&type=2'
-            })
+                url: "/pages/activity/foursvideo/index?id=" + v.id + "&type=2&title=故障咨询",
+            });
         },
         async getList() {
-            const { data: { records } } = await this.$request.post('/coc-active/api/v1/video/list', {
-                current: 1, size: 100,
-                type: 2
-            })
-            this.list = records
+            const {
+                data: { records },
+            } = await this.$request.post("/coc-active/api/v1/video/list", {
+                current: 1,
+                size: 100,
+                type: 2,
+            });
+            this.list = records;
         },
         toClick() {
             uni.navigateTo({
-                url: '/pages/roadhelp/faultAbout/faultSearch'
-            })
+                url: "/pages/roadhelp/faultAbout/faultSearch",
+            });
         },
         loadedmetadata({ detail: { duration } }, v) {
-            const list = JSON.parse(JSON.stringify(this.list))
+            const list = JSON.parse(JSON.stringify(this.list));
             list.forEach((value) => {
                 if (v.id === value.id) {
-                    value.time = this.toHourMinute(duration)
+                    value.time = this.toHourMinute(duration);
                 }
-            })
-            this.list = list
+            });
+            this.list = list;
         },
         toHourMinute(duration) {
-            let time = ''
-            duration = Math.trunc(duration)
+            let time = "";
+            duration = Math.trunc(duration);
             if (Math.floor(duration / 60) === 0) {
                 if (duration > 10) {
-                    time = '00:' + (duration % 60)
+                    time = "00:" + (duration % 60);
                 } else {
-                    time = '00:0' + (duration % 60)
+                    time = "00:0" + (duration % 60);
                 }
             } else {
                 if (Math.floor(duration / 60) > 10) {
-                    time = Math.floor(duration / 60)
+                    time = Math.floor(duration / 60);
                 } else {
-                    time = '0' + Math.floor(duration / 60)
+                    time = "0" + Math.floor(duration / 60);
                 }
                 if (Math.floor(duration % 60) > 10) {
-                    time += (':' + Math.floor(duration % 60))
+                    time += ":" + Math.floor(duration % 60);
                 } else {
-                    time += (':0' + Math.floor(duration % 60))
+                    time += ":0" + Math.floor(duration % 60);
                 }
             }
-            return time
-        }
-    }
-}
+            return time;
+        },
+    },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -144,7 +150,7 @@ export default {
             font-family: PingFang SC;
             font-weight: 500;
             font-style: italic;
-            color: #FFFFFF;
+            color: #ffffff;
             line-height: 35rpx;
         }
     }
@@ -161,7 +167,7 @@ export default {
         position: relative;
         display: flex;
         height: 160rpx;
-        background: #FFFFFF;
+        background: #ffffff;
         border-radius: 10rpx;
         margin-right: 10rpx;
 
@@ -234,7 +240,7 @@ export default {
                 font-size: 20rpx;
                 font-family: HONOR Sans CN;
                 font-weight: 500;
-                color: #FFFFFF;
+                color: #ffffff;
                 line-height: 36rpx;
                 margin-left: 3rpx;
             }

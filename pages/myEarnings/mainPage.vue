@@ -28,26 +28,52 @@
             <view class="flex" @click="checkMonth"><text class="mr10">{{ value1 }} </text><u-icon size="12" name="arrow-down"></u-icon>
             </view>
         </view>
-        <view class="earningsList bgfff br10 size28 hide">
-            <view class="flex jsb alc lineh86 borderB">
-                <view>产品订单收益 (元)</view>
-                <view class="mainRed"><text v-if="earnings.merchantOrderIncome">+</text>{{ earnings.merchantOrderIncome }}</view>
+        <view class="earningsList bgfff  size28">
+            <view class="flex jsb alc lineh86 borderB ">
+                <view class="flex" @click="handleToggle">
+                    <view class="mr20">分销带货 (元)</view>
+                    <u-icon name="arrow-down" v-if="!showOrder"></u-icon>
+                    <u-icon name="arrow-up" v-if="showOrder"></u-icon>
+                </view>
+                <view class="mainRed"><text v-if="earnings.orderIncome">+</text>{{earnings.orderIncome}}</view>
             </view>
-            <view class="flex jsb alc lineh86 borderB">
-                <view>活动订单收益 (元)</view>
-                <view class="mainRed"><text v-if="earnings.activityOrderIncome">+</text>{{ earnings.activityOrderIncome }}</view>
-            </view>
-			<view class="flex jsb alc lineh86 borderB">
-			    <view>保养套餐订单收益 (元)</view>
-			    <view class="mainRed"><text v-if="earnings.maintainMealIncome">+</text>{{ earnings.maintainMealIncome }}</view>
-			</view>
-            <view class="flex jsb alc lineh86 borderB">
-                <view>团购订单收益 (元)</view>
-                <view class="mainRed"><text v-if="earnings.groupOrderIncome">+</text>{{ earnings.groupOrderIncome }}</view>
+            <view class="size24 borderB" v-if="showOrder" style="line-height: 46rpx;padding: 14rpx 0;">
+                <view class="flex jsb alc ">
+                    <view class="txtLighGray">福利团购订单收益（元）</view>
+                    <view class="mainRed">{{ earnings.groupOrderIncome }}</view>
+                </view>
+                <view class="flex jsb alc ">
+                    <view class="txtLighGray">户外畅游订单收益（元）</view>
+                    <view class="mainRed">{{ earnings.outdoorActivityOrderIncome }}</view>
+                </view>
+                <view class="flex jsb alc ">
+                    <view class="txtLighGray">户内嗨乐订单收益（元）</view>
+                    <view class="mainRed">{{ earnings.indoorActivityOrderIncome }}</view>
+                </view>
+                <view class="flex jsb alc ">
+                    <view class="txtLighGray">寻味住店订单收益（元）</view>
+                    <view class="mainRed">{{ earnings.hotelsActivityOrderIncome }}</view>
+                </view>
+                <view class="flex jsb alc ">
+                    <view class="txtLighGray">4S店活动订单收益（元）</view>
+                    <view class="mainRed">{{ earnings.fourShopActivityOrderIncome }}</view>
+                </view>
+                <view class="flex jsb alc ">
+                    <view class="txtLighGray">保养套餐订单收益（元）</view>
+                    <view class="mainRed">{{ earnings.maintainMealIncome }}</view>
+                </view>
+                <view class="flex jsb alc ">
+                    <view class="txtLighGray">救援年卡订单收益（元）</view>
+                    <view class="mainRed">{{ earnings.skyOrderIncome }}</view>
+                </view>
             </view>
             <view class="flex jsb alc lineh86 borderB ">
-                <view>救援年卡订单收益 (元)</view>
-                <view class="mainRed"><text v-if="earnings.skyOrderIncome">+</text>{{ earnings.skyOrderIncome }}</view>
+                <view>活动发布 (元)</view>
+                <view class="mainRed"><text v-if="earnings.expertActivityOrderIncome">+</text>{{earnings.expertActivityOrderIncome}}</view>
+            </view>
+            <view class="flex jsb alc lineh86 borderB ">
+                <view>邀请商家 (元)</view>
+                <view class="mainRed"><text v-if="earnings.shopSettledCommission">+</text>{{earnings.shopSettledCommission}}</view>
             </view>
             <view class="flex jsb alc lineh86 borderB ">
                 <view>信用卡开卡收益 (元)</view>
@@ -56,7 +82,7 @@
             <view class="flex jsb alc lineh86 borderB ">
                 <view>团队贡献 (元)</view>
                 <view class="mainRed"><text v-if="earnings.teamContribution">+</text>{{ earnings.teamContribution }}</view>
-            </view>
+            </view> 
             <view>
                 <view class="flex jsb alc lineh86">
                     <view class="flex"><view style="margin-right:10rpx;">技术服务费 (元)</view><u-icon name="info-circle" size="12" ></u-icon></view>
@@ -86,7 +112,12 @@ export default {
             value1: '',
             value2: Number(new Date()),
             year: '',
-            month: ''
+            month: '',
+            headStyle: {
+                fontSize:'28rpx'
+            },
+            showOrder: false,
+
         }
     },
 
@@ -124,11 +155,19 @@ export default {
             this.show = false
         },
         OnWithdrawal() {
-            console.log(this.dataList.balance, '4564==gdsfhasdjfk')
-            if (this.dataList.balance > 50) {
-                uni.navigateTo({
-                    url: "/pages/myEarnings/InitiatePayout?balance=" + this.dataList.balance
-                })
+            if (this.dataList?.balance > 50) {
+                this.$request
+                .post('/coc-active/api/v2/withdraw/getWithdrawBaseInfo')
+                .then((res) => {
+                    if (res.code !== 200) {
+                        return uni.$u.toast(res.message);
+                    }
+                    uni.navigateTo({
+                    url:
+                        '/pages/myEarnings/InitiatePayout?balance=' +
+                        this.dataList?.balance,
+                    });
+                });
             } else {
                 uni.$u.toast('余额大于50才能提现')
             }
@@ -154,9 +193,11 @@ export default {
             this.$request.post("/coc-active/api/v1/expert/expertSpecialArea").then(res => {
                 this.dataList = res.data
             })
-        }
-
-
+        },
+        handleToggle(){
+            console.log(this.showOrder)
+            this.showOrder = !this.showOrder
+        },
     }
 }
 </script>
@@ -232,5 +273,8 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+/deep/.u-cell__title-text{
+    font-size: 28rpx!important;
 }
 </style>

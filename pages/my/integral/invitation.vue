@@ -78,8 +78,8 @@
 
 <script>
 	import {
-		getstorage,
-	} from '@/utils/index.js'
+getstorage,
+} from '@/utils/index.js'
 	export default {
 		components: {
 
@@ -104,7 +104,7 @@
 			let imageUrl = 'https://oss.dcqcjlb.com/51che_java_dev/20221221/file_1671624525132.jpg'
 			return {
 				title,
-				path: `pages/activity/share/index?scene=` + getstorage("userId"),
+				path: `/pages/activity/share/index?scene=` + getstorage("userId") + '&enter=117',
 				imageUrl
 			};
 		},

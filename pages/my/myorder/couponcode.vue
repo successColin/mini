@@ -36,7 +36,7 @@
 					</view>
 				</view>
 			</view>
-			<view v-if="orderdetail.activitySignUpInsurances.length>0">
+			<view v-if="orderdetail.activitySignUpInsurances && orderdetail.activitySignUpInsurances.length>0">
 				<view style="font-size: 28rpx;margin-top: 40rpx;">
 					保险
 				</view>
@@ -125,7 +125,7 @@
 				<view style="28rpx">合计</view>
 				<view style="color: #D91B1B;">
 					<text style="font-size: 24rpx;">￥</text>
-					<text style="font-size: 44rpx;font-weight: bold;">{{orderdetail.paidMoney.toFixed(2)}}</text>
+					<text style="font-size: 44rpx;font-weight: bold;">{{orderdetail.paidMoney === 0 ? 0 : orderdetail.paidMoney.toFixed(2)}}</text>
 				</view>
 
 			</view>
@@ -170,7 +170,7 @@
 							</view>
 							<view class="u-flex" style="margin-top: 14rpx;"
 								v-if="orderdetail.shopTypeId==4||orderdetail.shopTypeId==3">
-								<image src="@/static/image/yirenzheng.png" style="width: 104rpx; height:28rpx"></image>
+								<image src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706059677976.png" style="width: 104rpx; height:28rpx"></image>
 								<view style="margin-top: -5rpx;">
 									<!-- 	<u-rate :readonly='true' :count="1" v-model="value" size='18'
 										active-color="#f7c261">

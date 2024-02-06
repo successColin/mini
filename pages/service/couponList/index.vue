@@ -162,6 +162,7 @@
 	.bottom-btn {
 		text-align: center;
 		position: fixed;
+		z-index: 9999;
 		margin: 0 auto;
 		bottom: 100rpx;
 		left: 74rpx;

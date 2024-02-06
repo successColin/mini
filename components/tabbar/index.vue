@@ -27,11 +27,11 @@
 </template>
 
 <script>
+import noticebar from '@/pages/home/components/noticeBar/index.vue';
 import {
-    getstorage,
-    setstorage
-} from '@/utils/index.js'
-import noticebar from '@/pages/home/components/noticeBar/index.vue'
+getstorage,
+setstorage
+} from '@/utils/index.js';
 export default {
     components: {
         noticebar
@@ -76,50 +76,73 @@ export default {
             let menulist = JSON.parse(getstorage('menuconfiglist'))
             this.tabBarList = [{
                 "pagePath": "pages/home/index",
-                "iconPath": require("@/static/image/homeweixuanzhong.png"),
-                "selectedIconPath": require("@/static/image/hongmexuanzhong.png"),
+                "iconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240125/file_1706143395081.png",
+                "selectedIconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240125/file_1706143278562.png",
                 "text": "首页",
                 "tabs": menulist['applets_exciting_first_look'] ? menulist['applets_exciting_first_look'] : [],
                 "isshow": Object.keys(menulist).findIndex(m => m === 'applets_exciting_first_look') >= 0
 
             },
+            // {
+            //     "pagePath": "pages/home/xjl/index",
+            //     "iconPath": require("@/static/image/xuejia.png"),
+            //     "selectedIconPath": require("@/static/image/activityxuejia.png"),
+            //     "text": "51学驾",
+            //     "tabs": menulist['applets_drive_car'] ? menulist['applets_drive_car'] : [],
+            //     "isshow": Object.keys(menulist).findIndex(m => m === 'applets_drive_car') >= 0
+            // },
             {
-                "pagePath": "pages/home/xjl/index",
-                "iconPath": require("@/static/image/xuejia.png"),
-                "selectedIconPath": require("@/static/image/activityxuejia.png"),
-                "text": "51学驾",
-                "tabs": menulist['applets_drive_car'] ? menulist['applets_drive_car'] : [],
-                "isshow": Object.keys(menulist).findIndex(m => m === 'applets_drive_car') >= 0
+                "pagePath": "pages/home/faultConsultation/index",
+                "iconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706079951786.png",
+                "selectedIconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706079959041.png",
+                "text": "故障咨询",
+                "tabs": menulist['applets_fault_consultation'] ? menulist['applets_fault_consultation'] : [],
+                "isshow": Object.keys(menulist).findIndex(m => m === 'applets_fault_consultation') >= 0
             },
+			{
+			    "pagePath": "pages/home/4sShop",
+			    "iconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240125/file_1706143534531.png",
+			    "selectedIconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240125/file_1706143595133.png",
+			    "text": "4S店逛逛",
+			    "tabs": menulist['applets_4s_strolling'] ? menulist['applets_4s_strolling'] : [],
+			    "isshow": Object.keys(menulist).findIndex(m => m === 'applets_4s_strolling') >= 0
+			},
             // {
             //     "pagePath": "pages/home/carhelp",
-            //     "iconPath": require("@/static/image/help.png"),
-            //     "selectedIconPath": require("@/static/image/helpChecked.png"),
+            //     "iconPath": "https://oss.dcqcjlb.com/51che_java_dev/20231202/file_1701495942188.png",
+            //     "selectedIconPath": 'https://oss.dcqcjlb.com/51che_java_dev/20231202/file_1701495904965.png',
             //     "text": "道路救援",
             //     "tabs": menulist['applets_51help'] ? menulist['applets_51help'] : [],
             //     "isshow": Object.keys(menulist).findIndex(m => m === 'applets_51help') >= 0
             // },
-			{
-			    "pagePath": "carrental",
-			    "iconPath": require("@/static/image/zuche.png"),
-			    "selectedIconPath": require("@/static/image/zuche.png"),
-			    "text": "51租车",
-			    "tabs": menulist['applets_installment_buy_car'] ? menulist['applets_installment_buy_car'] : [],
-			    "isshow": Object.keys(menulist).findIndex(m => m === 'applets_installment_buy_car') >= 0
-			},
+			// {
+			//     "pagePath": "carrental",
+			//     "iconPath": "https://oss.dcqcjlb.com/51che_java_dev/20231202/file_1701495806619.png",
+			//     "selectedIconPath": "https://oss.dcqcjlb.com/51che_java_dev/20231202/file_1701495806619.png",
+			//     "text": "51租车",
+			//     "tabs": menulist['applets_installment_buy_car'] ? menulist['applets_installment_buy_car'] : [],
+			//     "isshow": Object.keys(menulist).findIndex(m => m === 'applets_installment_buy_car') >= 0
+			// },
+            // {
+            //     "pagePath": "pages/home/51carOther/index",
+            //     "iconPath": require("@/static/image/shopCheck.png"),
+            //     "selectedIconPath": require("@/static/image/shopChecked.png"),
+            //     "text": "51购车",
+            //     "tabs": menulist['applets_installment_buy_car'] ? menulist['applets_installment_buy_car'] : [],
+            //     "isshow": Object.keys(menulist).findIndex(m => m === 'applets_installment_buy_car') >= 0
+            // },
             {
-                "pagePath": "pages/home/51carOther/index",
-                "iconPath": require("@/static/image/shopCheck.png"),
-                "selectedIconPath": require("@/static/image/shopChecked.png"),
-                "text": "51购车",
-                "tabs": menulist['applets_installment_buy_car'] ? menulist['applets_installment_buy_car'] : [],
-                "isshow": Object.keys(menulist).findIndex(m => m === 'applets_installment_buy_car') >= 0
+                "pagePath": "pages/home/safetyEducation/index",
+                "iconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706079927221.png",
+                "selectedIconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706079939259.png",
+                "text": "安全教育",
+                "tabs": menulist['applets_safety'] ? menulist['applets_safety'] : [],
+                "isshow": Object.keys(menulist).findIndex(m => m === 'applets_safety') >= 0
             },
-			
             {
                 "pagePath": "pages/home/my",
-                "iconPath": require("@/static/image/wodeweixuanzhong.png"),
-                "selectedIconPath": require("@/static/image/wodexuanzhong.png"),
+                "iconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240125/file_1706143711542.png",
+                "selectedIconPath": "https://oss.dcqcjlb.com/51che_java_dev/20240125/file_1706143765988.png",
                 "text": "我的",
                 "tabs": menulist['applets_my'] ? menulist['applets_my'] : [],
                 "isshow": Object.keys(menulist).findIndex(m => m === 'applets_my') >= 0

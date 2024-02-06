@@ -77,7 +77,7 @@
 							<image v-if="!dataList.is_user_likes_exists" src="@/static/image/weidianzanbig.png"
 								style="width: 44rpx;height: 38rpx;">
 							</image>
-							<image v-else src="@/static/image/yidianzanbig.png" style="width: 44rpx;height: 38rpx;">
+							<image v-else src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706059901925.png" style="width: 44rpx;height: 38rpx;">
 							</image>
 						</view>
 						<view>

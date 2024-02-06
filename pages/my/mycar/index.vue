@@ -13,7 +13,8 @@
 							<view class="size24 mt10">{{item.plate}}</view>
 						</view>
 					</view>
-					<view class="mainRed" @click="ToDelete(item)">删除</view>
+					<view v-if="isupkeep==0" class="mainRed" @click="ToDelete(item)">删除</view>
+					<view v-else-if="isupkeep==1" class="choose-btn" @click="choosecar(item)">选择</view>
 				</view>
 			</view>
 		</view>
@@ -51,15 +52,19 @@
 				showdelete: false,
 				dataList: [],
 				currentList: {},
-				brandId:null
+				brandId: null,
+				isupkeep: 0
 			}
 		},
 
 		onLoad(option) {
-			if(option.brandId){
-				this.brandId=option.brandId
+			if (option.brandId) {
+				this.brandId = option.brandId
 			}
-			let _this=this
+			if (option.isupkeep) {
+				this.isupkeep = option.isupkeep
+			}
+			let _this = this
 			uni.$on('closepop', res => {
 				_this.showrealpop = false
 			})
@@ -67,8 +72,14 @@
 		onShow() {
 			this.getList()
 		},
+	
 		methods: {
-
+			choosecar(item) {
+				uni.navigateBack({
+					delta: 1
+				});
+				uni.$emit('refresh',item)
+			},
 			OnAddcar() {
 
 				if (this.dataList.length == 2) {
@@ -82,7 +93,7 @@
 						return false
 					}
 					uni.navigateTo({
-						url: '/pages/my/mycar/addcar?brandId='+this.brandId
+						url: '/pages/my/mycar/addcar?brandId=' + this.brandId
 					})
 				}
 			},
@@ -156,5 +167,16 @@
 
 	.mt218 {
 		margin-top: 218rpx;
+	}
+
+	.choose-btn {
+		border-radius: 136rpx;
+		background-color: #d91b1b;
+		color: #FFFFFF;
+		font-size: 24rpx;
+		text-align: center;
+		height: 48rpx;
+		line-height: 48rpx;
+		width: 80rpx;
 	}
 </style>

@@ -173,16 +173,17 @@
 			<view class="card-goumai">
 				<ul class="ul-item">
 					<li class="li-item" style="margin-top: 0rpx;"><text class="txtDarkGray">划线价格</text>
-						<view class="txtDarkGray mt10">商品的专柜价、吊牌价、正品零售价、厂商指导价或该商品的 曾经展示过的销售价等，并非原价，仅供参考。</view>
+						<view class="txtDarkGray mt10">划线价格为参考价，该价格指商品或服务的门市价、指导价、零售价或该商品或服务曾经展示过的销售价等，并非原价；由于商品信息实时更新、市场价格波动等可能会与您购买时展示的不一致，该价格仅供您参考。</view>
 					</li>
-					<li class="li-item "><text class="txtDarkGray">未划线价格</text>
-						<view class="txtDarkGray mt10">商品的实时标价，不因表述的差异改变性质。具体成交价格根 据商品参加活动，或会员使用优惠券、积分等发生变化，最终 以订单结算页介
+					<li class="li-item "><text class="txtDarkGray">非划线价格</text>
+						<view class="txtDarkGray mt10">商品或服务的实时标价，为划线价基础上计算出的优惠金额。具体成交价格根据商品参与活动，或使用优惠券等发生变化，最终以订单结算页价格为准。
+此说明仅当出现价格比较时有效。若商家单独对划线价格进行说明的，以商家的表述为准。
 						</view>
 					</li>
-					<li class="li-item"><text class="txtDarkGray">商家详情页 (含主图) 以图片或文字形式标注的一口价、促销
+					<!-- <li class="li-item"><text class="txtDarkGray">商家详情页 (含主图) 以图片或文字形式标注的一口价、促销
 							价、优惠价等价格可能是在使用优惠券、满减或特定优惠活动
 							和时段等情</text></li>
-					<li class="li-item"><text class="txtDarkGray">此说明仅当出现价格比较时有效，若商家单独对划线价格进行 说明的，以商家的表述为准。</text></li>
+					<li class="li-item"><text class="txtDarkGray">此说明仅当出现价格比较时有效，若商家单独对划线价格进行 说明的，以商家的表述为准。</text></li> -->
 				</ul>
 			</view>
 			<!--  #ifdef MP-WEIXIN  -->
@@ -197,7 +198,7 @@
 								<image src="@/static/image/weishoucang.png" style="width: 56rpx;height: 56rpx;"></image>
 							</view>
 							<view v-if="dataList.isCollection == 1">
-								<image src="@/static/image/xinyishoucang.png" style="width: 56rpx;height: 56rpx;">
+								<image src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706060433937.png" style="width: 56rpx;height: 56rpx;">
 								</image>
 							</view>
 							<view v-if="dataList.isCollection == 2 || dataList.isCollection == null"
@@ -423,12 +424,12 @@
 </template>
 
 <script>
-	import {
-		tologin,
-		getstorage
-	} from '@/utils/index.js'
 	import carousel from "@/components/carousel/index.vue"
-	import Poster from '@/components/zhangyuhao-poster/Poster.vue'
+import Poster from '@/components/zhangyuhao-poster/Poster.vue'
+import {
+getstorage,
+tologin
+} from '@/utils/index.js'
 	export default {
 		components: {
 			carousel,
@@ -505,7 +506,7 @@
 			let imageUrl = this.dataList.appletsSharePic ? this.dataList.appletsSharePic : this.dataList.coverPicture
 			return {
 				title,
-				path: `/pages/grouppurchase/newpeople/detail?forwardUserId=` + getstorage("userId") + '&id=' + this.id,
+				path: `/pages/grouppurchase/newpeople/detail?forwardUserId=` + getstorage("userId") + '&id=' + this.id + '&enter=117',
 				imageUrl
 			};
 		},
@@ -518,12 +519,21 @@
 			let imageUrl = this.dataList.appletsSharePic ? this.dataList.appletsSharePic : this.dataList.coverPicture
 			return {
 				title,
-				path: `/pages/grouppurchase/newpeople/detail?forwardUserId=` + getstorage("userId") + '&id=' + this.id,
+				path: `/pages/grouppurchase/newpeople/detail?forwardUserId=` + getstorage("userId") + '&id=' + this.id + '&enter=117',
 				imageUrl
 			};
 		},
 		onLoad(option) {
-			console.log(option)
+			console.log(option);
+			// uni.removeStorageSync('enter');
+			console.log("进来了===========》", JSON.stringify(option), option);
+			if (option.enter) {
+				uni.setStorageSync('enter', option.enter);
+			}
+			// 二维码分享特殊处理
+			if (option.scene && option.scene.indexOf('_enter=117')) {
+				uni.setStorageSync('enter', '117');
+			}
 			if (option.id) {
 				this.id = option.id
 			}
@@ -682,7 +692,7 @@
 				}
 				this.$request.post("/coc-active/api/v1/invite/getMiniProgramQrCode", {
 					page: 'pages/grouppurchase/newpeople/detail',
-					scene: this.id + '_' + uni.getStorageSync('userId')
+					scene: this.id + '_' + uni.getStorageSync('userId') + '_enter=117',
 				}).then(res => {
 					this.showpopshare = true
 					this.list = [{
@@ -1199,6 +1209,7 @@
 		width: 100%;
 		padding: 0rpx 28rpx 0rpx 0rpx;
 		position: fixed;
+		z-index: 9999;
 		bottom: 0rpx;
 		background-color: #ffffff;
 		margin-top: 40rpx;

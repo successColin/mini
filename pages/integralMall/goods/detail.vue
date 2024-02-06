@@ -91,22 +91,22 @@
 </template>
 
 <script>
-	import carousel from "@/components/carousel/index.vue"
-	import {
-		tologin
-	} from '@/utils/index.js'
+	import carousel from "@/components/carousel/index.vue";
+import {
+tologin
+} from '@/utils/index.js';
 	export default {
 		onShareAppMessage(res) {
 			return {
 				title: this.detail.name,
-				path: `/pages/integralMall/goods/detail?id=` + this.id,
+				path: `/pages/integralMall/goods/detail?id=` + this.id + '&enter=117',
 				imageUrl: this.detail.titleImg
 			};
 		},
 		onShareTimeline(res) { //分享到朋友圈
 			return {
 				title: this.detail.name,
-				path: `/pages/integralMall/goods/detail?id=` + this.id,
+				path: `/pages/integralMall/goods/detail?id=` + this.id + '&enter=117',
 				imageUrl: this.detail.titleImg
 			}
 		},
@@ -135,6 +135,10 @@
 			}
 		},
 		onLoad(option) {
+			// uni.removeStorageSync('enter');
+			if (option.enter) {
+				uni.setStorageSync('enter', option.enter);
+			}
 			//#ifdef H5
 			if(option.token){
 				uni.setStorage({
@@ -373,6 +377,7 @@
 	.bottom-btn {
 		border-top: 1rpx #e7e7e7 solid;
 		position: fixed;
+		z-index: 9999;
 		background-color: #ffffff;
 		bottom: 0;
 		width: 100%;

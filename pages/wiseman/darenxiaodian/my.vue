@@ -6,11 +6,9 @@
             <view class="bottom-view">
                 <view class="bottom-view-left">
                     <view @click="setSelect">
-                        <image v-if="select"
-                            src="https://oss.dcqcjlb.com/51che_java_dev/20230817/file_1692255763089.png"
+                        <image v-if="select" src="https://oss.dcqcjlb.com/51che_java_dev/20230817/file_1692255763089.png"
                             class="bottom-view-left-selected" />
-                        <image v-else
-                            src="https://oss.dcqcjlb.com/51che_java_dev/20230817/file_1692255786059.png"
+                        <image v-else src="https://oss.dcqcjlb.com/51che_java_dev/20230817/file_1692255786059.png"
                             class="bottom-view-left-selected" />
                     </view>
                     <view class="bottom-view-left-title">全选</view>
@@ -40,7 +38,9 @@ export default {
             select: false,
             obj: {
                 relatedName: '',
-                lockType: 0,
+                // lockType: 0,
+                // newLockType: 0,
+                lockTypeV3: '',
                 sort: 0,
                 current: 1,
                 size: 50
@@ -54,15 +54,15 @@ export default {
             release: '0',
             showload: false,
             timer: undefined,
-			isCommissionPrice:null
+            isCommissionPrice: null
         }
     },
     onLoad(option) {
-		if(option.isCommissionPrice==1){
-			this.isCommissionPrice=0
-		}else if (option.isCommissionPrice==0){
-			this.isCommissionPrice=1
-		}
+        if (option.isCommissionPrice == 1) {
+            this.isCommissionPrice = 0
+        } else if (option.isCommissionPrice == 0) {
+            this.isCommissionPrice = 1
+        }
         this.release = option.release
         this.getList()
         uni.$on('drxdsearch', (value) => {
@@ -88,11 +88,11 @@ export default {
             this.getList()
         },
         async getList() {
-			if(this.isCommissionPrice==0){
-				this.obj.isCommissionPrice=0
-			}else if (this.isCommissionPrice==1){
-				this.obj.isCommissionPrice=1
-			}
+            if (this.isCommissionPrice == 0) {
+                this.obj.isCommissionPrice = 0
+            } else if (this.isCommissionPrice == 1) {
+                this.obj.isCommissionPrice = 1
+            }
             const { data } = await this.$request.post('/coc-active/api/v1/expert/shop/selection/list', this.obj)
             const list = JSON.parse(JSON.stringify(this.rows.list))
             data.records.forEach((v) => {
@@ -112,11 +112,13 @@ export default {
         setTab(id) {
             this.obj.relatedName = ''
             delete this.obj.shopCategoryId
-            this.setObj('lockType', id)
+            // this.setObj('lockType', id)
+            // this.setObj('newLockType', id)
+            this.setObj('lockTypeV3', id)
         },
         setShopCategoryTab(id) {
             this.obj.relatedName = ''
-            delete this.obj.lockType
+            // delete this.obj.lockType
             this.setObj('shopCategoryId', id)
         },
         onScrollToLower() {

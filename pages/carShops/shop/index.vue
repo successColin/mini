@@ -9,7 +9,7 @@
 								@search='search'></u-search>
 						</view>
 						<view style="position: relative;margin-left: 12rpx;height: 55rpx;">
-							<image src="@/static/image/message.png" style="width: 55rpx;height: 55rpx;"></image>
+							<image src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706061953183.png" style="width: 55rpx;height: 55rpx;"></image>
 							<button open-type='contact' session-from='' class="kefu-contact"></button>
 						</view>
 					</view>
@@ -39,12 +39,12 @@
 							<view class="flex alc">
 								<view class="flex alc" @click.stop="showLocation(item.lng,item.lat)">
 									<image src="@/static/image/dingwei.png" class="dwIcon"></image>
-									<view class="size24 fw500 ml10">{{item.distanceMsg}}</view>
+									<view class="size24 fwb ml10">{{item.distanceMsg}}</view>
 								</view>
 								<view v-if="item.mobile" class="flex alc" @click.stop="clickTel(item.mobile)">
 									<image src="@/static/image/dianhua.png" class="telIcon ml20">
 									</image>
-									<view class="size24 fw500 ml10">{{item.mobile}}</view>
+									<view class="size24 fwb ml10">{{item.mobile}}</view>
 								</view>
 							</view>
 							<view class="goShop">进店</view>

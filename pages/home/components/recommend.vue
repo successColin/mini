@@ -5,26 +5,34 @@
                 <view class="df aic">
                     <image
                         src="https://oss.dcqcjlb.com/51che_java_dev/20230829/file_1693287491040.png"
-                        class="recommend-head-logo" />
+                        class="recommend-head-logo"
+                    />
                     <view class="recommend-head-title">达人推荐专区</view>
                 </view>
-                <image src="https://oss.dcqcjlb.com/51che_java_dev/20230829/file_1693277279704.png"
-                    class="recommend-head-go" />
+                <image
+                    src="https://oss.dcqcjlb.com/51che_java_dev/20230829/file_1693277279704.png"
+                    class="recommend-head-go"
+                />
             </view>
             <view class="w700">
-                <custom-waterfalls-flow imageKey='coverPicture' ref="waterfallsFlowRef" :value="rows.list"
-                    :isshowicon='true' @imageClick='toList'>
+                <custom-waterfalls-flow
+                    imageKey="coverPicture"
+                    ref="waterfallsFlowRef"
+                    :value="rows.list"
+                    :isshowicon="true"
+                    @imageClick="toList"
+                >
                     <view v-for="(v, i) in rows.list" :key="i" slot="slot{{i}}" class="recommend-item">
                         <!-- <image v-if="v.video && v.video.length > 0"
                             src="https://oss.dcqcjlb.com/51che_java_dev/20230830/file_1693395602623.png"
                             class="recommend-item-video" /> -->
                         <!-- <image :src="v.coverPicture" class="recommend-item-image" /> -->
                         <view class="recommend-item-bottom">
-                            <view class="recommend-item-bottom-title">{{ v.activityTitle || v.articleTitle || v.productTitle
-                            }}
+                            <view class="recommend-item-bottom-title"
+                                >{{ v.activityTitle || v.articleTitle || v.productTitle }}
                             </view>
                             <view class="df aic jcsb">
-                                <view class="df aic" style="padding-left: 10rpx;">
+                                <view class="df aic" style="padding-left: 10rpx">
                                     <!-- <image :src="v.headImg" mode="aspectFill" class="recommend-item-bottom-image" /> -->
                                     <u-avatar size="20" :src="v.headImg"></u-avatar>
                                     <view class="recommend-item-bottom-name">{{ v.nickname }}</view>
@@ -35,9 +43,7 @@
                     </view>
                 </custom-waterfalls-flow>
             </view>
-            <view v-if="bottomStatus" class="recommend-bottom">
-                我到底啦~
-            </view>
+            <view v-if="bottomStatus" class="recommend-bottom"> 我到底啦~ </view>
         </view>
     </view>
 </template>
@@ -49,75 +55,77 @@ export default {
         return {
             rows: {
                 list: [],
-                total: 0
+                total: 0,
             },
             obj: {
                 current: 1,
                 size: 10,
-                userId: 0
+                userId: 0,
             },
-            bottomStatus: false
-        }
+            bottomStatus: false,
+        };
     },
     props: {},
     created() {
-        this.getList()
-        uni.$on('updatedata', () => {
-            this.obj.current = 1
-            this.rows.list = []
-            this.rows.total = 0
-            this.getList()
-        })
-        uni.$on('recommend', () => {
+        this.getList();
+        uni.$on("updatedata", () => {
+            this.obj.current = 1;
+            this.rows.list = [];
+            this.rows.total = 0;
+            this.getList();
+        });
+        uni.$on("recommend", () => {
             if (this.rows.total > this.obj.current * this.obj.size) {
-                this.obj.current += 1
-                this.getList()
+                this.obj.current += 1;
+                this.getList();
             } else {
-                this.bottomStatus = true
+                this.bottomStatus = true;
             }
-        })
+        });
     },
     destroyed() {
-        uni.$off('updatedata')
-        uni.$off('recommend')
+        uni.$off("updatedata");
+        uni.$off("recommend");
     },
     methods: {
         async getList() {
-            const { data: { records, total } } = await this.$request.post('/coc-social/api/v2/article/myArticleList', this.obj)
-            const list = JSON.parse(JSON.stringify(this.rows.list))
+            const {
+                data: { records, total },
+            } = await this.$request.post("/coc-social/api/v2/article/myArticleList", this.obj);
+            const list = JSON.parse(JSON.stringify(this.rows.list));
             records.forEach((v) => {
                 if (v.imgs) {
-                    v.coverPicture = v.imgs.split(',')[0]
-                } else if(v.articleCoverImage) {
-                    v.coverPicture = v.articleCoverImage
-                }else if(v.video) {
-                    v.coverPicture = v.video + '?x-oss-process=video/snapshot,t_1000,m_fast'
+                    v.coverPicture = v.imgs.split(",")[0];
+                } else if (v.articleCoverImage) {
+                    v.coverPicture = v.articleCoverImage;
+                } else if (v.video) {
+                    v.coverPicture = v.video + "?x-oss-process=video/snapshot,t_1000,m_fast";
                 }
-                list.push(v)
-            })
-            this.rows.list = list
-            this.rows.total = total
+                list.push(v);
+            });
+            this.rows.list = list;
+            this.rows.total = total;
         },
         toClick() {
             uni.navigateTo({
-                url: '/pages/activity/activityRegistration/playfulperson'
-            })
+                url: "/pages/activity/activityRegistration/playfulperson",
+            });
         },
         toList(value) {
-            let type = 2
+            let type = 2;
             if (value.video) {
-                type = 1
+                type = 1;
                 uni.navigateTo({
-                    url: '/pages/activity/waterfull/videolist?id=' + value.articleId,
-                })
+                    url: "/pages/activity/articlevideo/index?id=" + value.articleId,
+                });
             } else {
                 uni.navigateTo({
-                    url: '/pages/activity/waterfull/imglist?id=' + value.articleId,
-                })
+                    url: "/pages/activity/waterfull/imglist?id=" + value.articleId,
+                });
             }
-        }
-    }
-}
+        },
+    },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -164,7 +172,7 @@ export default {
     }
 
     &-item {
-        background: #FFFFFF;
+        background: #ffffff;
         margin-bottom: 10rpx;
 
         &-video {
@@ -238,7 +246,6 @@ export default {
         margin-top: 20rpx;
         margin-bottom: 20rpx;
     }
-
 }
 
 .df {

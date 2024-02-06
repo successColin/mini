@@ -404,6 +404,7 @@ floorprice
 		width: 100%;
 		padding: 20rpx 0rpx;
 		position: fixed;
+		z-index: 9999;
 		bottom: 0rpx;
 		background-color: #ffffff;
 		margin-top: 40rpx;

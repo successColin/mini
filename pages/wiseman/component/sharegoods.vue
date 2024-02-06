@@ -44,7 +44,7 @@ export default {
                 lockType: 0,
                 sort: 1,
                 current: 1,
-                size: 50
+                size: 99
             },
             rows: {
                 list: [],

@@ -8,6 +8,25 @@
 			        height='350'
 					imgMode='aspectFit'
 			   ></u-swiper>
+
+			<view class="merchant-style" @click="handleJumpMerchant(dataList)">
+				<view v-if="dataList.article.shopPunchClockId" class="prominent oneLine">
+					<view class="u-flex alc" style="margin-left: 10rpx">
+						<image
+							style="width: 32rpx; height: 32rpx"
+							src="https://oss.dcqcjlb.com/51che_java_dev/20230705/file_1688537558093.png"
+						>
+						</image>
+					</view>
+					<view
+						class="txtColorWhite size24 oneLine"
+						style="margin-left: 15rpx; flex: 1; line-height: 48rpx; margin-right: 10rpx;"
+					>
+						商家丨{{ dataList.article.shopPunchClock }}
+					</view>
+				</view>
+				<view style="flex: 1"></view>
+			</view>
 		</view>
 		
 			<view class="u-flex"
@@ -438,7 +457,7 @@
 							<image v-if="dataList.article.likeType == 2" src="@/static/image/weidianzanbig.png"
 								style="width: 44rpx;height: 38rpx;">
 							</image>
-							<image v-else src="@/static/image/yidianzanbig.png" style="width: 44rpx;height: 38rpx;">
+							<image v-else src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706059901925.png" style="width: 44rpx;height: 38rpx;">
 							</image>
 						</view>
 						<view>
@@ -489,13 +508,11 @@
 </template>
 <script>
 	import cardauthentication from '@/components/cardauthentication.vue'
-	import popcomment from '@/components/pop/popcomment.vue'
-	import {
-		tologin,
-		getstorage,
-
-	} from '@/utils/index.js'
-	import carousel from "@/components/carousel/index.vue"
+import carousel from "@/components/carousel/index.vue"
+import popcomment from '@/components/pop/popcomment.vue'
+import {
+tologin
+} from '@/utils/index.js'
 	export default {
 		components: {
 			popcomment,
@@ -563,7 +580,18 @@
 		
 
 		methods: {
+			handleJumpMerchant(item) {
+				console.log(item);
+				uni.navigateTo({
+					url: '/pages/activityMall/business/index?id=' + item.article.shopPunchClockId // + '&shopType=' + this.shopType
+				})
+			},
 			Onpushuserinfo(){
+				if (this.dataList.article.userStatus == 2) {
+					return uni.$u.toast('该用户被冻结');
+				} else if (this.dataList.article.userStatus == 3) {
+					return uni.$u.toast('该用户已注销');
+				}
 				if(this.dataList.article.isExpert==1){
 					if(this.dataList.article.expertStatus==1){
 							uni.$u.toast('该用户被封禁')
@@ -1173,7 +1201,7 @@
 		position: fixed;
 		bottom: 1rpx;
 		background-color: #ffffff;
-
+		z-index: 9999;
 		font-size: 24rpx;
 		width: 100%;
 	}
@@ -1206,5 +1234,26 @@
 		background-color: #999999 !important;
 		border: 1rpx #999999 solid !important;
 		color: #ffffff !important;
+	}
+	.merchant-style {
+		position: relative;
+		font-size: 24rpx;
+		bottom: 60rpx;
+		left: 15rpx;
+		color: #ffffff;
+		display: flex;
+		align-items: center;
+		z-index: 99;
+		width: calc(100% - 100rpx);
+	}
+	.prominent {
+		height: 48rpx;
+		background-image: url(https://oss.dcqcjlb.com/51che_java_dev/20230603/file_1685780222536.png);
+		background-size: 100% 100%;
+		border-radius: 10rpx;
+		display: flex;
+		top: 0;
+		margin: 0;
+		// width: 100%;
 	}
 </style>

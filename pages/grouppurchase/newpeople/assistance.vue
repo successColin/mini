@@ -58,7 +58,9 @@
         </view>
         <view class="mainRed size24">
           ￥<text class="fwb" style="font-size: 40rpx">{{
-           dataList.bankCardPrice ? dataList.bankCardPrice : dataList.flashSalePrice
+            dataList.bankCardPrice
+              ? dataList.bankCardPrice
+              : dataList.flashSalePrice
           }}</text>
         </view>
       </view>
@@ -77,7 +79,9 @@
         >
         <view style="margin-top: 10rpx"
           >即可<text style="font-size: 76rpx" class="mainRed">{{
-            dataList.bankCardPrice ? dataList.bankCardPrice : dataList.flashSalePrice
+            dataList.bankCardPrice
+              ? dataList.bankCardPrice
+              : dataList.flashSalePrice
           }}</text
           >元抢购</view
         >
@@ -222,40 +226,41 @@ export default {
     this.getList();
     let _this = this;
     const eventChannel = this.getOpenerEventChannel();
-    eventChannel.on("getinfo", function (data) {
+    eventChannel.on('getinfo', function (data) {
       _this.currentdata = data.data;
       _this.currentdata.allmealprice = _this.currentdata.mealprice;
     });
   },
   onShow() {},
   onShareAppMessage(res) {
-    let title = "分享助力";
+    let title = '分享助力';
     let imageUrl =
-      "https://oss.dcqcjlb.com/51che_java_dev/20230318/file_1679101807444.png";
+      'https://oss.dcqcjlb.com/51che_java_dev/20230318/file_1679101807444.png';
     return {
       title,
       path:
-        "/pages/grouppurchase/newpeople/helpindex?userInitiateAssistId=" +
-        this.userInitiateAssistId,
+        '/pages/grouppurchase/newpeople/helpindex?userInitiateAssistId=' +
+        this.userInitiateAssistId +
+        '&enter=117',
       imageUrl,
     };
   },
   methods: {
     OnPushweb() {
       uni.navigateTo({
-        url: "/pages/activity/GoPdf/webview?url=https://h5.dcqcjlb.com/protocol/activity_rules.html",
+        url: '/pages/activity/GoPdf/webview?url=https://h5.dcqcjlb.com/protocol/activity_rules.html',
       });
     },
     OnPushreturn() {
       this.$request
         .put(
-          "/coc-active/api/v1/group/initiateAssistAgain/" +
+          '/coc-active/api/v1/group/initiateAssistAgain/' +
             this.userInitiateAssistId
         )
         .then((res) => {
           if (res.code == 200) {
             uni.navigateTo({
-              url: "/pages/grouppurchase/newpeople/index",
+              url: '/pages/grouppurchase/newpeople/index',
             });
           }
         });
@@ -264,10 +269,10 @@ export default {
       let _this = this;
       _this.currentdata.userInitiateAssistId = this.userInitiateAssistId;
       uni.navigateTo({
-        url: "/pages/grouppurchase/payindex?isnew=1&istype=wx",
+        url: '/pages/grouppurchase/payindex?isnew=1&istype=wx',
         success: function (res) {
           // 通过eventChannel向被打开页面传送数据
-          res.eventChannel.emit("getinfo", {
+          res.eventChannel.emit('getinfo', {
             data: _this.currentdata,
           });
         },
@@ -283,7 +288,7 @@ export default {
     getList() {
       this.$request
         .get(
-          "/coc-active/api/v1/group/getAssistDetails/" +
+          '/coc-active/api/v1/group/getAssistDetails/' +
             this.userInitiateAssistId
         )
         .then((res) => {

@@ -4,9 +4,9 @@
 			<image style="width: 141rpx;height: 52rpx;" src="https://oss.dcqcjlb.com/51che_java_dev/20230625/file_1687653531472.png"></image>
 		</view>
 		<view class="top">
-			<view class="vipone" v-if="dataList.roadVip==1">
+			<!-- <view class="vipone" v-if="dataList.roadVip==1">
 				待投保
-			</view>
+			</view> -->
 			<view class="vipone"  v-if="dataList.roadVip==2">
 				权益到期时间:{{dataList.roadVipExp}}
 			</view>
@@ -181,6 +181,7 @@
 
 	.bottom-btn {
 		position: fixed;
+		z-index: 9999;
 		bottom: 0rpx;
 		background: #FFFFFF;
 		width: 100%;

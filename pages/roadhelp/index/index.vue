@@ -428,7 +428,6 @@
 				let _this = this
 				uni.chooseLocation({
 					success: function(res) {
-						console.log(res)
 						_this.lat = res.latitude
 						_this.lng = res.longitude
 						_this.address = res.name

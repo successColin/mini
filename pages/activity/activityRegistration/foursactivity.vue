@@ -284,7 +284,7 @@
 			<pushclosedactivity></pushclosedactivity>
 		</view>
 
-		<image class="zhiding" src="@/static/image/zhidingicon.png" @click="ClickZhiDing"></image>
+		<image class="zhiding" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706059356929.png" @click="ClickZhiDing"></image>
 	</view>
 
 </template>

@@ -4,7 +4,7 @@
 			<view class="row">
 				<view class="row-left">
 				<image  style="width: 52rpx;height: 52rpx;" mode="heightFix"
-					src="../static/image/weixin.png">
+					src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706061209137.png">
 					<view style="line-height: 56rpx;margin-left: 20rpx;">微信</view>
 				</view>
 				<view class="row-right">未绑定	<u-icon size="12" name="arrow-right" :bold='true' color="#222222"></u-icon></view>

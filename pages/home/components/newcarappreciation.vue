@@ -1,25 +1,43 @@
 <template>
     <view class="page">
         <view class="newcarappreciation">
-            <image src="https://oss.dcqcjlb.com/51che_java_dev/20230918/file_1695017050229.png"
-                class="newcarappreciation-image" />
+            <image
+                src="https://oss.dcqcjlb.com/51che_java_dev/20230918/file_1695017050229.png"
+                class="newcarappreciation-image"
+            />
             <view>
                 <view class="newcarappreciation-top">
                     <image
                         src="https://oss.dcqcjlb.com/51che_java_dev/20230918/file_1695005018280.png"
-                        class="newcarappreciation-top-image" />
+                        class="newcarappreciation-top-image"
+                    />
                     <view class="newcarappreciation-top-title" @click="toClick">去逛逛</view>
                 </view>
-                <swiper v-if="list && list.length > 0" class="newcarappreciation-list" :vertical="false" :autoplay="true"
-                    :current="current" :circular="true" :interval="5000" :duration="1000" @change="setSwiper">
-                    <swiper-item v-for="(v, i) in list" :key="i" :lazy-load="true" class="newcarappreciation-item"
-                        @click="Onpushdetail(v)">
+                <swiper
+                    v-if="list && list.length > 0"
+                    class="newcarappreciation-list"
+                    :vertical="false"
+                    :autoplay="true"
+                    :current="current"
+                    :circular="true"
+                    :interval="5000"
+                    :duration="1000"
+                    @change="setSwiper"
+                >
+                    <swiper-item
+                        v-for="(v, i) in list"
+                        :key="i"
+                        :lazy-load="true"
+                        class="newcarappreciation-item"
+                        @click="Onpushdetail(v)"
+                    >
                         <!-- <video v-if="current === i" :src="v.videoUrl" class="newcarappreciation-item-image"
                             :autoplay="false" :loop="true" :muted="true" :controls="false" objectFit='cover'></video> -->
                         <image :src="v.coverImage" class="newcarappreciation-item-image" />
                         <image
                             src="https://oss.dcqcjlb.com/51che_java_dev/20230830/file_1693395602623.png"
-                            class="newcarappreciation-item-video" />
+                            class="newcarappreciation-item-video"
+                        />
                         <view class="u-flex">
                             <view class="newcarappreciation-item-name">{{ v.title }}</view>
                             <!-- <view class="newcarappreciation-item-label">#新车特点广告语</view> -->
@@ -38,43 +56,46 @@ export default {
         return {
             list: [],
             current: 0,
-            codeTime: undefined
-        }
+            codeTime: undefined,
+        };
     },
     created() {
-        this.getList()
+        this.getList();
     },
     destroyed() {
-        clearInterval(this.codeTime)
+        clearInterval(this.codeTime);
     },
     methods: {
         setSwiper({ detail: { current } }) {
             if (this.codeTime) {
-                clearInterval(this.codeTime)
+                clearInterval(this.codeTime);
             }
             this.codeTime = setInterval(() => {
-                this.current = current
-            }, 1000)
+                this.current = current;
+            }, 1000);
         },
         Onpushdetail(v) {
             uni.navigateTo({
-                url: '/pages/activity/foursvideo/index?id=' + v.id + '&type=4'
-            })
+                url: "/pages/activity/foursvideo/index?id=" + v.id + "&type=4&title=新车鉴赏",
+            });
         },
         async getList() {
-            const { data: { records } } = await this.$request.post('/coc-active/api/v1/video/list', {
-                current: 1, size: 100,
-                type: 4
-            })
-            this.list = records
+            const {
+                data: { records },
+            } = await this.$request.post("/coc-active/api/v1/video/list", {
+                current: 1,
+                size: 100,
+                type: 4,
+            });
+            this.list = records;
         },
         toClick() {
             uni.navigateTo({
-                url: '/pages/carShops/motorcycletype/index'
-            })
-        }
-    }
-}
+                url: "/pages/carShops/motorcycletype/index",
+            });
+        },
+    },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -122,7 +143,7 @@ export default {
             font-family: PingFang SC;
             font-weight: 500;
             font-style: italic;
-            color: #FFFFFF;
+            color: #ffffff;
             line-height: 35rpx;
         }
     }
@@ -140,7 +161,7 @@ export default {
         display: flex;
         flex-direction: column;
         height: 160rpx;
-        background: #FFFFFF;
+        background: #ffffff;
         border-radius: 10rpx;
         margin-right: 10rpx;
 
@@ -186,7 +207,6 @@ export default {
             color: #222222;
             margin-top: 19rpx;
         }
-
     }
 }
 </style>

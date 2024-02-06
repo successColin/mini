@@ -20,8 +20,8 @@
 		<view class="cards">
 			<image src="https://oss.dcqcjlb.com/51che_java_dev/20231010/file_1696904329037.png"
 				@click="lookdetail('y')"></image>
-			<image src="https://oss.dcqcjlb.com/51che_java_dev/20230227/file_1677482867029.png"
-				@click="lookdetail('n')"></image>
+			<!-- <image src="https://oss.dcqcjlb.com/51che_java_dev/20230227/file_1677482867029.png"
+				@click="lookdetail('n')"></image> -->
 			<image src="https://oss.dcqcjlb.com/51che_java_dev/20230311/file_1678518857995.png"
 				class="mt20" @click="lookdetail('g')"></image>
 		</view>
@@ -63,7 +63,10 @@
 		</u-popup>
 		<u-picker :immediateChange ='true' :show="showfirst" :columns="columnsfirst" @cancel="showfirst=false" @confirm="Onselectfirst"></u-picker>
 		<u-picker :immediateChange ='true' :show="showtwo" :columns="selectList" keyName="nickname" @cancel="showtwo=false" @confirm="Onselecttwo"></u-picker>
-	<view style="height: 50rpx;"></view>
+	<view :style="{'height':`calc(50rpx + 84px)`}"></view>
+	<!-- #ifdef MP-WEIXIN -->
+	<official-account style="width:750rpx;position: fixed;left: 0;bottom: 0rpx;z-index: 9999;"></official-account>
+	<!-- #endif -->
 	</view>
 </template>
 
@@ -93,7 +96,8 @@
 				affiliationId: '',
 				showfourshop: false,
 				fourshopid: '',
-				affiliationType:''
+				affiliationType:'',
+				userChannelId:''
 			}
 		},
 		onHide() {
@@ -118,6 +122,13 @@
 					this.sourceType = option.scene.split('_')[0]
 					this.affiliationType=option.scene.split('_')[0]
 					this.affiliationId = option.scene.split('_')[1]
+					if(this.sourceType == 2) { //客户经理
+						this.getChannelId(this.affiliationId,1)
+					} else if(this.sourceType == 3) { //销售顾问
+						this.getChannelId(this.affiliationId,2)
+					} else if(this.sourceType == 7) { //市场经理
+						this.getChannelId(this.affiliationId,3)
+					}
 				} else if (option.scene.split('_').length == 1) {
 					this.sourceType = 5
 					this.fourshopid = option.scene.split('_')[0]
@@ -152,11 +163,13 @@
 				this.showtwo=false
 				this.affiliationId=e.value[0].id
 				this.selecttwoname=e.value[0].nickname
+				this.userChannelId=e.value[0].userChannelId
 			},
 			Onselectfirst(e){
 				this.selectname=e.value[0]
 			this.selecttwoname=''
 			this.affiliationId=''
+			this.userChannelId=''
 				if(e.indexs[0]==0){
 			this.affiliationType=2
 					this.$newrequest.get('/coc-system/api/v1/system/customer/manager/list?shopId='+this.fourshopid).then(res=>{
@@ -212,7 +225,7 @@
 			lookdetail(type) {
 				if (!uni.getStorageSync('token')) {
 					uni.navigateTo({
-						url: '/pages/activity/share/index'
+						url: '/pages/activity/share/index?userChannelId='+this.userChannelId
 					})
 					return false
 				}
@@ -225,6 +238,20 @@
 						"&affiliationId=" + this.affiliationId+"&affiliationType="+this.affiliationType
 				})
 			},
+			getChannelId(id,type){
+				this.$request
+				  .post('/coc-system/api/v1/system/customer/manager/getChannel', {
+				    id,
+					type
+				  })
+				  .then((res) => {
+					  if(res.code == 200){
+					  	if(res.data && res.data.userChannelId) {
+					  		this.userChannelId = res.data.userChannelId
+					  	}
+					  }
+				  });
+			}
 		}
 	}
 </script>

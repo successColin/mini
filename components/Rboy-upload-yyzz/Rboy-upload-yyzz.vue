@@ -12,7 +12,7 @@
 			<view class="Rboy-reverse">
 			
 		
-			<image v-if="!reverseUrl" class="reverseimg" src="@/static/image/xuanchuantupian.png" @click="reverse_btn" mode="">
+			<image v-if="!reverseUrl" class="reverseimg" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706060226165.png" @click="reverse_btn" mode="">
 			</image>
 			<image v-else class="reverseimg"  :src="reverseUrl " @click="reverse_btn" mode="">
 			</image>

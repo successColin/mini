@@ -267,14 +267,12 @@
 				this.index = index
 			},
 			Onsearch() {
-					this.current = 1
-					this.dataList=[]
+				this.current = 1
+				this.dataList=[]
 				if(!this.title){
 				this.getList()
 					return false
 				}else{
-				
-					
 					this.getAll()
 				}
 			
@@ -312,7 +310,6 @@
 				})
 			},
 			getAll(){
-				this.dataList=[]
 				this.$request.post("/coc-active/api/v2/homePage/getActivitysV2", {
 					activityPaymentPreferenceId: this.type,
 					current: this.current,
@@ -328,7 +325,6 @@
 				}).then(res=>{
 					res.data.homePageActivitysVOIPage.records.filter(s => {
 						this.dataList.push(s)
-						
 					})
 					this.getall2()
 				})

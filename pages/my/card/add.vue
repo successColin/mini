@@ -50,7 +50,7 @@
 				bank: '请选择银行',
 				showpicker: false,
 				columns: [
-					['中国工商银行','中国农业银行' ]
+					['中国工商银行','中国邮储银行'] // '中国农业银行'
 				],
 			}
 		},
@@ -99,10 +99,11 @@
 				})
 			},
 			Onchoosebank(e) {
+				console.log(e);
 				if(e.indexs[0]==0){
 					this.banktype=2
-				}else{
-					this.banktype=1
+				}else {
+					this.banktype=3
 				}
 				this.bank = e.value[0]
 				this.showpicker = false

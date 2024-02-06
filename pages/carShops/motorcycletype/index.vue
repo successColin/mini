@@ -8,7 +8,7 @@
 							@search='search'></u-search>
 					</view>
 					<view style="position: relative;margin-left: 12rpx;height: 55rpx;">
-						<image src="@/static/image/message.png" style="width: 55rpx;height: 55rpx;"></image>
+						<image src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706061953183.png" style="width: 55rpx;height: 55rpx;"></image>
 						<button open-type='contact' session-from='' class="kefu-contact"></button>
 					</view>
 				</view>
@@ -609,7 +609,7 @@
 			height: 60rpx;
 			border-radius: 10rpx;
 			float: left;
-			margin-right: 16rpx;
+			margin-right: 15rpx;
 			display: flex;
 			align-items: center;
 			justify-content: center;

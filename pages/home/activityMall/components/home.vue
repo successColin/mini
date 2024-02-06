@@ -1,222 +1,126 @@
 <template>
 	<view class="page">
-		<view class="bgfff page_top">
-			<view style="margin: 0rpx 20rpx 30rpx 20rpx;" class="u-flex">
-				<view style="width: 640rpx">
-					<u-search @custom="OnPushSearch" :show-action='false' :clearabled="true" v-model="keyword"
-						@search="OnPushSearch" placeholder="搜索商家名称，如乐园">
-					</u-search>
+		<view @touchmove.stop.prevent="moveHandle">
+			<search class="page_top" fromType="海量游乐" :isIcon="true" :isBgf="true" @search="search"></search>
+			<view class="tabs">
+				<view class="tabs-list">
+					<view class="tabs-item">
+						<view class=" tabs-item-left">
+							<view class="tabs-item-view" @click="getStatus(true)">
+								<view :class="status ? 'tabs-item-title' : 'tabs-item-untitle'">精选团购</view>
+								<image v-show="status"
+									src="https://oss.dcqcjlb.com/51che_java_dev/20231027/file_1698392764793.png"
+									class="tabs-item-image" />
+							</view>
+						</view>
+					</view>
+					<view class="tabs-item">
+						<view class="tabs-item-right">
+							<view class="tabs-item-view" @click="getStatus(false)">
+								<view :class="!status ? 'tabs-item-title' : 'tabs-item-untitle'">热门玩乐</view>
+								<image v-show="!status"
+									src="https://oss.dcqcjlb.com/51che_java_dev/20231027/file_1698392764793.png"
+									class="tabs-item-image" />
+							</view>
+						</view>
+					</view>
 				</view>
-				<view style="margin-left: 20rpx; margin-top: -20rpx; height: 64rpx">
-					<view class="u-flex">
-						<button open-type="contact" class="kefu-contact">
-							<image src="/static/image/kefu.svg" style="width: 37rpx; height: 37rpx"></image>
-						</button>
+				<view>
+					<view class="line"></view>
+				</view>
+				<view style="position: relative;z-index: 9999;">
+					<view class="flex jsb" style="margin-top: 10rpx;align-items: flex-end;">
+						<scroll-view class="tabs-bottom-list" scroll-x="true"
+							style="border-radius: 0rpx 0rpx 20rpx 20rpx;">
+							<view class="flex">
+								<view v-for="(v, i) in categoryList" :key="i"
+									:class="v.id===searchField.shopCategoryId ? 'tabs-bottom-item' : 'tabs-bottom-unitem'"
+									@click="setTabList(v)">
+									{{ v.name }}
+								</view>
+							</view>
+						</scroll-view>
+						<image @click="searchShow=true"
+							src="https://oss.dcqcjlb.com/51che_java_dev/20231029/file_1698565896277.png"
+							style="width: 40rpx;height: 40rpx;margin-right: 31rpx;"></image>
+					</view>
+					<view v-if="searchShow" class="category_div">
+						<view style="margin-right: 31rpx;width: 100%;text-align: right;">
+							<image style="width: 40rpx;height: 40rpx;margin-right: 16px;" @click="searchShow=false"
+								src="https://oss.dcqcjlb.com/51che_java_dev/20231029/file_1698572185337.png">
+							</image>
+						</view>
+						<view class="category_list">
+							<view v-for="(item,index) in categoryList" class="item" @click="setTabList(item)"
+								:class="{'item_sel':item.id===searchField.shopCategoryId}"
+								:style="{'margin-right': (index+1)%4===0?'0rpx':'10rpx'}">{{item.name}}</view>
+						</view>
 					</view>
 				</view>
 			</view>
+			<view style="height: 20rpx;border-radius: 0rpx 0rpx 20rpx 20rpx;background: #FFFFFF;"></view>
 		</view>
-		<view class="content">
-			<carousel :topClass="['activity-img']" :topStyle="{ width: '700rpx', 'margin-left': '25rpx' }"
-				height="260rpx" urlkey="url" :dataType="2" systemCode="applets_activity_shop" :indicatorType="4" />
-			<uselist />
-
-			<!-- 	<view class="category">
-				<template v-for="(item, i) in categoryList">
-					<view v-if="i < 9" class="view" :style="{ marginTop: i + 1 > 5 ? '28rpx' : '0' }"
-						@click="jumpCategory(item)">
-						<image class="img" :src="item.icon" style="width:48rpx;height: 48rpx;">
-						</image>
-						<view class="text ellipsis">{{ item.name }}</view>
-					</view>
-
-				</template>
-			</view> -->
-			<!-- 		<view class="select">
-				<view class="u-flex-al" style="width: 710rpx;justify-content:space-between;">
-					<view class="u-flex-al" @click="openSearch(1)">
-						<view class="text">商家排序</view>
-						<view style="margin-left: 15rpx;">
-							<u-icon name="arrow-down-fill" color="#666666" size="16rpx"></u-icon>
-						</view>
-					</view>
-					<view class="u-flex-al" @click="openSearch(1)"
-						style="justify-content: flex-end;margin-left: 20rpx;">
-						<view class="text ellipsis" style="max-width: 120rpx;">
-							商家类型
-						</view>
-						<view style="margin-left: 15rpx;">
-							<u-icon name="arrow-down-fill" color="#666666" size="16rpx"></u-icon>
-						</view>
-					</view>
-					<view class="u-flex-al" @click="openSearch(1)"
-						style="justify-content: flex-end;margin-left: 20rpx;">
-						<view class="text ellipsis" style="max-width: 180rpx;">
-							支付优惠
-						</view>
-						<view style="margin-left: 15rpx;">
-							<u-icon name="arrow-down-fill" color="#666666" size="16rpx"></u-icon>
-						</view>
-					</view>
-				</view>
-			</view> -->
-
-			<view style="height: 76rpx;"></view>
-			<view class="mt20" style="display: flex;justify-content: space-around;border-radius: 10rpx;background-color: #ffffff;padding: 30rpx 0rpx; " v-if="shopCategoryId==0">
-				<view class="tac" @click="Onpushpropertychange(1)">
-					<view>
-						<image style="width: 62rpx;height: 62rpx;"
-							src="https://oss.dcqcjlb.com/51che_java_dev/20230927/file_1695783057574.png"></image>
-					</view>
-					<view style="margin-top: 15rpx;" class="size24">户外商家</view>
-				</view>
-				<view class="tac" @click="Onpushpropertychange(2)">
-					<view>
-						<image style="width: 62rpx;height: 62rpx;"
-							src="https://oss.dcqcjlb.com/51che_java_dev/20230927/file_1695783542578.png"></image>
-					</view>
-					<view style="margin-top: 15rpx;" class="size24">户内商家</view>
-				</view>
-				<view class="tac" @click="Onpushpropertychange(3)">
-					<view>
-						<image style="width: 62rpx;height: 62rpx;"
-							src="https://oss.dcqcjlb.com/51che_java_dev/20230927/file_1695783574730.png"></image>
-					</view>
-					<view style="margin-top: 15rpx;" class="size24">团购商家</view>
-				</view>
-			</view>
+		<view>
+			<view v-if="searchShow" class="mask" @touchmove.stop.prevent="moveHandle" @click="searchShow=false"></view>
 			<view v-for="(item,index) in dataList" :key="item.id" class="card-list" @click="OnPush(item)">
 				<view class="flex" style="position: relative;">
 					<view class="size24 txtLighGray" style="position: absolute;right: 0rpx;">
 						{{item.distanceMsg}}
 					</view>
 					<view>
-						<u-avatar size="60" :src="item.baseHead" shape="square"></u-avatar>
-					</view>
-					<view class="ml20">
-						<view class="size28 fwb">{{item.baseName}}</view>
-						<view class="flex mt10 alc" style="color: #D91B1B;">
-							<u-rate gutter='1' :readonly='true' active-color="#D91B1B" inactive-color="#D91B1B"
-								count="5" v-model="item.star"></u-rate>{{item.starStr}}
-						</view>
-						<view class="flex mt10" style="margin-left: -8rpx;">
-							<view v-if="item.baoType==1" class="tag-item">活动承办</view>
-							<view v-if="item.tuanType==1||item.quanType==1" class="tag-item">团购优惠</view>
-							<view v-if="item.baoType==1&&item.scoreType==1" class="tag-item">积分兑换</view>
-							<view v-if="item.bankType==1" class="tag-item">信用卡满减</view>
+						<view class="size32 fwb title oneLine">{{item.baseName}}</view>
+						<view class="flex alc" style="color: #D91B1B;">
+							<image v-for="item in item.star"
+								src="https://oss.dcqcjlb.com/51che_java_dev/20231031/file_1698717060730.png"
+								style="width: 24rpx;height: 24rpx;margin-right: 5rpx;"></image>
+							<text style="margin-left: 5rpx;font-size: 24rpx;font-weight: 400;">{{item.starStr}}</text>
 						</view>
 					</view>
 				</view>
-				<!-- <u-divider :text="null"></u-divider> -->
 				<view class="flex mt20" style="margin-left: -7rpx;">
-					<scroll-view  scroll-x="true" >
-						<view style="display: flex;" >
-							<view v-for="(item1,index1) in item.imgsList" :key="index1" style="margin-right: 7rpx">
-								<image  :src="item1" style="margin-right: 7rpx;width: 212rpx;height: 159rpx;border-radius: 8rpx;">
+					<scroll-view scroll-x="true">
+						<view style="display: flex;">
+							<view v-for="(item1,index1) in item.imgsList" :key="index1" style="margin-right: 10rpx">
+								<image :src="item1"
+									style="margin-right: 7rpx;width: 223rpx;height: 160rpx;border-radius: 10rpx;">
 								</image>
 							</view>
-						</view>																					
-									</scroll-view>
+						</view>
+					</scroll-view>
 				</view>
 				<view v-if="item.baoType==1" class="flex size24 alc">
 					<view class="bao-item">活动</view>
-					<view class="mainRed fwb ml10">￥{{item.flashSalePriceBao}}</view>
-					<view class="txtLighGray txtls ml10">￥{{item.marketPriceBao}}</view>
-					<view class="oneLine ml10" style="width: 380rpx;">{{item.titleBao}}</view>
+					<view class="mainRed fwb ml10">￥</view>
+					<view class="mainRed fwb size32">{{item.flashSalePriceBao}}</view>
+					<view class="oneLine ml10 size28" style="width: 480rpx;margin-left: 13rpx;">{{item.titleBao}}</view>
 				</view>
 				<view v-if="item.tuanType==1" class="flex size24 alc mt10">
 					<view class="tuan-item">团购</view>
-					<view class="mainRed fwb ml10">￥{{item.flashSalePricetuan}}</view>
-					<view class="txtLighGray txtls ml10">￥{{item.marketPricetuan}}</view>
-					<view class="oneLine ml10" style="width: 380rpx;">{{item.titletuan}}</view>
-				</view>
-				<view v-if="item.quanType==1" class="flex size24 alc mt10">
-					<view class="quan-item">券</view>
-					<view class="mainRed fwb ml10">￥{{item.flashSalePricequan}}</view>
-					<view class="txtLighGray txtls ml10">￥{{item.marketPricequan}}</view>
-					<view class="oneLine ml10" style="width: 380rpx;">{{item.titlequan}}</view>
+					<view class="mainRed fwb ml10">￥</view>
+					<view class="mainRed fwb size32">{{item.flashSalePricetuan}}</view>
+					<view class="oneLine ml10 size28" style="width: 480rpx;margin-left: 13rpx;">{{item.titletuan}}
+					</view>
 				</view>
 				<view v-if="item.merchantType==1" class="flex size24 alc mt10">
-					<view class="quan-item">套餐</view>
-					<view class="mainRed fwb ml10">￥{{item.flashSalePricemerchant}}</view>
-					<view v-if="item.marketPricemerchant>0" class="txtLighGray txtls ml10">￥{{item.marketPricemerchant}}</view>
-					<view class="oneLine ml10" style="width: 380rpx;">{{item.titlemerchant}}</view>
-				</view>
-
-				<view v-if="item.moreType==1" class="jsc mt20 flex">
-					<view class="size24">更多优惠项目</view>
-					<view>
-						<u-icon size="14px" name="arrow-right"></u-icon>
+					<view class="tuan-item">团购</view>
+					<view class="mainRed fwb ml10">￥</view>
+					<view class="mainRed fwb size32">{{item.flashSalePricemerchant}}</view>
+					<view class="oneLine ml10 size28" style="width: 480rpx;margin-left: 13rpx;">{{item.titlemerchant}}
 					</view>
 				</view>
 			</view>
-
-
-
-			<scroll-view v-if="showArrondi" scroll-x="true" scroll-left="0">
-				<view class="prefecture u-flex-al">
-					<view class="prefecture-item" @click="OnPushView(1)">
-						<image class="prefecture-item-img"
-							src="https://oss.dcqcjlb.com/51che_java_dev/20230328/file_1679972649577.png"></image>
-					</view>
-					<view class="prefecture-item" @click="OnPushView(2)">
-						<image class="prefecture-item-img"
-							src="https://oss.dcqcjlb.com/51che_java_dev/20230328/file_1679972548951.png"></image>
-					</view>
-					<view class="prefecture-item" @click="OnPushView(3)">
-						<image class="prefecture-item-img"
-							src="https://oss.dcqcjlb.com/51che_java_dev/20230328/file_1679972732934.png"></image>
-					</view>
-				</view>
-			</scroll-view>
-
-
-
+			<view style="height: 50rpx;"></view>
 		</view>
-		<u-popup :show="otherSearchVisble" @close="closeSearch" :safeAreaInsetBottom="false" :safeAreaInsetTop="false"
-			mode="top">
-			<!-- <view :style="{ height: navbarHeight + 'px' }"></view> -->
-			<view class="top-search">
-				<text class="top-search-title" style="margin-bottom: 35rpx;">商家排序</text>
-				<view class="top-search-btn-view">
-					<view v-for="(item, index) in sortList" :key="index" class="top-search-btn"
-						@click="search(item, 1,index)"
-						:style="{ color: sortindex == index ? '#D91B1B' : '#222222', background: sortindex==index ? '#FFF1F1' : '#F8F8F8' }">
-						<text class="top-search-btn-text ellipsis">{{ item.name }}</text>
-					</view>
-				</view>
-			</view>
-			<view class="top-search">
-				<text class="top-search-title" style="margin-bottom: 35rpx;">商家类型</text>
-				<view class="top-search-btn-view">
-					<view v-for="(item, index) in sponsorList" :key="index" class="top-search-btn"
-						@click="search(item, 2,index)"
-						:style="{ color: shopTypeindex == index ? '#D91B1B' : '#222222', background:  shopTypeindex == index? '#FFF1F1' : '#F8F8F8' }">
-						<text class="top-search-btn-text ellipsis">{{ item.name }}</text>
-					</view>
-				</view>
-				<text class="top-search-title" style="margin-top: 35rpx;margin-bottom: 35rpx;">支付优惠</text>
-				<view class="top-search-btn-view">
-					<view v-for="(item, index) in paymentDiscountList" :key='index' class="top-search-btn"
-						@click="search(item, 3,index)"
-						:style="{ color: payTypeindex==index ? '#D91B1B' : '#222222', background: payTypeindex==index ? '#FFF1F1' : '#F8F8F8' }">
-						<text class="top-search-btn-text ellipsis">{{ item.name }}</text>
-					</view>
-				</view>
-				<view class="u-flex top-search-confirm" @click="confirmSearch(1)">
-					<view class="top-search-confirm-text">完成</view>
-				</view>
-			</view>
-		</u-popup>
-
 	</view>
 </template>
 
 <script>
 	import carousel from "@/components/carousel/index.vue"
+import search from "@/components/search/index.vue"
 	export default {
 		components: {
-			carousel
+			carousel,
+			search
 		},
 		computed: {
 			// 状态栏高度适配
@@ -227,103 +131,57 @@
 		},
 		data() {
 			return {
-				keyword: '',
 				categoryList: [],
-				otherSearchVisble: false, //主办方，支付优惠弹框
-				searchVisble: false, //商家分类弹框
-				sortList: [{
-					id: 1,
-					name: '默认'
-				}, {
-					id: 2,
-					name: '距离'
-				}, {
-					id: 3,
-					name: '评分'
-				}],
-				sponsorList: [{
-					id: null,
-					name: '全部'
-				}, {
-					id: 1,
-					name: '活动'
-				}, {
-					id: 2,
-					name: '团购'
-				}], //主办方列表
-				paymentDiscountList: [], //支付优惠列表
-				oldSearchField: {
-					shopTypeId: '', //主办方
-					shopTypeName: '', //主办方名称
-					activityPaymentPreferenceId: '', //支付优惠
-					activityPaymentPreferenceName: '', //支付优惠名称
-					shopCategoryId: '', //商家分类
-					shopCategoryName: '', //商家分类名称
-				},
+				dataList: [],
+				status: true,
 				searchField: {
 					current: 1,
-					sort: 1, //1:活动结束时间正序排序  2:距离最近  3.活动场次从多到少 4.参与人数从多到少
-					shopTypeId: '', //主办方
-					shopTypeName: '', //主办方名称
-					activityPaymentPreferenceId: '', //支付优惠
-					activityPaymentPreferenceName: '', //支付优惠名称
+					sort: 2, //1:活动结束时间正序排序  2:距离最近  3.活动场次从多到少 4.参与人数从多到少
 					shopCategoryId: '', //商家分类
-					shopCategoryName: '', //商家分类名称
-					lng: '', //经度
-					lat: '', //纬度
-					shopName: '', //搜索商家名称
-					size: 100
+					name: '', //搜索商家名称
+					size: 10,
+					property: 3
 				},
-				topDataList: [],
-				dataList: [],
-				showArrondi: false,
-				payType: null,
-				shopType: null,
-				sort: 1,
-				payTypepop: null,
-				shopTypepop: null,
-				sortpop: 1,
-				current: 1,
 				isLoadMore: false,
-				sortindex: 0,
-				shopTypeindex: 0,
-				payTypeindex: 0,
-				shopCategoryId: null,
+				searchShow: false
 			}
 		},
 		mounted() {
-			// this.getCategoryList()
-			this.getPaymentPreferenceList()
+			this.getCategoryList(2)
 			this.getList()
 		},
-	
-		 props: {
-			 shopCategoryId: {
-			 	type: Number,
-			 	default () {
-			 		return 0;
-			 	},
-			 }
-		 },
+
+		props: {
+			shopCategoryId: {
+				type: Number,
+				default () {
+					return 0;
+				},
+			}
+		},
 		methods: {
-			Onpushpropertychange(index) {
-				if (index == 1) {
-					uni.navigateTo({
-						url: '/pages/activityMall/list?shopCategoryId=27'
-					})
-				} else if (index == 2) {
-					uni.navigateTo({
-						url: '/pages/activityMall/list?shopCategoryId=26'
-					})
+			moveHandle: function() {
+				return false
+			},
+			getStatus(value) {
+				this.status = value;
+				this.searchField.shopCategoryId = ""
+				if (value) {
+					this.searchField.property = 3
+					this.getCategoryList(2)
 				} else {
-					uni.navigateTo({
-						url: '/pages/activityMall/list?shopCategoryId=28'
-					})
+					this.searchField.property = 1
+					this.getCategoryList(1)
 				}
+				this.OnPushSearch()
+			},
+			setTabList(v) {
+				this.searchField.shopCategoryId = v.id
+				this.OnPushSearch()
 			},
 			getmore() {
 				if (!this.isLoadMore) {
-					this.current++
+					this.searchField.current++
 					this.getList()
 				}
 			},
@@ -332,23 +190,10 @@
 					url: '/pages/activityMall/business/index?id=' + item.id
 				})
 			},
-			nextList() {
-				if (!this.isLoadMore) {
-					this.current++
-					this.getList()
-				}
-			},
+
 			getList() {
-				this.$newrequest.post("/coc-active/api/v2/homePage/getActivityShopNew", {
-					current: this.current,
-					payType: this.payType,
-					shopType: this.shopType,
-					size: 10,
-					sort: this.sort,
-					shopCategoryId: this.shopCategoryId,
-					name: this.keyword,
-					shopCategoryId:this.shopCategoryId
-				}).then(res => {
+				this.searchShow = false
+				this.$newrequest.post("/coc-active/api/v2/homePage/getActivityShopNew", this.searchField).then(res => {
 					res.data.records.filter(s => {
 						s.imglist = []
 						s.imgs.filter(r => {
@@ -370,44 +215,19 @@
 					}
 				})
 			},
-			//获取支付优惠列表
-			getPaymentPreferenceList() {
-				let list = [{
-					id: null,
-					name: '全部'
-				}]
-				this.$newrequest.post("/coc-active/api/v1/activityShop/list").then(async res => {
-					if (res.code == 200) {
-						list = list.concat(res.data)
-						this.paymentDiscountList = list
-					} else {
-						uni.showToast({
-							title: res.message,
-							icon: 'none',
-							duration: 2000
-						})
-					}
-				})
-			},
 			//获取商家分类
-			getCategoryList() {
-				this.$newrequest.post("/coc-active/api/v1/activityShop/categoryList", {
-					current: 1,
-					size: 100
+			getCategoryList(shopType) {
+				this.categoryList = []
+				this.$newrequest.post("/coc-active/api/v1/activityShop/getNewShopCategoryList", {
+					type: 3,
+					shopType
 				}).then(async res => {
 					if (res.code == 200) {
-						// let list = []
-						// if (res.data.records.length > 0) {
-						// 	for (let i = 0; i < res.data.records.length; i++) {
-						// 		let data = res.data.records[i]
-						// 		let imginfo = await this.getImgInfo(data.icon)
-						// 		data.width = imginfo ? imginfo.width : ''
-						// 		data.height = imginfo ? imginfo.height : ''
-						// 		list.push(data)
-						// 	}
-						// }
-						this.categoryList = res.data.records && res.data.records.length > 0 ? res.data
-							.records : []
+						res.data.unshift({
+							id: "",
+							name: '推荐'
+						})
+						this.categoryList = res.data
 					} else {
 						uni.showToast({
 							title: res.message,
@@ -417,138 +237,16 @@
 					}
 				})
 			},
-			OnPushView(index) {
-				if (index == 1) {
-					uni.navigateTo({
-						url: '/pages/activity/activityRegistration/bankactivity?shopTypeId=1&activityPaymentPreferenceId=6'
-					})
-				} else if (index == 2) {
-					uni.navigateTo({
-						url: '/pages/activity/activityRegistration/bankactivity?shopTypeId=2&activityPaymentPreferenceId=5'
-					})
-				} else if (index == 3) {
-					uni.navigateTo({
-						url: '/pages/activity/activityRegistration/bankactivity?shopTypeId=3&activityPaymentPreferenceId=4'
-					})
-				} else if (index == 4) {
-					uni.navigateTo({
-						url: '/pages/activity/activityRegistration/foursactivity?'
-					})
-				}
+			search(value) {
+				this.searchField.name = value
+				this.OnPushSearch()
 			},
-
 			OnPushSearch() {
 				this.isLoadMore = false
-				this.current = 1
+				this.dataList = []
+				this.searchField.current = 1
 				this.getList()
 			},
-
-			//获取首页商家列表(筛选)
-			getHomeBusinessList(size) {
-				let msg = this.changeSearchField()
-				if (size) {
-					msg.size = size
-				}
-				this.$newrequest.post("/coc-active/api/v1/activityShop/signUpIn/list", msg).then(
-					async res => {
-						if (res.code == 200) {
-							let list = res.data
-							list.forEach(function(data) {
-								data.baseHead = data.baseHead ? data.baseHead :
-									'https://oss.dcqcjlb.com/51che_java_dev/20221031/96f3cd701da641ddb4c43e4349054230.jpg'
-							})
-							this.topDataList = list
-							this.closeSearch()
-						} else {
-							uni.showToast({
-								title: res.message,
-								icon: 'none',
-								duration: 2000
-							})
-						}
-					})
-			},
-
-			changeSearchField() {
-				let msg = Object.assign({}, this.searchField)
-				if (!msg.activityPaymentPreferenceId) {
-					delete msg['activityPaymentPreferenceId']
-				}
-				if (!msg.shopCategoryId) {
-					delete msg['shopCategoryId']
-				}
-				if (!msg.shopTypeId) {
-					delete msg['shopTypeId']
-				}
-				if (!msg.shopName) {
-					delete msg['shopName']
-				}
-				if (!msg.lng) {
-					delete msg['lng']
-				}
-				if (!msg.lat) {
-					delete msg['lat']
-				}
-				delete msg['activityPaymentPreferenceName']
-				delete msg['shopCategoryName']
-				delete msg['shopTypeName']
-				return msg
-			},
-
-			//打开筛选框
-			openSearch(type) { //type 1:主办方，支付优惠  2:商家分类
-				if (type == 1) {
-					this.oldSearchField.activityPaymentPreferenceId = this.searchField.activityPaymentPreferenceId
-					this.oldSearchField.activityPaymentPreferenceName = this.searchField.activityPaymentPreferenceName
-					this.oldSearchField.shopTypeId = this.searchField.shopTypeId
-					this.oldSearchField.shopTypeName = this.searchField.shopTypeName
-					this.otherSearchVisble = true
-				} else if (type == 2) {
-					this.oldSearchField.shopCategoryId = this.searchField.shopCategoryId
-					this.oldSearchField.shopCategoryName = this.searchField.shopCategoryName
-					this.searchVisble = true
-				}
-			},
-			//关闭筛选框
-			closeSearch() {
-				this.oldSearchField.activityPaymentPreferenceId = ''
-				this.oldSearchField.activityPaymentPreferenceName = ''
-				this.oldSearchField.shopTypeId = ''
-				this.oldSearchField.shopTypeName = ''
-				this.oldSearchField.shopCategoryId = ''
-				this.oldSearchField.shopCategoryName = ''
-				this.searchVisble = false
-				this.otherSearchVisble = false
-			},
-			//选中搜索项
-			search(item, type, index) {
-				if (type == 1) { //商家排序
-					this.sortpop = item.id
-					this.sortindex = index
-				} else if (type == 2) { //商家类型
-					this.shopTypepop = item.id
-					this.shopTypeindex = index
-				} else if (type == 3) { //支付优惠
-					this.payTypepop = item.id
-					this.payTypeindex = index
-				}
-			},
-			//确认搜索
-			confirmSearch(type) {
-				this.sort = this.sortpop
-				this.shopType = this.shopTypepop
-				this.payType = this.payTypepop
-				this.current = 1
-				this.getList()
-				this.otherSearchVisble = false
-			},
-			//跳转分类
-			jumpCategory(item) {
-				uni.navigateTo({
-					url: `/pages/activityMall/list?type=2&shopCategoryId=${item.id}&shopCategoryName=${item.name}`
-				})
-			},
-
 		}
 	}
 </script>
@@ -558,190 +256,189 @@
 		color: #222222;
 	}
 
-	.u-flex {
-		display: flex;
-		align-items: center;
+	.line {
+		height: 1rpx;
+		background: #F8F8F8;
+		width: 730rpx;
 	}
 
-	.content {
-		padding: 25rpx;
-		overflow: auto;
-	}
-
-	.search {
-		width: 700rpx;
-		height: 70rpx;
-		border-radius: 35rpx;
-		background: #FFFFFF;
+	.tabs {
 		position: relative;
-
-		.input {
-			width: 520rpx;
-			height: 70rpx;
-			margin-left: 36rpx;
-			font-size: 28rpx;
-			font-family: PingFang SC;
-			// font-weight: 500;
-		}
-
-		.btn {
-			width: 124rpx;
-			height: 70rpx;
-			background: #D91B1B;
-			border-radius: 35rpx;
-			position: absolute;
-			bottom: 0;
-			right: 0;
-		}
-	}
-
-	.category {
-		padding: 28rpx 0 28rpx 0;
+		width: 750rpx;
 		background: #FFFFFF;
-		border-radius: 10rpx;
-		margin-top: 31rpx;
-		display: table;
-		width: 100%;
 
-		.view {
-			height: 90rpx;
-			width: 140rpx;
+		&-list {
+			display: flex;
+			padding-bottom: 14rpx;
+		}
+
+		&-item {
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
-			align-items: center;
-			float: left;
-		}
-
-		.img {
-			max-width: 46rpx;
-			max-height: 46rpx;
-		}
-
-		.text {
-			font-size: 24rpx;
-			font-family: PingFang SC;
-			font-weight: 500;
-			max-width: 140rpx;
-		}
-	}
-
-	.select {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-top: 31rpx;
-
-		.text {
-			font-size: 24rpx;
-			font-family: PingFang SC;
-			font-weight: 500;
-		}
-	}
-
-	.top-search {
-		padding: 42rpx 0 0 50rpx;
-
-		.top-search-title {
-			font-size: 32rpx;
-			font-weight: bold;
-			color: #222222;
-			display: inline-block;
-		}
-
-		.top-search-btn-view {
-			width: 100%;
-			display: table;
-		}
-
-		.top-search-btn {
-			width: 200rpx;
-			height: 60rpx;
-			border-radius: 10rpx;
-			float: left;
-			margin-right: 16rpx;
-			display: flex;
-			align-items: center;
 			justify-content: center;
-			margin-bottom: 24rpx;
+			width: 375rpx;
+
+			&-title {
+				font-size: 32rpx;
+				font-family: PingFang SC;
+				font-weight: bold;
+				color: #222222;
+			}
+
+
+			&-image {
+				width: 24rpx;
+				height: 6rpx;
+				margin-top: 10rpx;
+			}
+
+			&-untitle {
+				font-size: 28rpx;
+				font-family: PingFang SC;
+				font-weight: 500;
+				color: #999999;
+			}
+
+			&-left {
+				display: flex;
+				justify-content: flex-end;
+				width: 285rpx;
+				margin-right: 90rpx;
+			}
+
+			&-right {
+				display: flex;
+				margin-left: 90rpx;
+			}
+
+			&-view {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+
 		}
 
-		.top-search-btn-text {
-			font-size: 24rpx;
-			font-weight: 500;
+		&-bottom {
+			position: relative;
+			display: flex;
+			width: 730rpx;
+			height: 46rpx;
+			border-top: 1rpx solid #F8F8F8;
+			margin-left: 10rpx;
+
+			&-list {
+				width: 652rpx;
+				white-space: nowrap;
+				margin-left: 16rpx;
+			}
+
+			&-item {
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+				height: 46rpx;
+				font-size: 28rpx;
+				font-family: PingFang SC;
+				font-weight: bold;
+				color: #222222;
+				margin-left: 20rpx;
+				margin-right: 20rpx;
+			}
+
+			&-unitem {
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+				height: 46rpx;
+				font-size: 28rpx;
+				font-family: PingFang SC;
+				font-weight: 500;
+				color: #999999;
+				margin-left: 20rpx;
+				margin-right: 20rpx;
+			}
+
+			&-search {
+				position: absolute;
+				top: 19rpx;
+				right: 20rpx;
+				width: 30rpx;
+				height: 31rpx;
+			}
+
+			&-input {
+				width: 657rpx;
+				height: 50rpx;
+				background: #F8F8F8;
+				border-radius: 25rpx;
+				font-size: 24rpx;
+				font-family: PingFang SC;
+				font-weight: 500;
+				color: #999999;
+				padding-left: 20rpx;
+			}
+
+			&-goback {
+				position: absolute;
+				top: 17rpx;
+				right: 22rpx;
+				width: 26rpx;
+				height: 29rpx;
+			}
 		}
 
-		.top-search-confirm {
-			width: 150rpx;
-			height: 60rpx;
-			background: #D91B1B;
-			border-radius: 30rpx;
-			margin-top: 26rpx;
-			margin-bottom: 50rpx;
-			margin-left: 250rpx;
-		}
-
-		.top-search-confirm-text {
-			font-size: 28rpx;
-			font-family: PingFang SC;
-			font-weight: 500;
-			color: #FFFFFF;
+		&-add {
+			position: fixed;
+			right: 10rpx;
+			bottom: 400rpx;
+			width: 88rpx;
+			height: 88rpx;
+			z-index: 200;
 		}
 	}
 
-	.prefecture {
-		.prefecture-item {
-			margin-right: 20rpx;
+	.category_div {
+		position: absolute;
+		top: 0;
+		background: #FFFFFF;
+		width: 750rpx;
+
+		.category_list {
+			padding: 10rpx 20rpx 0rpx 20rpx;
+			flex-wrap: wrap;
+			display: flex;
+
+			.item {
+				width: 170rpx;
+				height: 62rpx;
+				line-height: 62rpx;
+				text-align: center;
+				background: #F8F8F8;
+				border-radius: 10rpx;
+				font-size: 28rpx;
+				font-weight: 500;
+				color: #222222;
+				margin-bottom: 20rpx;
+			}
+
+			.item_sel {
+				color: #D91B1B;
+				background: #FFF1F1;
+			}
 		}
-
-		.prefecture-item-img {
-			width: 220rpx;
-			height: 180rpx;
-		}
-	}
-
-	.kefu-contact {
-		background: none;
-		border: none;
-		margin: 0;
-		padding: 0;
-		outline: none;
-	}
-
-	button::after {
-		border: initial;
-	}
-
-	.ellipsis {
-		display: inline-block;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	.u-flex {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.u-flex-al {
-		display: flex;
-		align-items: center;
-	}
-
-	::v-deep .input-placeholder {
-		font-size: 28rpx;
-		font-family: PingFang SC;
-		// font-weight: 500;
-		color: #999999;
 	}
 
 	.card-list {
-		margin-top: 25rpx;
 		background: #FFFFFF;
 		border-radius: 10rpx;
-		padding: 25rpx;
+		padding: 20rpx;
+		margin: 10rpx 10rpx 0 10rpx;
+	}
+
+	.title {
+		width: 550rpx;
 	}
 
 	.tag-item {
@@ -756,28 +453,25 @@
 	}
 
 	.bao-item {
-		padding: 6rpx 15rpx;
-		background-color: #fceded;
 		color: #D91B1B;
-		border-radius: 16rpx;
-		size: 24rpx;
-		font-weight: bold;
-		line-height: 32rpx;
+		border-radius: 10rpx;
+		font-size: 24rpx;
+		width: 61rpx;
+		height: 36rpx;
+		line-height: 36rpx;
+		text-align: center;
+		background: rgba(217, 27, 27, 0.1);
 	}
 
 	.tuan-item {
-		padding: 6rpx 15rpx;
-		background-color: #fceded;
 		color: #D91B1B;
-		border-radius: 16rpx;
-
-		size: 24rpx;
-
-
-		font-weight: bold;
-
-		line-height: 32rpx;
-
+		border-radius: 10rpx;
+		font-size: 24rpx;
+		width: 61rpx;
+		height: 36rpx;
+		line-height: 36rpx;
+		text-align: center;
+		background: rgba(217, 27, 27, 0.1);
 	}
 
 	.quan-item {
@@ -791,11 +485,12 @@
 		border-radius: 16rpx;
 	}
 
-	.page_top {
-		// border-bottom-left-radius: 20rpx;
-		// border-bottom-right-radius: 20rpx;
+	.mask {
+		background: black;
+		opacity: 0.2;
 		position: absolute;
 		width: 100%;
-		z-index: 1;
+		min-height: 100vh;
+		z-index: 999;
 	}
 </style>

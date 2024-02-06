@@ -3,7 +3,7 @@
     <view v-if="objData.list_type != 3">
       <view class="newCarItem flex jsb alc mt20" v-for="(item, index) in list" :key="index" @click="lookCarDetail(item)">
         <view class="topTip flex alc jsc" v-if="objData.tab_type!=2">
-          <image src="https://oss.dcqcjlb.com/51che_java_dev/20230428/file_1682645411877.png"></image>
+           src="https://oss.dcqcjlb.com/51che_java_dev/20230428/file_1682645411877.png"></image>
         </view>
         <view class="newCarL">
           <image :src="item.img_url" mode="aspectFill"></image>
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { tologin } from '@/utils/index.js'
+import { tologin } from '@/utils/index.js';
 export default {
   props: {
     objData: {
@@ -92,69 +92,74 @@ export default {
     },
     changeList: {
       type: Boolean,
-      default: true
+      default: true,
     },
     isBottom: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       list: [],
       obj: {},
       bottomShow: false,
-      loadMore: false
-    }
+      loadMore: false,
+    };
   },
   created() {
-    this.getList()
+    this.getList();
   },
   watch: {
     objData: {
       handler(newval, oldval) {
         if (this.changeList) {
-          this.list = []
+          this.list = [];
         }
-        this.obj = newval
-        this.loadMore = false
-        this.bottomShow = this.isBottom
-        this.getList()
+        this.obj = newval;
+        this.loadMore = false;
+        this.bottomShow = this.isBottom;
+        this.getList();
       },
       deep: true,
-      immediate: true
+      immediate: true,
     },
-
   },
   methods: {
     getList() {
-      this.loadMore = true
-      this.$request51car.post("/app/wechat/api", this.obj).then(res => {
-        if (res.data.length > 0) {
-          this.bottomShow = false
-          if (this.obj.page > 1) {
-            res.data.filter(item => {
-              this.list.push(item)
-            })
-          } else {
-            this.list = res.data
+      this.loadMore = true;
+      this.$request51car
+        .post('/app/wechat/api', this.obj)
+        .then((res) => {
+          if (res.data.length > 0) {
+            this.bottomShow = false;
+            if (this.obj.page > 1) {
+              res.data.filter((item) => {
+                this.list.push(item);
+              });
+            } else {
+              this.list = res.data;
+            }
           }
-        }
-      }).finally(() => {
-        this.loadMore = false
-      })
+        })
+        .finally(() => {
+          this.loadMore = false;
+        });
     },
     lookCarDetail(item) {
-      if(!tologin()){
-      		return false
-      	}
+      if (!tologin()) {
+        return false;
+      }
       uni.navigateTo({
-        url: '/pages/carShops/51carOther/carDetail?type=' + this.objData.list_type + '&item=' + JSON.stringify(item)
-      })
-    }
-  }
-}
-
+        url:
+          '/pages/carShops/51carOther/carDetail?type=' +
+          this.objData.list_type +
+          '&item=' +
+          JSON.stringify(item),
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -181,7 +186,7 @@ export default {
     box-sizing: border-box;
     width: 100rpx;
     height: 38rpx;
-    background-color: #FCEDED;
+    background-color: #fceded;
     border-radius: 10rpx 0 10rpx 0;
 
     image {
@@ -223,7 +228,7 @@ export default {
     }
 
     .newCarHui {
-      color: #D91B1B;
+      color: #d91b1b;
     }
   }
 }
@@ -309,11 +314,10 @@ export default {
   margin-left: 15rpx;
 }
 
-
 .goShop {
   width: 100rpx;
   height: 52rpx;
-  background: #D91B1B;
+  background: #d91b1b;
   border-radius: 10rpx;
   text-align: center;
   line-height: 52rpx;

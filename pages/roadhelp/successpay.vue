@@ -78,6 +78,7 @@
 	}
 	.bottom-btn {
 		position: fixed;
+		z-index: 9999;
 		bottom: 0rpx;
 		width: 700rpx;
 		background: #FFFFFF;

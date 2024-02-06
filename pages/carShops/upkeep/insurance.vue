@@ -45,7 +45,9 @@
           </view>
         </view>
       </view>
+	  <!--  #ifdef MP-WEIXIN  -->
       <view class="bmBtn fwb size32" @click="getQuote">获取报价</view>
+	  <!--  #endif -->
     </view>
     <!-- 报价弹窗 -->
     <u-popup :show="showQuote" @close="closeQuote" @open="open" :round="10" mode="bottom" :closeable='true'>

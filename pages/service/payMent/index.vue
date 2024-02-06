@@ -165,7 +165,7 @@
 							</view>
 							<view class="u-flex" style="margin-top: 14rpx;"
 								v-if="orderdetail.shopTypeId==4||orderdetail.shopTypeId==3">
-								<image src="@/static/image/yirenzheng.png" style="width: 104rpx; height:28rpx"></image>
+								<image src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706059677976.png" style="width: 104rpx; height:28rpx"></image>
 								<view style="margin-top: -5rpx;">
 									<u-rate :readonly='true' :count="1" v-model="value" size='18'
 										active-color="#f7c261">

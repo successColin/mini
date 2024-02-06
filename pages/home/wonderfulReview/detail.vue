@@ -1,5 +1,9 @@
 <template>
 	<view class="page">
+		<!--  #ifdef H5  -->
+		<u-navbar :autoBack='true' :safeAreaInsetTop="true"></u-navbar>
+		<view style="height: 80rpx;"></view>
+		<!--  #endif -->
 		<template v-if="isshowpage">
 			<view v-for="(allitem,allindex) in detail" :key="allindex" class="content">
 				<view style="font-size: 32rpx;margin: 20rpx 0rpx;font-weight: bold;">
@@ -96,7 +100,7 @@
 									<view class="item-top">
 										<view style="display: flex">
 											<image v-if="item.headImg" class="top-img" :src="item.headImg" />
-											<image v-else class="top-img" src="@/static/image/morentouxiang.png" />
+											<image v-else class="top-img" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706063549640.png" />
 											<text class="top-title">{{ item.userName }}</text>
 
 										</view>
@@ -150,7 +154,7 @@
 												<image v-if="item1.headImg" class="top-img-small"
 													:src="item1.headImg" />
 												<image class="top-img-small" v-else
-													src="@/static/image/morentouxiang.png"></image>
+													src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706063549640.png"></image>
 												<text class="top-title"
 													style="font-size: 24rpx;font-weight: 600;">{{ item1.userName }}</text>
 												<text
@@ -246,7 +250,7 @@
 									<view style="height: 42rpx">
 										<image v-if="allitem.isLike === 2" src="@/static/image/weidianzanbig.png"
 											style="width: 44rpx; height: 38rpx"></image>
-										<image v-if="allitem.isLike === 1" src="@/static/image/yidianzanbig.png"
+										<image v-if="allitem.isLike === 1" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706059901925.png"
 											style="width: 44rpx; height: 38rpx"></image>
 									</view>
 									<view class="text" style="margin-top: 10rpx">
@@ -354,7 +358,7 @@
 					<view class="share">
 						<view class="share-title" style="margin-bottom: 60rpx; margin-left: 58rpx">分享到</view>
 						<view class="share-img-list" style="position: relative">
-							<image class="share-img" src="@/static/image/weixinbig.png">
+							<image class="share-img" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706061132637.png">
 								<button open-type="share" style="
                                 opacity: 0;
                                 position: absolute;
@@ -405,14 +409,12 @@
 </template>
 
 <script>
-	import navbar from '@/components/navbar/navbar.vue'
-	import carousel from "@/components/carousel/index.vue"
 	import cardauthentication from '@/components/cardauthentication.vue'
-	import Vue from "vue"
-	import {
-		tologin,
-		getstorage
-	} from '@/utils/index.js'
+import carousel from "@/components/carousel/index.vue"
+import {
+getstorage,
+tologin
+} from '@/utils/index.js'
 	export default {
 		components: {
 			carousel,
@@ -429,7 +431,7 @@
 				.detail[this.currentindex].coverImg
 			return {
 				title,
-				path: `/pages/home/wonderfulReview/detail?id=` + this.id,
+				path: `/pages/home/wonderfulReview/detail?id=` + this.id + '&enter=117',
 				imageUrl,
 				success(res) {
 					uni.showToast({
@@ -452,7 +454,7 @@
 			}
 			return {
 				title: this.detail[this.currentindex].title,
-				path: `/pages/home/wonderfulReview/detail?id=` + this.id,
+				path: `/pages/home/wonderfulReview/detail?id=` + this.id + '&enter=117',
 				imageUrl: this.detail[this.currentindex].appletsSharePic ? this.detail[this.currentindex].appletsSharePic :
 					this
 					.detail[this.currentindex].coverImg,
@@ -532,6 +534,10 @@
 			}
 		},
 		onLoad(option) {
+			// uni.removeStorageSync('enter');
+			if (option.enter) {
+				uni.setStorageSync('enter', option.enter);
+			}
 			this.id = option.id
 			this.queryDetail(option.id)
 			this.userId = getstorage("userId")

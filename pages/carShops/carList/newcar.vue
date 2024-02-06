@@ -372,7 +372,7 @@
         <scroll-view
           scroll-y="true"
           style="height: 220rpx"
-          v-if="dataList.salesConsultantListVOS.length > 2"
+          v-if="dataList.salesConsultantListVOS&&dataList.salesConsultantListVOS.length > 2"
         >
           <view
             v-for="(item, index) in dataList.salesConsultantListVOS"
@@ -1086,6 +1086,7 @@ export default {
   background-color: #ffffff;
   margin-top: 40rpx;
   font-size: 24rpx;
+  z-index: 9999;
 
   .view {
     display: flex;

@@ -62,8 +62,8 @@
 
 <script>
 	import {
-		tologin
-	} from '@/utils/index.js'
+tologin
+} from '@/utils/index.js';
 	export default {
 		components: {
 
@@ -78,6 +78,10 @@
 		},
 
 		onLoad(option) {
+			// uni.removeStorageSync('enter');
+			if (option.enter) {
+				uni.setStorageSync('enter', option.enter);
+			}
 			// tologin()
 					this.userInitiateAssistId = option.userInitiateAssistId
 					this.getList()

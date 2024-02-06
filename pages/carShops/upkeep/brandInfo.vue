@@ -21,7 +21,7 @@
 </template>
 
 <script>
-	import carousel from "@/components/carousel/index.vue"
+	import carousel from "@/components/carousel/index.vue";
 	export default {
 		components: {
 			carousel
@@ -38,6 +38,10 @@
 		},
 
 		onLoad(option) {
+			// uni.removeStorageSync('enter');
+			if (option.enter) {
+				uni.setStorageSync('enter', option.enter);
+			}
 			this.getDetail(option.id)
 			if (option.isapp) {
 				this.isapp = 1
@@ -58,7 +62,7 @@
 				let imageUrl = this.infoData.shareImg ? this.infoData.shareImg : this.nfoData.coverImg
 				return {
 					title: this.infoData.title,
-					path: `/pages/carShops/upkeep/brandInfo?id=` + this.infoData.id,
+					path: `/pages/carShops/upkeep/brandInfo?id=${this.infoData.id}&enter=117`,
 					imageUrl: imageUrl,
 					success(res) {
 						uni.showToast({
@@ -77,7 +81,7 @@
 				let imageUrl = this.infoData.shareImg ? this.infoData.shareImg : this.nfoData.coverImg
 				return {
 					title: this.infoData.title,
-					path: `/pages/carShops/upkeep/brandInfo?id=` + this.infoData.id,
+					path: `/pages/carShops/upkeep/brandInfo?id=${this.infoData.id}&enter=117`,
 					imageUrl: imageUrl,
 					success(res) {
 						uni.showToast({

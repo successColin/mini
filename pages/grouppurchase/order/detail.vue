@@ -226,9 +226,11 @@ recommend
 				}
 			},
 			Ondrawback() {
+		
 				let _this = this
+				console.log(_this.id);
 				uni.navigateTo({
-					url: '/pages/grouppurchase/order/drawbackindex?id=' + this.id,
+					url: '/pages/grouppurchase/order/drawbackindex?id=' + this.id + '&type=1',
 					success: function(res) {
 						res.eventChannel.emit('getinfo', {
 							data: _this.dataList

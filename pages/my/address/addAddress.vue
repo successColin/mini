@@ -445,6 +445,7 @@
 		display: flex;
 		justify-content: center;
 		position: fixed;
+		z-index: 9999;
 		bottom: 200rpx;
 		left: 50%;
 		transform: translate(-50%, -50%);

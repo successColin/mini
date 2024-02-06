@@ -21,7 +21,7 @@
                 </view>
                 <view style="text-align: center;" @click="OnPushtag(10)">
                     <view style="position: relative;">
-                        <image style="width: 56rpx;height: 56rpx;" src="@/static/image/indoors.png">
+                        <image style="width: 56rpx;height: 56rpx;" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706062067522.png">
                         </image>
                         <view v-if="menulist['applets_indoor_activity'].length > 0" class="label_view_img"
                             style="position: absolute;top: -20rpx;left: 32rpx;">
@@ -34,7 +34,7 @@
                 </view>
                 <view style="text-align: center;" @click="OnPushtag(11)">
                     <view style="position: relative;">
-                        <image style="width: 56rpx;height: 56rpx;" src="@/static/image/outside.png">
+                        <image style="width: 56rpx;height: 56rpx;" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706061759927.png">
                         </image>
                         <view v-if="menulist['applets_outdoor_activity'].length > 0" class="label_view_img"
                             style="position: absolute;top: -20rpx;left: 32rpx;">
@@ -47,7 +47,7 @@
                 </view>
                 <view style="text-align: center;" @click="OnPushview(3)">
                     <view style="position: relative;">
-                        <image style="width: 56rpx;height: 56rpx;" src="@/static/image/sisdianhuodong.png">
+                        <image style="width: 56rpx;height: 56rpx;" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706061426624.png">
                         </image>
                         <view v-if="menulist['applets_4s_activity'].length > 0" class="label_view_img"
                             style="position: absolute;top: -20rpx;left: 32rpx;">
@@ -78,7 +78,7 @@
                 </view>
                 <!-- 	<view style="text-align: center;">
 					<image @click="OnPushview(1)" style="width: 56rpx;height: 56rpx;"
-						src="@/static/image/guanfangliandong.png">
+						src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706062168439.png">
 					</image>
 					<view style="font-size: 24rpx;">
 						官方联动
@@ -88,7 +88,7 @@
             <view class="item-tab" style="margin-top: 31rpx;">
                 <view  style="text-align: center;" @click="OnPushtag(3)">
                     <view style="position: relative;">
-                        <image style="width: 56rpx;height: 56rpx;" src="@/static/image/newqiandao.png">
+                        <image style="width: 56rpx;height: 56rpx;" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706061849737.png">
                         </image>
                         <view v-if="menulist['applets_sign_gift'].length > 0" class="label_view_img"
                             style="position: absolute;top: -20rpx;left: 32rpx;">
@@ -103,7 +103,7 @@
                 </view>
                 <view    style="text-align: center;" @click="OnPushtag(2)">
                     <view style="position: relative;">
-                        <image style="width: 56rpx;height: 56rpx;" src="@/static/image/xinrenzhuanxiang.png">
+                        <image style="width: 56rpx;height: 56rpx;" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706060722088.png">
                         </image>
                         <view v-if="menulist['applets_new_person'].length > 0" class="label_view_img"
                             style="position: absolute;top: -20rpx;left: 32rpx;">
@@ -118,7 +118,7 @@
                 </view>
                 <view   style="text-align: center;" @click="OnPushview(2)">
                     <view style="position: relative;">
-                        <image style="width: 56rpx;height: 56rpx;" src="@/static/image/yinbaohuodong.png">
+                        <image style="width: 56rpx;height: 56rpx;" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706059799191.png">
                         </image>
                         <view v-if="menulist['applets_bank_activity'].length > 0" class="label_view_img"
                             style="position: absolute;top: -20rpx;left: 32rpx;">

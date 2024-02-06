@@ -1,143 +1,136 @@
 <template>
-	<view class="page">
-		<view v-if="isshowpage">
-		<view class="item-top">
-		</view>
-		<view>
-			<videolist ref="videolist" :dataList="dataList" @detailvideo='detailvideo' @getmorevideo='getmorevideo'
-				@likenumchange='likenumchange' @setnewvideo='setnewvideo'></videolist>
-		</view>
-		</view>
-<request-loading></request-loading>
-	</view>
+    <view class="page">
+        <u-navbar :autoBack="true" :title="title" />
+        <videos ref="videos" v-if="status" :value="value" :type="2" />
+        <float v-if="tag" :tag="tag" />
+        <request-loading />
+    </view>
 </template>
 
 <script>
-	import videolist from "./videolist.vue"
-	export default {
-		components: {
-videolist
-		},
-		data() {
-			return {
-		articleId:'',
-		type:'',
-			current: 1,
-			dataList:[],
-				isshowpage: false,
-			}
-		},
-	onShareAppMessage(res) {
-			
-		let path='/pages/activity/foursvideo/index?id='+this.articleId+'&type='+this.type
-			return {
-				path: path,
-				success(res) {
-					uni.showToast({
-						title: '分享成功'
-					})
-				},
-				fail(res) {
-					uni.showToast({
-						title: '分享失败',
-						icon: 'none'
-					})
-				}
-			};
-		},
-		onShareTimeline(res) { //分享到朋友圈
-		let path='/pages/activity/foursvideo/index?id='+this.articleId+'&type='+this.type
-			return {
-				path: path,
-				success(res) {
-					uni.showToast({
-						title: '分享成功'
-					})
-				},
-				fail(res) {
-					uni.showToast({
-						title: '分享失败',
-						icon: 'none'
-					})
-				}
-			};
-		},
-		onLoad(option) {
-			let _this=this
-			this.articleId=option.id
-			this.type=option.type
-			if(option.type==1){
-				uni.setNavigationBarTitle({title: '救援故事'})
-			}else if (option.type==2){
-				uni.setNavigationBarTitle({title: '故障咨询'})
-			}else if (option.type==3){
-				uni.setNavigationBarTitle({title: '汽车保养'})
-			}else if (option.type==4){
-				uni.setNavigationBarTitle({title: '新车鉴赏'})
-			}
-			this.getbyId()
-			uni.$on('changid', function(data) {
-				_this.articleId=data
-			})
-		},
-		onShow() {
-		},
-		methods: {
-			getvideoList() {
-				let _this=this
-				
-			
-				this.$newrequest.post("/coc-active/api/v1/video/detailsList", {
-					current: this.current,
-					size: 10,
-					type: this.type,
-					videoId:this.articleId
-				}).then(res => {
-					if (this.current == 1) {
-						this.articleId =res.data.records[0].id
-						_this.$refs.videolist.getonload()
-						_this.$refs.videolist.getchangdi(res.data.records[0].id)
-						res.data.records.filter(s => {
-							this.dataList.push(s)
-						})
-			
-					}else{
-						res.data.records.filter(s => {
-							this.dataList.push(s)
-						})
-					}
-				})
-			},
-			getmorevideo() {
-				this.current++
-				this.getvideoList()
-			},
-			getbyId(){
-			if (!this.isshowpage) {
-				this.$showLoading()
-			}
-				this.$newrequest.post("/coc-active/api/v1/video/details",{
-					id: this.articleId
-				}).then(res=>{
-					this.dataList.push(res.data)
-					this.getvideoList()
-				}).finally(() => {
-					if (!this.isshowpage) {
-						this.isshowpage = true
-						this.$hideLoading()
-					}
-				})
-			},
-		}
-	}
+import float from "@/components/float/index.vue";
+import videos from "@/components/videos/index.vue";
+export default {
+    components: {
+        videos,
+        float,
+    },
+    data() {
+        return {
+            value: {
+                details: {
+                    params: {
+                        id: "",
+                    },
+                    url: "/coc-active/api/v1/video/details",
+                },
+                list: {
+                    params: { type: "", videoId: "" },
+                    url: "/coc-active/api/v1/video/detailsList",
+                },
+                like: {
+                    //点赞
+                    type: 4,
+                },
+            },
+            status: false,
+            share: {
+                id: "",
+                type: "",
+            },
+            tag: 0,
+            title: "",
+        };
+    },
+    onShareAppMessage() {
+        const { id, type } = this.share;
+        let path = "/pages/activity/foursvideo/index?id=" + id + "&type=" + type + "&enter=117";
+        this.$refs.videos.setShare(2);
+        return {
+            path: path,
+            success() {
+                uni.showToast({
+                    title: "分享成功",
+                });
+            },
+            fail() {
+                uni.showToast({
+                    title: "分享失败",
+                    icon: "none",
+                });
+            },
+        };
+    },
+    onShareTimeline() {
+        //分享到朋友圈
+        const { id, type } = this.share;
+        let path = "/pages/activity/foursvideo/index?id=" + id + "&type=" + type + "&enter=117";
+        this.$refs.videos.setShare(2);
+        return {
+            path: path,
+            success() {
+                uni.showToast({
+                    title: "分享成功",
+                });
+            },
+            fail() {
+                uni.showToast({
+                    title: "分享失败",
+                    icon: "none",
+                });
+            },
+        };
+    },
+    onLoad(option) {
+        const { id, type, title, tag, enter, brandId } = option;
+        this.value.details.params.id = id;
+        this.value.list.params.type = type;
+        this.value.list.params.videoId = id;
+		this.value.list.params.brandId = brandId;
+        this.status = true;
+        if (title) {
+            // uni.setNavigationBarTitle({ title });
+            this.title = title;
+        }
+        if (enter) {
+            uni.setStorageSync("enter", enter);
+        }
+        if (tag) {
+            this.tag = tag * 1;
+        }
+        this.share = {
+            id,
+            type,
+        };
+        uni.$on("videoDetails", (res) => {
+            this.share.id = res.player.id;
+        });
+    },
+    onShow() {},
+    methods: {},
+};
 </script>
 
-<style lang="scss">
-	.page {
-	}
-.item-top {
-		background-color: #ffffff;
-		border-radius: 0rpx 0rpx 20rpx 20rpx;
-		// padding-top: 24rpx;
-	}
+<style lang="scss" scoped>
+.page {
+    background: #000000;
+}
+::v-deep .request-loading-view {
+    background: #000000 !important;
+}
+
+::v-deep .u-status-bar {
+    background: transparent !important;
+}
+::v-deep .u-navbar__content {
+    background: transparent !important;
+}
+
+::v-deep .u-navbar__content__title {
+    color: #ffffff !important;
+}
+
+::v-deep .u-icon__icon {
+    color: #ffffff !important;
+}
 </style>

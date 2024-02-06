@@ -345,6 +345,7 @@
 	.bottom-btn {
 		border-top: 1rpx #e7e7e7 solid;
 		position: fixed;
+		z-index: 9999;
 		background-color: #ffffff;
 		bottom: 0;
 		width: 100%;

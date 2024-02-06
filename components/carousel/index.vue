@@ -62,6 +62,7 @@
       @change="changebannercurrent"
       :imgMode="imgMode"
       :interval="5000"
+      :indicatorStyle="indicatorStyle"
     >
     </u-swiper>
     <u-swiper
@@ -77,18 +78,20 @@
       @change="(e) => (bannercurrent = e.current)"
       :imgMode="imgMode"
       :interval="5000"
+     
     >
     </u-swiper>
     <view v-if="showCount" class="showcount">
       {{ bannercurrent + 1 }}<text style="margin: 0 5rpx">/</text
       >{{ banner.length }}
     </view>
-    <view class="preview-full" v-if="videoUrl">
+    <view class="preview-full" v-if="videoUrl" @click="setVideo">
       <video
         id="myVideo"
         :src="videoUrl"
         @fullscreenchange="fullscreenchange"
         :autoplay="true"
+       
       ></video>
     </view>
   </view>
@@ -205,6 +208,11 @@ export default {
         return '#f8f8f8';
       },
     },
+    indicatorStyle: {
+      type: String,
+      default: '',
+    },
+    
   },
   created() {
     if (this.dataType == 2) {
@@ -212,9 +220,11 @@ export default {
         this.getCarouselList(this.systemCode);
       }
     } else {
+      console.log(this.list);
       this.list.forEach((m) => {
         if (m.type == 'video' && !m.poster) {
-          m.poster = m.url + '?x-oss-process=video/snapshot,t_1000,m_fast';
+          m.poster =
+            m.poster || m.url + '?x-oss-process=video/snapshot,t_1000,m_fast';
         }
         this.banner.push(m);
       });
@@ -233,6 +243,7 @@ export default {
       banner: [],
       bannercurrent: 0,
       videoUrl: null,
+
       videoContext: null,
     };
   },
@@ -318,9 +329,6 @@ export default {
         //如果是视频
         this.videoUrl = this.banner[index].url;
         this.videoContext = uni.createVideoContext('myVideo', this);
-        // this.videoContext.requestFullScreen({
-        // 	direction: 90
-        // });
       } else {
         if (this.clickType == 1) {
           //跳转
@@ -399,6 +407,10 @@ export default {
         this.videoUrl = null;
         this.videoContext = null;
       }
+    },
+    setVideo() {
+      this.videoUrl = null;
+      this.videoContext = null;
     },
   },
 };

@@ -17,7 +17,11 @@
         ]
     },
     "dependencies": {
+        "cnchar": "^3.2.5",
+        "cnchar-poly": "^3.2.5",
         "dayjs": "^1.11.10",
-        "js-md5": "^0.7.3"
+        "image-tools": "^1.4.0",
+        "js-md5": "^0.8.3",
+        "nim-web-sdk-ng": "^0.17.0"
     }
 }

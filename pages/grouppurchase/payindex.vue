@@ -189,6 +189,7 @@ export default {
 
 	onLoad(option) {
 		let _this = this
+	
 		if (option.istype == 'wx') {
 
 			const eventChannel = this.getOpenerEventChannel();

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-	import imgcomponent from "../component/imgcomponent.vue"
+	import imgcomponent from "../component/imgcomponent.vue";
 	export default {
 		components: {
 			imgcomponent
@@ -36,6 +36,10 @@
 		},
 
 		onLoad(option) {
+			// uni.removeStorageSync('enter');
+			if (option.enter) {
+				uni.setStorageSync('enter', option.enter);
+			}
 			this.id = option.id
 			this.changid = option.id
 			let systemInfo = uni.getSystemInfoSync();
@@ -68,7 +72,7 @@
 			})
 			return {
 				title: title,
-				path: `/pages/wiseman/component/imgarticle?id=` + this.changid,
+				path: `/pages/wiseman/component/imgarticle?id=` + this.changid + '&enter=117',
 				success(res) {
 					uni.showToast({
 						title: '分享成功'
@@ -92,7 +96,7 @@
 			})
 			return {
 				title: title,
-				path: `/pages/wiseman/component/imgarticle?id=` + this.changid,
+				path: `/pages/wiseman/component/imgarticle?id=` + this.changid + '&enter=117',
 				success(res) {
 					uni.showToast({
 						title: '分享成功'

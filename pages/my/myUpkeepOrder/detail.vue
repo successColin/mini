@@ -135,7 +135,7 @@
 					</view>
 				</view>
 			</view>
-			<view v-if="detail.status == 0" class="bottom flex alc" style="justify-content: flex-end;">
+			<view v-if="detail.status == 0" class="bottom flex alc" style="justify-content: flex-end; z-index: 999;">
 				<view class="btn" @click.stop="orderPay">继续支付</view>
 			</view>
 			<view class="u-flex jsb  m25">
@@ -301,6 +301,7 @@
 						subOpenId:uni.getStorageSync("openid")
 					})
 					.then(res => {
+						this.showpay = true;
 						if (res.code == 200) {
 							this.wxpay(res.data.payment.miniPayRequest)
 						} else {

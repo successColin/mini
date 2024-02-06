@@ -36,8 +36,7 @@
                     <view v-for="(v, i) in taglist" :key="i">
                         <view v-if="v.state === 'check'" class="renovation-card3-content-check">
                             <view class="renovation-card3-content-check-title" @click="setTagList(v)">{{ v.title }}</view>
-                            <image
-                                src="https://oss.dcqcjlb.com/51che_java_dev/20230818/file_1692348804349.png"
+                            <image src="https://oss.dcqcjlb.com/51che_java_dev/20230818/file_1692348804349.png"
                                 class="renovation-card3-content-check-image" @click="delTagList(v)" />
                         </view>
                         <input v-else v-model="tag.value" placeholder="请输入"
@@ -46,8 +45,7 @@
                     </view>
                     <view v-if="state === 'add' && taglist.length !== 3" class="renovation-card3-content-add"
                         @click="setState('input')">
-                        <image
-                            src="https://oss.dcqcjlb.com/51che_java_dev/20230818/file_1692347783188.png"
+                        <image src="https://oss.dcqcjlb.com/51che_java_dev/20230818/file_1692347783188.png"
                             class="renovation-card3-content-add-image" />
                         <view class="renovation-card3-content-add-title">自定义标签</view>
                     </view>
@@ -118,6 +116,7 @@ export default {
         }
     },
     onLoad(option) {
+        console.log(option)
         const info = JSON.parse(option.info)
         info.intro = info.intro === '该店主尚未添加简介' ? '' : info.intro
         this.info = Object.assign({ name: info.shopName }, info)
@@ -157,19 +156,28 @@ export default {
         },
         async setModal() {
             // this.modal = !this.modal
-            this.showload = true
-            let { code } = await this.$request.post('/coc-active/api/v1/newExpert/updateExpertShop', this.getInfo())
-            if (code === 200) {
+            let info = this.info
+            if (info.backImage && info.name && info.intro && info.tagsList.length && info.posterShareUrl && info.posterDesc) {
+                this.showload = true
+                let { code } = await this.$request.post('/coc-active/api/v1/newExpert/updateExpertShop', this.getInfo())
+                if (code === 200) {
+                    this.$refs.uToast.show({
+                        message: '修改成功',
+                        type: 'success',
+                        complete() {
+                            uni.$emit('drxdupdate')
+                            uni.navigateBack()
+                        }
+                    })
+                }
+                this.showload = false
+            } else {
                 this.$refs.uToast.show({
-                    message: '修改成功',
-                    type: 'success',
-                    complete() {
-                        uni.$emit('drxdupdate')
-                        uni.navigateBack()
-                    }
+                    message: '所有内容必填',
+                    type: 'error',
                 })
             }
-            this.showload = false
+
         },
         getInfo() {
             const info = this.info

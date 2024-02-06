@@ -11,7 +11,7 @@
                     <view class="flex ">
                         <image :src="'https://51che.oss-cn-hangzhou.aliyuncs.com' + info.answers[0].user_pic" class="head"
                             v-if="info.answers[0].user_pic"></image>
-                        <image src="@/static/image/morentouxiang.png" class="head" v-else></image>
+                        <image src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706063549640.png" class="head" v-else></image>
                         <view class="ml20">
                             <view class="size32 fwb">{{ info.answers[0].user_name }}</view>
                             <view class="tip">{{ info.answers[0].shop_name }}</view>

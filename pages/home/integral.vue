@@ -12,8 +12,8 @@
         <view>积分</view>
       </view>
       <view class="signR">
-        <image class="queen" src="@/static/image/queen.png"></image>
-        <image class="signGo" src="@/static/image/signGo.png" @click="signGo"></image>
+        <image class="queen" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706061689915.png"></image>
+        <image class="signGo" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706061529737.png" @click="signGo"></image>
       </view>
     </view>
     <!-- 宫格导航 -->

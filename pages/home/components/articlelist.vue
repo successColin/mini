@@ -3,35 +3,35 @@
         <view class="u-flex jsb">
             <view class="left" @click="Onpush(1)">
                 <view class="left-img">
-                    <swiper duration='1000' :autoplay='true' interval='6000' :current='leftindex' @change="changleft" circular
-                        style="position: relative;left: 44rpx;">
-                        <swiper-item v-for="(item, index) in leftlist" :key="item.article.id" 
-                            style="width: 120rpx;">
+                    <swiper duration='1000' :autoplay='true' interval='6000' :current='leftindex' @change="changleft"
+                        circular style="position: relative;left: 44rpx;">
+                        <swiper-item v-for="(item, index) in leftlist" :key="item.article.id" style="width: 120rpx;">
                             <view class="size20 ml44 oneLine" style="width: 120rpx;">{{ item.article.name }}</view>
                         </swiper-item>
                     </swiper>
                 </view>
                 <view class="img-ab">
                     <!-- <swiper  circular :autoplay='true' :circular='true'  duration='1500'  > -->
-                       <!-- <swiper-item v-for="(item, index) in leftlist" :key="item.article.id" > -->
-                           
-                        <!-- </swiper-item> -->
-						 <!-- <swiper-item> -->
-				<!-- 		 <view v-for="(item, index) in leftlist" :key="item.article.id">
+                    <!-- <swiper-item v-for="(item, index) in leftlist" :key="item.article.id" > -->
+
+                    <!-- </swiper-item> -->
+                    <!-- <swiper-item> -->
+                    <!-- 		 <view v-for="(item, index) in leftlist" :key="item.article.id">
 							 <video  :show-center-play-btn='false'  :loop='true' :autoplay='true' duration='6000' objectFit='cover' :muted='true'
 							     :controls='false' style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
 							     :src="item.article.video+'?free_start=0&free_end=6'"></video>
 						 </view> -->
-						 <view>
-						 							 <video :http-cache='true'  :poster="leftcoverImage" :show-center-play-btn='false'  :loop='true' :autoplay='true' duration='6000' objectFit='cover' :muted='true'
-						 							     :controls='false' style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
-						 							     :src="leftvideo+'?free_start=0&free_end=6'"></video>
-						 </view>
-						                         <!--   <video :show-center-play-btn='false' :http-cache='true' :loop='true' :autoplay='true'  objectFit='cover' :muted='true'
+                    <view>
+                        <video :http-cache='true' :poster="leftcoverImage" :show-center-play-btn='false' :loop='true'
+                            :autoplay='true' duration='6000' objectFit='cover' :muted='true' :controls='false'
+                            style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
+                            :src="leftvideo + '?free_start=0&free_end=6'"></video>
+                    </view>
+                    <!--   <video :show-center-play-btn='false' :http-cache='true' :loop='true' :autoplay='true'  objectFit='cover' :muted='true'
 						                                :controls='false' style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
 						                                :src="leftvideo"></video> -->
-						                        <!-- </swiper-item> -->
-						                     <!--  <swiper-item>
+                    <!-- </swiper-item> -->
+                    <!--  <swiper-item>
 						                            <video :show-center-play-btn='false' :http-cache='true' :loop='true' :autoplay='true' objectFit='cover' :muted='true'
 						                                :controls='false' style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
 						                                :src="leftvideo"></video>
@@ -40,7 +40,8 @@
                 </view>
                 <view class="mt17 ml25">
                     <swiper duration='1000' :autoplay='true' interval='6000' :current='leftindex' circular>
-                        <swiper-item v-for="(item, index) in leftlist" :key="item.article.id" catchtouchmove="stopTouchMove">
+                        <swiper-item v-for="(item, index) in leftlist" :key="item.article.id"
+                            catchtouchmove="stopTouchMove">
                             <view class="size24 fwb oneLine">{{ item.article.title }}</view>
                             <view class="size20  oneLine mt10">{{ item.article.content }}</view>
                         </swiper-item>
@@ -49,8 +50,8 @@
             </view>
             <view class="right" @click="Onpush(2)">
                 <view class="right-img">
-                    <swiper duration='1000' :autoplay='true' interval='5000' :current="rightindex" circular @change="changright"
-                        style="position: relative;left: 44rpx;width: 120rpx;">
+                    <swiper duration='1000' :autoplay='true' interval='5000' :current="rightindex" circular
+                        @change="changright" style="position: relative;left: 44rpx;width: 120rpx;">
                         <swiper-item v-for="(item, index) in rightlist" :key="item.article.id"
                             catchtouchmove="stopTouchMove">
                             <view class="size20 ml44 oneLine" style="width: 120rpx;">{{ item.article.name }}</view>
@@ -60,23 +61,24 @@
                 <view class="img-ab">
 
                     <!-- <swiper  circular duration='1000' :current='rightindex' autoplay='true' interval='5000'> -->
-                       <!-- <swiper-item    > -->
-					   <!-- <view v-for="(item, index) in rightlist" :key="item.article.id">
+                    <!-- <swiper-item    > -->
+                    <!-- <view v-for="(item, index) in rightlist" :key="item.article.id">
 						   <video  :show-center-play-btn='false'  :loop='true' :autoplay='true' duration='6' objectFit='cover' :muted='true'
 						       :controls='false' style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
 						       :src="item.article.video+'?free_start=0&free_end=6'"></video>
 					   </view> -->
-                         <view>
-                         						   <video :http-cache='true' :poster="rightcoverImage"  :show-center-play-btn='false'  :loop='true' :autoplay='true' duration='6' objectFit='cover' :muted='true'
-                         						       :controls='false' style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
-                         						       :src="rightvideo+'?free_start=0&free_end=6'"></video>
-                         </view>
-                        <!-- </swiper-item> -->
-           <!-- <swiper-item> -->
-                                  <!--    <video :show-center-play-btn='false' :http-cache='true' :loop='true' :autoplay='true'  objectFit='cover' :muted='true'
+                    <view>
+                        <video :http-cache='true' :poster="rightcoverImage" :show-center-play-btn='false' :loop='true'
+                            :autoplay='true' duration='6' objectFit='cover' :muted='true' :controls='false'
+                            style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
+                            :src="rightvideo + '?free_start=0&free_end=6'"></video>
+                    </view>
+                    <!-- </swiper-item> -->
+                    <!-- <swiper-item> -->
+                    <!--    <video :show-center-play-btn='false' :http-cache='true' :loop='true' :autoplay='true'  objectFit='cover' :muted='true'
                                           :controls='false' style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
                                           :src="rightvideo"></video> -->
-                         <!--         </swiper-item>
+                    <!--         </swiper-item>
                                  <swiper-item>
                                       <video :show-center-play-btn='false' :http-cache='true' :loop='true' :autoplay='true' objectFit='cover' :muted='true'
                                           :controls='false' style="width: 320rpx;height: 188rpx;border-radius: 10rpx;"
@@ -118,9 +120,9 @@ export default {
             isleftnext: true,
             isrightnext: true,
             leftvideo: '',
-			leftcoverImage:'',
+            leftcoverImage: '',
             rightvideo: '',
-			rightcoverImage:''
+            rightcoverImage: ''
         }
     },
 
@@ -132,23 +134,26 @@ export default {
     onShow() { },
     methods: {
         stopTouchMove(res) {
-       console.log(res)
-	return true
+            console.log(res)
+            return true
         },
         Onpush(type) {
-            let id = ''
+            let id = "",
+                title = "";
             if (type == 1) {
-                id = this.leftid
+                id = this.leftid;
+                title = "娱乐精选";
             } else {
-                id = this.rightid
+                id = this.rightid;
+                title = "达人推荐";
             }
             uni.navigateTo({
-                url: '/pages/activity/waterfull/videolist?id=' + id + '&type=' + type+'&quoteType=1',
-            })
+                url: "/pages/activity/articlevideo/index?id=" + id + "&title=" + title + "&isQuote=1&quoteType=1",
+            });
         },
 
         changleft(e) {
-this.leftindex=e.detail.current
+            this.leftindex = e.detail.current
             this.leftlist.filter(s => {
                 if (s.article.id == this.leftlist[e.detail.current].article.id) {
                     this.leftid = s.article.id
@@ -160,7 +165,7 @@ this.leftindex=e.detail.current
                 this.swipervideoleft = 0
             }
             this.leftvideo = this.leftlist[e.detail.current].article.video
-			this.leftcoverImage=this.leftlist[e.detail.current].article.coverImage
+            this.leftcoverImage = this.leftlist[e.detail.current].article.coverImage
             // if (this.isleftnext) {
             //     if (e.detail.current != 0) {
             //         if ((e.detail.current / 8) % 1 === 0) {
@@ -171,7 +176,7 @@ this.leftindex=e.detail.current
             // }
         },
         changright(e) {
-			this.rightindex=e.detail.current
+            this.rightindex = e.detail.current
             this.rightlist.filter(s => {
                 if (s.article.id == this.rightlist[e.detail.current].article.id) {
                     this.rightid = s.article.id
@@ -183,7 +188,7 @@ this.leftindex=e.detail.current
                 this.swipervideoright = 0
             }
             this.rightvideo = this.rightlist[e.detail.current].article.video
-			this.rightcoverImage= this.rightlist[e.detail.current].article.coverImage
+            this.rightcoverImage = this.rightlist[e.detail.current].article.coverImage
             // if (this.isrightnext) {
             //     if (e.detail.current != 0) {
             //         if ((e.detail.current / 8) % 1 === 0) {
@@ -200,7 +205,7 @@ this.leftindex=e.detail.current
                 size: 3,
                 type: 1,
                 isQuote: 1,
-				quoteType:1
+                quoteType: 1
             }).then(res => {
                 if (this.rightcurrent == 1) {
                     this.rightid = res.data.records[0].article.id
@@ -226,7 +231,7 @@ this.leftindex=e.detail.current
                 size: 3,
                 type: 1,
                 isQuote: 0,
-				quoteType:1
+                quoteType: 1
             }).then(res => {
                 if (this.leftcurrent == 1) {
                     this.leftid = res.data.records[0].article.id
@@ -301,7 +306,7 @@ this.leftindex=e.detail.current
 .img-ab {
     margin-left: 10rpx;
     margin-top: 65rpx;
-	margin-right: 10rpx;
+    margin-right: 10rpx;
     height: 188rpx;
 }
 

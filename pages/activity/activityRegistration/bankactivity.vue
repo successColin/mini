@@ -1,4 +1,5 @@
 <template>
+	<!-- 此页面暂时不要了 -->
 	<view class="page">
 		<!-- 首页搜索 -->
 		<view v-if="isshow" style="margin:20rpx" class="u-flex">
@@ -297,7 +298,7 @@
 		<u-popup :safeAreaInsetBottom='false' :show="isshowpop" @close="isshowpop = false" mode="center">
 			<image show-menu-by-longpress mode="widthFix" :src="showimg"></image>
 		</u-popup>
-		<image class="zhiding" src="@/static/image/zhidingicon.png" @click="ClickZhiDing"></image>
+		<image class="zhiding" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706059356929.png" @click="ClickZhiDing"></image>
 	</view>
 </template>
 

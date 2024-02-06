@@ -117,9 +117,9 @@
 							type: 'success',
 							message: '添加成功',
 							complete() {
-						uni.reLaunch({
-						    url: "/pages/my/mycar/index"
-						})
+					uni.navigateBack({
+						delta: 2
+					});
 							}
 						});
 					} else {

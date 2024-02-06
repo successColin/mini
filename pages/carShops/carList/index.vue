@@ -65,6 +65,10 @@ export default {
     let _this = this;
     this.type = option.type;
     this.id = option.id;
+    // uni.removeStorageSync('enter');
+    if (option.enter) {
+      uni.setStorageSync('enter', option.enter);
+    }
     if (option.shopId) {
       this.shopId = option.shopId;
     }
@@ -94,7 +98,7 @@ export default {
     return {
       title,
       path:
-        `/pages/carShops/carList/index?id=` + this.id + '&type=' + this.type,
+        `/pages/carShops/carList/index?id=` + this.id + '&type=' + this.type + '&enter=117',
       imageUrl,
       success(res) {
         uni.showToast({
@@ -114,7 +118,7 @@ export default {
     return {
       title: this.dataList.maintainName,
       path:
-        `/pages/carShops/carList/index?id=` + this.id + '&type=' + this.type,
+        `/pages/carShops/carList/index?id=` + this.id + '&type=' + this.type + '&enter=117',
       imageUrl: this.dataList.shareImage
         ? this.dataList.shareImage
         : this.dataList.coverImg,

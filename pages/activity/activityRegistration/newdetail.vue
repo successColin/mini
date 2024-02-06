@@ -45,7 +45,7 @@ export default {
       let imageUrl = this.infoData.shareImage ? this.infoData.shareImage : this.nfoData.coverImg
       return {
         title: this.infoData.title,
-        path: `/pages/carShops/upkeep/brandInfo?id=` + this.infoData.id,
+        path: `/pages/carShops/upkeep/brandInfo?id=${this.infoData.id}&enter=117`,
         imageUrl: imageUrl,
         success(res) {
 					uni.showToast({
@@ -64,7 +64,7 @@ export default {
       let imageUrl = this.infoData.shareImage ? this.infoData.shareImage : this.nfoData.coverImg
       return {
         title: this.infoData.title,
-        path: `/pages/carShops/upkeep/brandInfo?id=` + this.infoData.id,
+        path: `/pages/carShops/upkeep/brandInfo?id=${this.infoData.id}&enter=117`,
         imageUrl: imageUrl,
         success(res) {
 					uni.showToast({
@@ -109,6 +109,7 @@ export default {
         if (res.data.video) {
           swiperList.unshift({
             url: res.data.video,
+            poster: res.data.videoImg ||  + res.data.video + '?x-oss-process=video/snapshot,t_1000,m_fast',
             type: 'video'
           })
           this.autoPlay = false

@@ -59,6 +59,13 @@
 				<view class="detailH">有效期限</view>
 				<view class="applyCars size24 mt20">购买后{{ detail.validityDay }}天内有效</view>
 			</view>
+
+ 			<!-- 达人推荐 -->
+ 			<view class="mt10  mb20"  v-if="recommendLength">
+				<recommendX :fromType="1" :relatedType="2" :relatedId="detailId" :isTitle="3"></recommendX>
+			</view>
+			<floatVideo :relatedType="2" :relatedId="detailId" ></floatVideo>
+
 			<!-- 温馨提示 -->
 			<view class="detailModal mb12 bgfff">
 				<view class="detailH">温馨提示</view>
@@ -108,7 +115,7 @@
 				<joinshopbtn :ids="detail.maintainMealId" :type='2' :isSelection='detail.isSelection'></joinshopbtn>
 			</view>
 			<!--  #endif -->
-			<image v-if="showtop" class="zhiding" src="@/static/image/zhidingicon.png" @click="ClickZhiDing"></image>
+			<image v-if="showtop" class="zhiding" src="https://oss.dcqcjlb.com/51che_java_dev/20240124/file_1706059356929.png" @click="ClickZhiDing"></image>
 		</template>
 		<request-loading></request-loading>
 		<u-toast ref="uToast"></u-toast>
@@ -139,21 +146,20 @@
 </template>
 
 <script>
-	import {
-		getstorage,
-		setstorage,
-		tologin
-	} from '@/utils/index.js'
 	import carousel from "@/components/carousel/index.vue"
-	import Poster from '@/components/zhangyuhao-poster/Poster.vue'
-	import commission from "@/components/commission/index.vue"
-	import joinshopbtn from "@/components/joinshopbtn/index.vue"
+import commission from "@/components/commission/index.vue"
+import recommendX from "@/components/darenRecommend/recommendX.vue"
+import floatVideo from '@/components/floatVideo/index.vue'
+import joinshopbtn from "@/components/joinshopbtn/index.vue"
+import Poster from '@/components/zhangyuhao-poster/Poster.vue'
+import {
+getstorage,
+tologin
+} from '@/utils/index.js'
+	
 	export default {
 		components: {
-			carousel,
-			Poster,
-			commission,
-			joinshopbtn
+			carousel,Poster,commission,joinshopbtn,recommendX,floatVideo
 		},
 		data() {
 			return {
@@ -171,8 +177,9 @@
 				forwardUserId: null,
 				customerManagerId: '',
 				iscommission: 0,
-				isback:false
-				
+				isback:false,
+				isform:0,
+            	recommendLength: 0,
 			}
 		},
 		onPageScroll(e) {
@@ -190,11 +197,23 @@
 		},
 		onLoad(option) {
 			let _this=this
+			// uni.removeStorageSync('enter');
+			console.log("进来了===========》", JSON.stringify(option), option);
+			if (option.enter) {
+				uni.setStorageSync('enter', option.enter);
+			}
+			// 二维码分享特殊处理
+			if (option.scene && option.scene.indexOf('_enter=117')) {
+				uni.setStorageSync('enter', '117');
+			}
 			if (option.iscommission) {
 				this.iscommission = option.iscommission
 			}
 			if (option.isapp == 1) {
 				this.isback = true
+			}
+			if(option.isform){
+				this.isform=1
 			}
 			this.token = uni.getStorageSync('token')
 			this.isExpert = uni.getStorageSync('isExpert')
@@ -229,6 +248,7 @@
 					_this.getDetail(_this.detailId)
 				})
 			this.getDetail(this.detailId)
+			this.getRecommendList()
 		},
 		onShow() {
 
@@ -249,6 +269,15 @@
 			}
 		},
 		methods: {
+			async getRecommendList() {
+				const { data: { records } } = await this.$request.post('/coc-social/api/v2/article/expertRecommend',
+					{
+						current: 1, size: 100,
+						relatedType: 2,
+						relatedId: this.detailId,
+					})
+				this.recommendLength = records.length
+			},
 			tempparentid() {
 				this.$request.post("/coc-active/api/v1/invite/temp_parent_id/add", {
 					tempParentId: this.forwardUserId
@@ -289,7 +318,7 @@
 				}
 				this.$request.post("/coc-active/api/v1/invite/getMiniProgramQrCode", {
 					page: 'pages/carShops/upkeep/detail',
-					scene: this.detailId + '_' + this.forwardUserId
+					scene: this.detailId + '_' + this.forwardUserId + '_enter=117',
 				}).then(res => {
 					this.showpopshare = true
 					this.list = [{
@@ -366,7 +395,7 @@
 				}
 				uni.navigateTo({
 					url: '/pages/carShops/upkeep/submmitOrder?id=' + this.detailId + '&customerManagerId=' + this
-						.customerManagerId+'&forwardUserId='+this.forwardUserId
+						.customerManagerId+'&forwardUserId='+this.forwardUserId+'&isform='+this.isform
 				})
 			},
 			goShop(shopId) {
@@ -384,7 +413,7 @@
 			let imageUrl = this.detail.shareImage ? this.detail.shareImage : this.detail.coverImg
 			return {
 				title,
-				path: `/pages/carShops/upkeep/detail?id=` + this.detailId + '&forwardUserId=' +this.forwardUserId,
+				path: `/pages/carShops/upkeep/detail?id=` + this.detailId + '&forwardUserId=' +this.forwardUserId + '&enter=117',
 				imageUrl,
 				success(res) {
 					uni.showToast({
@@ -402,7 +431,7 @@
 		onShareTimeline(res) { //分享到朋友圈
 			return {
 				title: this.detail.maintainName,
-				path: `/pages/carShops/upkeep/detail?id=` + this.detailId + '&forwardUserId=' + this.forwardUserId,
+				path: `/pages/carShops/upkeep/detail?id=` + this.detailId + '&forwardUserId=' + this.forwardUserId + '&enter=117',
 				imageUrl: this.detail.shareImage ? this.detail.shareImage : this.detail.coverImg,
 				success(res) {
 					uni.showToast({

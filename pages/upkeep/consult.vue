@@ -1,9 +1,8 @@
 <template>
     <view class="page">
-        <view class="faultclassify">
+        <!-- <view class="faultclassify">
             <scroll-view class="faultclassify-left" scroll-y="true">
                 <view v-for="(v, i) in leftList" :key="i" class="faultclassify-left-item" @click="setClassify(v, i)">
-                    <!-- <image :src="v.icon" mode="aspectFill" class="faultclassify-left-item-image" /> -->
                     <view class="faultclassify-left-item-title">{{ v.brandName }}</view>
                 </view>
                 <view class="faultclassify-left-line" :style="[lineStyle]" />
@@ -15,11 +14,20 @@
                 </view>
                 <view class="h200" />
             </scroll-view>
+        </view> -->
+        <search :fromType="'保养预约'" :isIcon="0" :isBgf="true" @search="search"></search>
+        <view style="margin: 0 25rpx  50rpx;">
+            <shopList :fromPage="isnew?'home_baoyang':'baoyang'" :title="title"></shopList>
         </view>
     </view>
 </template>
 <script>
+import search from "@/components/search/index.vue"
+import shopList from "@/components/shopList/index.vue"
 export default {
+    components: {
+        shopList, search
+    },
     data() {
         return {
             leftList: [],
@@ -28,6 +36,8 @@ export default {
             brandList: [],
             brand: {},
             index: 0,
+            title: '',
+			isnew: false //true：首页保养预约页面  false：4s店逛逛保养页面
         }
     },
     computed: {
@@ -36,13 +46,19 @@ export default {
         }
     },
     onLoad(option) {
+		if (option.isnew) {
+			this.isnew = true
+		}
         this.getBrand()
     },
     methods: {
+        search(msg) {
+            this.title = msg
+        },
         toQustion(value) {
-            uni.navigateTo({
-                url: "/pages/upkeep/bookingForm?shopId=" + value.shopId + '&brandId=' + this.brand.brandId
-            });
+			uni.navigateTo({
+				url: "/pages/upkeep/bookingForm?shopId=" + value.shopId + '&brandId=' + this.brand.brandId
+			});
         },
         setClassify(value, index) {
             this.index = index
@@ -61,7 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 .page {
-    background: #FFFFFF;
+    // background: #FFFFFF;
 }
 
 .faultclassify {
